@@ -10,14 +10,74 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AcademyRouteImport } from './routes/academy'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CorporateRouteImport } from './routes/corporate'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ExtrasRouteImport } from './routes/extras'
+import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as FlightsRouteImport } from './routes/flights'
 import { Route as HotelsRouteImport } from './routes/hotels'
+import { Route as InsuranceRouteImport } from './routes/insurance'
+import { Route as PassportsRouteImport } from './routes/passports'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
+import { Route as RelocationRouteImport } from './routes/relocation'
+import { Route as StudyAbroadRouteImport } from './routes/study-abroad'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as VisaDisclaimerRouteImport } from './routes/visa-disclaimer'
+import { Route as JobsIndexRouteImport } from './routes/jobs.index'
+import { Route as JobsIdRouteImport } from './routes/jobs.$id'
 import { Route as PackagesIndexRouteImport } from './routes/packages.index'
 import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
+import { Route as StudyAbroadIndexRouteImport } from './routes/study-abroad.index'
+import { Route as StudyAbroadCountryRouteImport } from './routes/study-abroad.$country'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademyRoute = AcademyRouteImport.update({
+  id: '/academy',
+  path: '/academy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CorporateRoute = CorporateRouteImport.update({
+  id: '/corporate',
+  path: '/corporate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExtrasRoute = ExtrasRouteImport.update({
+  id: '/extras',
+  path: '/extras',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqsRoute = FaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FlightsRoute = FlightsRouteImport.update({
@@ -30,6 +90,56 @@ const HotelsRoute = HotelsRouteImport.update({
   path: '/hotels',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsuranceRoute = InsuranceRouteImport.update({
+  id: '/insurance',
+  path: '/insurance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PassportsRoute = PassportsRouteImport.update({
+  id: '/passports',
+  path: '/passports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundPolicyRoute = RefundPolicyRouteImport.update({
+  id: '/refund-policy',
+  path: '/refund-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RelocationRoute = RelocationRouteImport.update({
+  id: '/relocation',
+  path: '/relocation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudyAbroadRoute = StudyAbroadRouteImport.update({
+  id: '/study-abroad',
+  path: '/study-abroad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VisaDisclaimerRoute = VisaDisclaimerRouteImport.update({
+  id: '/visa-disclaimer',
+  path: '/visa-disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobsIndexRoute = JobsIndexRouteImport.update({
+  id: '/jobs/',
+  path: '/jobs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobsIdRoute = JobsIdRouteImport.update({
+  id: '/jobs/$id',
+  path: '/jobs/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PackagesIndexRoute = PackagesIndexRouteImport.update({
   id: '/packages/',
   path: '/packages/',
@@ -40,43 +150,204 @@ const PackagesSlugRoute = PackagesSlugRouteImport.update({
   path: '/packages/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudyAbroadIndexRoute = StudyAbroadIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => StudyAbroadRoute,
+} as any)
+const StudyAbroadCountryRoute = StudyAbroadCountryRouteImport.update({
+  id: '/$country',
+  path: '/$country',
+  getParentRoute: () => StudyAbroadRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/academy': typeof AcademyRoute
+  '/admin': typeof AdminRoute
+  '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
+  '/dashboard': typeof DashboardRoute
+  '/extras': typeof ExtrasRoute
+  '/faqs': typeof FaqsRoute
   '/flights': typeof FlightsRoute
   '/hotels': typeof HotelsRoute
+  '/insurance': typeof InsuranceRoute
+  '/passports': typeof PassportsRoute
+  '/privacy': typeof PrivacyRoute
+  '/refund-policy': typeof RefundPolicyRoute
+  '/relocation': typeof RelocationRoute
+  '/study-abroad': typeof StudyAbroadRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/visa-disclaimer': typeof VisaDisclaimerRoute
+  '/jobs/$id': typeof JobsIdRoute
   '/packages/$slug': typeof PackagesSlugRoute
+  '/study-abroad/$country': typeof StudyAbroadCountryRoute
+  '/jobs/': typeof JobsIndexRoute
   '/packages/': typeof PackagesIndexRoute
+  '/study-abroad/': typeof StudyAbroadIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/academy': typeof AcademyRoute
+  '/admin': typeof AdminRoute
+  '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
+  '/dashboard': typeof DashboardRoute
+  '/extras': typeof ExtrasRoute
+  '/faqs': typeof FaqsRoute
   '/flights': typeof FlightsRoute
   '/hotels': typeof HotelsRoute
+  '/insurance': typeof InsuranceRoute
+  '/passports': typeof PassportsRoute
+  '/privacy': typeof PrivacyRoute
+  '/refund-policy': typeof RefundPolicyRoute
+  '/relocation': typeof RelocationRoute
+  '/terms': typeof TermsRoute
+  '/visa-disclaimer': typeof VisaDisclaimerRoute
+  '/jobs/$id': typeof JobsIdRoute
   '/packages/$slug': typeof PackagesSlugRoute
+  '/study-abroad/$country': typeof StudyAbroadCountryRoute
+  '/jobs': typeof JobsIndexRoute
   '/packages': typeof PackagesIndexRoute
+  '/study-abroad': typeof StudyAbroadIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/academy': typeof AcademyRoute
+  '/admin': typeof AdminRoute
+  '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
+  '/dashboard': typeof DashboardRoute
+  '/extras': typeof ExtrasRoute
+  '/faqs': typeof FaqsRoute
   '/flights': typeof FlightsRoute
   '/hotels': typeof HotelsRoute
+  '/insurance': typeof InsuranceRoute
+  '/passports': typeof PassportsRoute
+  '/privacy': typeof PrivacyRoute
+  '/refund-policy': typeof RefundPolicyRoute
+  '/relocation': typeof RelocationRoute
+  '/study-abroad': typeof StudyAbroadRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/visa-disclaimer': typeof VisaDisclaimerRoute
+  '/jobs/$id': typeof JobsIdRoute
   '/packages/$slug': typeof PackagesSlugRoute
+  '/study-abroad/$country': typeof StudyAbroadCountryRoute
+  '/jobs/': typeof JobsIndexRoute
   '/packages/': typeof PackagesIndexRoute
+  '/study-abroad/': typeof StudyAbroadIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/flights' | '/hotels' | '/packages/$slug' | '/packages/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/academy'
+    | '/admin'
+    | '/contact'
+    | '/corporate'
+    | '/dashboard'
+    | '/extras'
+    | '/faqs'
+    | '/flights'
+    | '/hotels'
+    | '/insurance'
+    | '/passports'
+    | '/privacy'
+    | '/refund-policy'
+    | '/relocation'
+    | '/study-abroad'
+    | '/terms'
+    | '/visa-disclaimer'
+    | '/jobs/$id'
+    | '/packages/$slug'
+    | '/study-abroad/$country'
+    | '/jobs/'
+    | '/packages/'
+    | '/study-abroad/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/flights' | '/hotels' | '/packages/$slug' | '/packages'
+  to:
+    | '/'
+    | '/about'
+    | '/academy'
+    | '/admin'
+    | '/contact'
+    | '/corporate'
+    | '/dashboard'
+    | '/extras'
+    | '/faqs'
+    | '/flights'
+    | '/hotels'
+    | '/insurance'
+    | '/passports'
+    | '/privacy'
+    | '/refund-policy'
+    | '/relocation'
+    | '/terms'
+    | '/visa-disclaimer'
+    | '/jobs/$id'
+    | '/packages/$slug'
+    | '/study-abroad/$country'
+    | '/jobs'
+    | '/packages'
+    | '/study-abroad'
   id:
-    '__root__' | '/' | '/flights' | '/hotels' | '/packages/$slug' | '/packages/'
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/academy'
+    | '/admin'
+    | '/contact'
+    | '/corporate'
+    | '/dashboard'
+    | '/extras'
+    | '/faqs'
+    | '/flights'
+    | '/hotels'
+    | '/insurance'
+    | '/passports'
+    | '/privacy'
+    | '/refund-policy'
+    | '/relocation'
+    | '/study-abroad'
+    | '/terms'
+    | '/visa-disclaimer'
+    | '/jobs/$id'
+    | '/packages/$slug'
+    | '/study-abroad/$country'
+    | '/jobs/'
+    | '/packages/'
+    | '/study-abroad/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AcademyRoute: typeof AcademyRoute
+  AdminRoute: typeof AdminRoute
+  ContactRoute: typeof ContactRoute
+  CorporateRoute: typeof CorporateRoute
+  DashboardRoute: typeof DashboardRoute
+  ExtrasRoute: typeof ExtrasRoute
+  FaqsRoute: typeof FaqsRoute
   FlightsRoute: typeof FlightsRoute
   HotelsRoute: typeof HotelsRoute
+  InsuranceRoute: typeof InsuranceRoute
+  PassportsRoute: typeof PassportsRoute
+  PrivacyRoute: typeof PrivacyRoute
+  RefundPolicyRoute: typeof RefundPolicyRoute
+  RelocationRoute: typeof RelocationRoute
+  StudyAbroadRoute: typeof StudyAbroadRouteWithChildren
+  TermsRoute: typeof TermsRoute
+  VisaDisclaimerRoute: typeof VisaDisclaimerRoute
+  JobsIdRoute: typeof JobsIdRoute
   PackagesSlugRoute: typeof PackagesSlugRoute
+  JobsIndexRoute: typeof JobsIndexRoute
   PackagesIndexRoute: typeof PackagesIndexRoute
 }
 
@@ -87,6 +358,62 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academy': {
+      id: '/academy'
+      path: '/academy'
+      fullPath: '/academy'
+      preLoaderRoute: typeof AcademyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate': {
+      id: '/corporate'
+      path: '/corporate'
+      fullPath: '/corporate'
+      preLoaderRoute: typeof CorporateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/extras': {
+      id: '/extras'
+      path: '/extras'
+      fullPath: '/extras'
+      preLoaderRoute: typeof ExtrasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faqs': {
+      id: '/faqs'
+      path: '/faqs'
+      fullPath: '/faqs'
+      preLoaderRoute: typeof FaqsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/flights': {
@@ -103,6 +430,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HotelsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insurance': {
+      id: '/insurance'
+      path: '/insurance'
+      fullPath: '/insurance'
+      preLoaderRoute: typeof InsuranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/passports': {
+      id: '/passports'
+      path: '/passports'
+      fullPath: '/passports'
+      preLoaderRoute: typeof PassportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund-policy': {
+      id: '/refund-policy'
+      path: '/refund-policy'
+      fullPath: '/refund-policy'
+      preLoaderRoute: typeof RefundPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/relocation': {
+      id: '/relocation'
+      path: '/relocation'
+      fullPath: '/relocation'
+      preLoaderRoute: typeof RelocationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/study-abroad': {
+      id: '/study-abroad'
+      path: '/study-abroad'
+      fullPath: '/study-abroad'
+      preLoaderRoute: typeof StudyAbroadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/visa-disclaimer': {
+      id: '/visa-disclaimer'
+      path: '/visa-disclaimer'
+      fullPath: '/visa-disclaimer'
+      preLoaderRoute: typeof VisaDisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jobs/': {
+      id: '/jobs/'
+      path: '/jobs'
+      fullPath: '/jobs/'
+      preLoaderRoute: typeof JobsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jobs/$id': {
+      id: '/jobs/$id'
+      path: '/jobs/$id'
+      fullPath: '/jobs/$id'
+      preLoaderRoute: typeof JobsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/packages/': {
       id: '/packages/'
       path: '/packages'
@@ -117,14 +514,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PackagesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/study-abroad/': {
+      id: '/study-abroad/'
+      path: '/'
+      fullPath: '/study-abroad/'
+      preLoaderRoute: typeof StudyAbroadIndexRouteImport
+      parentRoute: typeof StudyAbroadRoute
+    }
+    '/study-abroad/$country': {
+      id: '/study-abroad/$country'
+      path: '/$country'
+      fullPath: '/study-abroad/$country'
+      preLoaderRoute: typeof StudyAbroadCountryRouteImport
+      parentRoute: typeof StudyAbroadRoute
+    }
   }
 }
 
+interface StudyAbroadRouteChildren {
+  StudyAbroadCountryRoute: typeof StudyAbroadCountryRoute
+  StudyAbroadIndexRoute: typeof StudyAbroadIndexRoute
+}
+
+const StudyAbroadRouteChildren: StudyAbroadRouteChildren = {
+  StudyAbroadCountryRoute: StudyAbroadCountryRoute,
+  StudyAbroadIndexRoute: StudyAbroadIndexRoute,
+}
+
+const StudyAbroadRouteWithChildren = StudyAbroadRoute._addFileChildren(
+  StudyAbroadRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AcademyRoute: AcademyRoute,
+  AdminRoute: AdminRoute,
+  ContactRoute: ContactRoute,
+  CorporateRoute: CorporateRoute,
+  DashboardRoute: DashboardRoute,
+  ExtrasRoute: ExtrasRoute,
+  FaqsRoute: FaqsRoute,
   FlightsRoute: FlightsRoute,
   HotelsRoute: HotelsRoute,
+  InsuranceRoute: InsuranceRoute,
+  PassportsRoute: PassportsRoute,
+  PrivacyRoute: PrivacyRoute,
+  RefundPolicyRoute: RefundPolicyRoute,
+  RelocationRoute: RelocationRoute,
+  StudyAbroadRoute: StudyAbroadRouteWithChildren,
+  TermsRoute: TermsRoute,
+  VisaDisclaimerRoute: VisaDisclaimerRoute,
+  JobsIdRoute: JobsIdRoute,
   PackagesSlugRoute: PackagesSlugRoute,
+  JobsIndexRoute: JobsIndexRoute,
   PackagesIndexRoute: PackagesIndexRoute,
 }
 export const routeTree = rootRouteImport

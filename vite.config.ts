@@ -7,6 +7,16 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  vite: {
+    server: {
+      // Sandboxed previews reach the dev server through a *.e2b.app host; Vite's
+      // default host allowlist rejects it with a 403 before SSR ever runs.
+      allowedHosts: [".e2b.app", ".localhost", "localhost", "127.0.0.1"],
+    },
+    preview: {
+      allowedHosts: [".e2b.app", ".localhost", "localhost", "127.0.0.1"],
+    },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
