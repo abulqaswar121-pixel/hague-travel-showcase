@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+
 import { describe, expect, it } from "vitest";
 
 import { getPublishedPackages } from "@/data/packages";
@@ -84,6 +86,14 @@ describe("compliance copy", () => {
     expect(COMPLIANCE_NOTES.jobs).toMatch(/example role categories, not live vacancies/);
     expect(COMPLIANCE_NOTES.financing).toMatch(/not a lender/);
     expect(COMPLIANCE_NOTES.fees).toMatch(/separately from Hague Travel agency fees/);
+  });
+
+  it("keeps the booking-panel disclaimer wording verbatim", () => {
+    const sentence =
+      "Interactive concept preview. Live fares, hotel inventory, payments and confirmed bookings require integration with actual suppliers.";
+    expect(COMPLIANCE_NOTES.indicative.startsWith(sentence)).toBe(true);
+    const panel = readFileSync("src/components/site/BookingPanel.tsx", "utf8").replace(/\s+/g, " ");
+    expect(panel).toContain(sentence.replace(/\s+/g, " "));
   });
 
   it("labels insurance products with insurer, limits, exclusions and excess", () => {

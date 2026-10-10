@@ -246,7 +246,7 @@ export const CURRENCIES = [
 
 export const COMPLIANCE_NOTES = {
   indicative:
-    "Interactive preview. Live fares, hotel inventory and confirmed bookings require supplier integration. Every price shown is indicative until a supplier confirms it.",
+    "Interactive concept preview. Live fares, hotel inventory, payments and confirmed bookings require integration with actual suppliers. Every price shown is indicative until a supplier confirms it.",
   visa: "Visa decisions rest solely with the relevant embassy, consulate or immigration authority. Hague Travel provides documentation guidance and submission support only — no outcome is guaranteed or implied.",
   passport:
     "Passport issuance, biometrics and approvals are handled solely by the relevant government authority. Hague Travel provides guidance and support only.",

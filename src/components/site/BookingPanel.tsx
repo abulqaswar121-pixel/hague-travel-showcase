@@ -390,8 +390,8 @@ export function BookingPanel() {
 
         <div className="mt-5 flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-md text-[11px] leading-relaxed text-muted-foreground">
-            Interactive preview. Live fares, hotel inventory and confirmed bookings require supplier
-            integration.
+            Interactive concept preview. Live fares, hotel inventory, payments and confirmed
+            bookings require integration with actual suppliers.
           </p>
           <div className="flex flex-col gap-2 sm:flex-row">
             <button
