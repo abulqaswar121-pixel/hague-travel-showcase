@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/refund-policy")({
   head: pageMeta(
     "Refund & Cancellation Policy",
-    "Cancellation windows and charges for flights, hotels, tour packages, visa documentation services, Academy cohorts and insurance — and who actually decides each refund.",
+    "What you get back on flights, hotels, packages, visa services, Academy cohorts and insurance — who decides, and how long it takes.",
     { ogType: "article" },
   ),
   component: RefundPolicy,
@@ -29,7 +29,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Nothing here is invented",
         p: [
-          "No refund is quoted on this site. A refund is calculated only after we hold your ticket or voucher and the supplier confirms the amount in writing.",
+          "No refund amount is promised on this site. We can only work one out after we hold your ticket or voucher and the supplier confirms the figure in writing.",
         ],
         note: COMPLIANCE_NOTES.indicative,
       },
@@ -61,13 +61,13 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Our handling fee",
         p: [
-          "₦10,000 per refund request we pursue for you, or free where the refund is triggered by a carrier schedule change. The fee is charged when we file, not when the money arrives — because that is when our work happens.",
+          "₦10,000 for each refund we chase for you. It is free when the airline changed the schedule. We charge when we file the claim, not when the money lands — because filing is the work.",
         ],
       },
       {
         h: "Timing",
         p: [
-          "Carriers take 14–60 days. We monitor the claim, chase weekly, and update your file at each step. If a carrier refuses, we send you the written reason.",
+          "Carriers take 14 to 60 days. We watch the claim, chase weekly, and update your file at each step. If the carrier says no, we send you their written reason.",
         ],
       },
     ],
@@ -89,13 +89,13 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Deposits and move-in",
         p: [
-          "Student housing deposits, holding fees and move-in dates are set by the provider. We read the agreement with you before you sign and flag anything that should not be accepted.",
+          "Housing deposits, holding fees and move-in dates come from the provider. We read the agreement with you before you sign and flag anything you should not accept.",
         ],
       },
       {
         h: "Vouchers",
         p: [
-          "Your hotel voucher is the cancellation schedule in force at the time of booking. If you cancel inside the window stated on the voucher, the property is entitled to keep the amount shown.",
+          "Your hotel voucher holds the cancellation rules that applied when you booked. Cancel inside that window and the property keeps the amount printed on it.",
         ],
       },
     ],
@@ -117,25 +117,25 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Why the dates are hard",
         p: [
-          "Hotels, ground operators and seat blocks on a group departure are committed 30–45 days out. After that the supplier has already been paid and will not release the money, so we cannot refund what we cannot recover.",
+          "Hotels, ground operators and group seats are locked 30 to 45 days out. After that the supplier has been paid and will not return the money, so we cannot refund it.",
         ],
       },
       {
         h: "Group departures",
         p: [
-          "If we cancel a departure for not meeting minimum numbers, you get a full refund or a rebooking — your choice, no charge. If an individual cancels from a confirmed group, the scale above applies.",
+          "If we cancel a trip because the group did not fill, you get all your money back or new dates — your choice, no charge. If you leave a group after it is confirmed, the scale above applies.",
         ],
       },
       {
         h: "Deposit forfeiture",
         p: [
-          "An unpaid balance past its due date releases your seat; the deposit is retained to cover costs already committed.",
+          "Miss your balance date and your seat is released. We keep the deposit to cover what we already paid out.",
         ],
       },
       {
         h: "Transfer instead of cancel",
         p: [
-          "Name changes are permitted up to 14 days before departure where the carrier and hotel allow it, for ₦15,000 plus any supplier charge — usually cheaper than cancelling.",
+          "We can change a name up to 14 days before departure if the airline and hotel allow it: ₦15,000 plus any supplier charge. That is usually cheaper than cancelling.",
         ],
       },
     ],
@@ -150,25 +150,25 @@ const SECTIONS: LegalSection[] = [
           "Before any work starts — full refund, no question asked",
           "After document review has begun — 50% refundable",
           "After an appointment is booked or an application lodged — not refundable",
-          "Government, embassy, biometric and test fees — never refundable by us; the authority sets that rule and most do not refund",
+          "Government, embassy, biometric and test fees are never refundable by us. The authority sets that rule, and most of them do not refund.",
         ],
       },
       {
         h: "If we are at fault",
         p: [
-          "Where a refusal or a rejected application traces back to a demonstrable error by us, we refund our service fee in full and re-file at no charge. That has a name in our ledger: service recovery, and it is approved by the managing partner.",
+          "If a refusal traces back to a real error by us, we refund our fee in full and re-file for nothing. In our ledger that has a name: service recovery.",
         ],
       },
       {
         h: "Academy cohorts",
         p: [
-          "Full refund up to 7 days after the first class; 50% until the end of Module 2; no refund afterwards. Deferral to the next cohort is free once, before Module 4, if life intervenes.",
+          "Full refund up to 7 days after class starts, 50% until the end of Module 2, nothing after that. You can move to the next cohort once for free, before Module 4.",
         ],
       },
       {
         h: "Insurance",
         p: [
-          "Free-look periods are set by the insurer, commonly 14 days from the certificate where cover has not begun. We help you cancel inside it and confirm the insurer's response in writing.",
+          "The insurer sets the free-look window — usually 14 days from the certificate if cover has not started. We help you cancel inside it and get the insurer's answer in writing.",
         ],
       },
     ],
@@ -191,13 +191,13 @@ const SECTIONS: LegalSection[] = [
       {
         h: "What we will not do",
         p: [
-          "We will not promise a refund amount before the supplier confirms it, and we will not 'process' a refund that has not been authorised by the supplier. Anyone who offers that is describing a chargeback, not a refund — and it will cost you your file, your seat and possibly your future applications.",
+          "We will not name a refund amount before the supplier confirms it, and we will not 'process' a refund the supplier has not approved. Anyone who offers that is describing a crime.",
         ],
       },
       {
         h: "Disputes",
         p: [
-          "Unhappy with a decision? Escalate in writing to desk@haguetravel.example with 'REFUND ESCALATION' in the subject. A lead reviews it within 3 working days and the managing partner within 7. Every step is answered in writing.",
+          "Unhappy with a decision? Email desk@haguetravel.example with REFUND ESCALATION in the subject. A lead reads it within 3 working days and the managing partner within 7. Every escalation ends with a written answer.",
         ],
       },
     ],
@@ -210,7 +210,7 @@ function RefundPolicy() {
       eyebrow="Legal & policy"
       title="Refund & Cancellation Policy"
       updated="10 October 2026"
-      summary="What is refundable, what is not, who decides, and how long it takes — written so a client can read it once and know exactly where they stand."
+      summary="What is refundable, what is not, who decides, and how long it takes — written so one read tells you where you stand."
       sections={SECTIONS}
       compliance={COMPLIANCE_NOTES.fees}
     />

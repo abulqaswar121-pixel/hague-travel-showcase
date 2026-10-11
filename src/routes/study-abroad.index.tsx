@@ -19,7 +19,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/study-abroad/")({
   head: pageMeta(
     "Study Abroad — Admissions, Visas & Pre-Departure",
-    "Course selection, admissions support, document checklists, financial-evidence discipline, visa documentation, housing, flights and pre-departure orientation for the UK, Canada, USA, Ireland, Germany and Australia.",
+    "Course picking, admissions help, document lists, money proof, visa papers, housing, flights and pre-departure support for six countries.",
   ),
   component: StudyAbroadIndex,
 });
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/study-abroad/")({
 const SERVICES = [
   {
     t: "University & course selection",
-    d: "Matched to your transcript, budget and post-study plan — not to whichever agent pays the highest commission.",
+    d: "Matched to your results, your budget and your plan after school — not to whoever pays the biggest commission.",
   },
   {
     t: "Admissions applications",
@@ -72,7 +72,7 @@ function StudyAbroadIndex() {
             We prepare the file. <em className="text-gold">They</em> make the decision.
           </>
         }
-        sub="Admissions support, visa documentation, financial-evidence discipline, housing, flights and orientation — with the authority of universities and embassies stated plainly at every step."
+        sub="We help with admission papers, the visa, your money proof, housing, flights and getting ready to leave. Schools and embassies decide. We only make sure you are ready for them."
       >
         <div className="flex flex-wrap gap-2">
           <Pill tone="gold">Free eligibility assessment</Pill>
@@ -85,15 +85,13 @@ function StudyAbroadIndex() {
       <Section
         eyebrow="The journey"
         title="Eight steps, one consultant who owns your file"
-        sub="No step is skipped and nothing is submitted until you have seen it."
+        sub="We skip no step. You see every paper before anything is sent."
       >
         <Stepper items={STUDY_STEPS.map((s) => ({ title: s.title, detail: s.detail }))} />
         <div className="mt-6">
           <Notice tone="sea" title="Where our role stops" icon={ShieldAlert}>
-            Hague Travel provides advisory and administrative services. Admission is decided by the
-            university; the study permit or visa is decided by the immigration authority. We never
-            represent ourselves as able to influence either, and we will tell you honestly when a
-            profile is not ready.
+            We give advice and do the paperwork. The school decides admission. The immigration
+            office decides your visa. Neither of those is ever ours to promise.
           </Notice>
         </div>
       </Section>
@@ -103,7 +101,7 @@ function StudyAbroadIndex() {
         tone="muted"
         eyebrow="Destinations"
         title="Where our students are going"
-        sub="Landing pages exist for the countries we currently serve through verified partners. Coverage is reviewed every intake."
+        sub="We have pages for the countries our partners cover today. We check that list every intake."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {destinations.map((d, i) => (
@@ -181,8 +179,8 @@ function StudyAbroadIndex() {
               <p className="eyebrow">Document checklist</p>
               <h3 className="mt-3 text-2xl leading-snug">The pack every application needs</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Country-specific versions live on each destination page. This is the master list we
-                audit against before anything is submitted.
+                Each country page has its own version. This is the main list we check against before
+                we submit.
               </p>
               <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-2">
                 {[
@@ -206,8 +204,8 @@ function StudyAbroadIndex() {
                 ))}
               </ul>
               <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-                We scan nothing into a shared drive. Uploads run through an encrypted link,
-                restricted to your consultant, purged 14 days after travel.
+                Nothing goes into a shared folder. Uploads use an encrypted link, only your
+                consultant can open them, and we delete them 14 days after you travel.
               </p>
             </div>
           </Reveal>
@@ -219,7 +217,7 @@ function StudyAbroadIndex() {
         tone="muted"
         eyebrow="Funding"
         title="Legitimate scholarships and honest budgeting"
-        sub="We point you at real money and warn you away from 'guaranteed scholarship' services."
+        sub="We point you to real money, and warn you off anyone selling a 'guaranteed scholarship'."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {SCHOLARSHIP_ALERTS.map((s, i) => (
@@ -238,8 +236,8 @@ function StudyAbroadIndex() {
               <Sparkles className="h-4 w-4 text-gold" /> Tuition & living-cost budgeting
             </p>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              We build the real first-year number: tuition, deposit, housing, visa charges, health
-              cover, flights, and the first 60 days before your first paycheque or stipend lands.
+              We build the true first-year number: tuition, deposit, rent, visa fees, health cover,
+              flights, and the first 60 days before any pay lands.
             </p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
@@ -279,8 +277,8 @@ function StudyAbroadIndex() {
           ]}
         />
         <p className="mt-4 text-sm text-muted-foreground">
-          Your destination page lists the exact figures for your country, and your invoice repeats
-          them before you pay.
+          Your country page lists the exact figures, and your invoice says them again before you
+          pay.
         </p>
       </Section>
 
@@ -296,9 +294,8 @@ function StudyAbroadIndex() {
               Four short steps. An honest answer.
             </h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-foreground/75">
-              This is not an application and it does not commit you to anything. A consultant
-              reviews your profile and tells you what is realistically possible — including when the
-              answer is "not this year, and here is what to fix".
+              This is not an application and it binds you to nothing. A consultant reads your
+              profile and tells you what is possible — including when the answer is no.
             </p>
             <div className="mt-7 space-y-2.5">
               {STUDY_STEPS.slice(0, 4).map((s, i) => (
@@ -333,7 +330,7 @@ function StudyAbroadIndex() {
               title="Study abroad eligibility assessment"
               cta="Submit for review"
               refPrefix="HTE"
-              note="We use this only to assess your profile. Nothing is sent to a university or embassy from this form."
+              note="This is only to size up your profile. Nothing goes to a school or embassy from this form."
               successTitle="Assessment received"
               successLines={[
                 "A consultant reviews your profile against current entry standards.",
@@ -524,7 +521,7 @@ function StudyAbroadIndex() {
                       name: "consent",
                       label: "I consent to Hague Travel storing these details to assess my profile",
                       type: "checkbox",
-                      help: "Data is retained for 12 months or until you ask us to delete it. We never pass it to a university or embassy without your written go-ahead.",
+                      help: "We keep your details for 12 months, or until you ask us to delete them. Nothing goes to a school or embassy without your written go-ahead.",
                     },
                   ],
                 },
@@ -538,7 +535,7 @@ function StudyAbroadIndex() {
       <Section
         eyebrow="Before you fly"
         title="Orientation that actually helps"
-        sub="Most students arrive with the same five gaps. We close them in a two-hour session."
+        sub="Most students have the same five gaps. We close them in one two-hour session."
       >
         <Steps
           items={[

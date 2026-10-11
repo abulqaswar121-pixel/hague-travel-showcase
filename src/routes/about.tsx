@@ -20,7 +20,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/about")({
   head: pageMeta(
     "About Hague Travel",
-    "Who we are, why Hague Travel exists, how we make money, and the four-phase roadmap from a consultant-led desk to automated bookings, relocation and a travel academy.",
+    "Who we are, why we exist, how we make money, and the four phases from a consultant desk to automated bookings.",
   ),
   component: About,
 });
@@ -36,7 +36,7 @@ const REVENUE_STREAMS = [
   },
   {
     t: "Package margins & group fees",
-    d: "The margin we build into a Hague Experience, plus a management fee for running a group on the ground.",
+    d: "The margin we put into a Hague Experience, plus a fee for running a group trip on the ground.",
   },
   {
     t: "Visa & documentation fees",
@@ -56,7 +56,7 @@ const REVENUE_STREAMS = [
   },
   {
     t: "Financing partner referrals",
-    d: "Referral commission from education-finance partners. We are not a lender and never present an approval.",
+    d: "A referral commission from education-finance partners. We are not a lender, and we never call something approved.",
   },
   {
     t: "Academy cohorts",
@@ -68,7 +68,7 @@ const REVENUE_STREAMS = [
   },
   {
     t: "Supplier promotions",
-    d: "Occasional sponsored placement with suppliers, always labelled as promoted and never affecting a ranking you cannot see.",
+    d: "Sometimes a supplier pays to be shown. We label it, and it never changes a ranking you cannot see.",
   },
   {
     t: "Recruitment services",
@@ -80,22 +80,22 @@ const ROADMAP = [
   {
     title: "Phase 1 · Foundation",
     detail:
-      "Consultant-led desk with a credible public face: services, indicative pricing, enquiry capture, document checklists and a WhatsApp line that humans answer.",
+      "A consultant desk with a real public face: services, guide prices, enquiries, document lists, and a WhatsApp line that humans answer.",
   },
   {
     title: "Phase 2 · Booking automation",
     detail:
-      "Live flight and hotel availability through supplier APIs or a GDS, instant quoting, online payment with invoices, and self-service status tracking.",
+      "Live flights and rooms through supplier feeds or a GDS, instant quotes, online payment with invoices, and status you can check yourself.",
   },
   {
     title: "Phase 3 · Study & relocation",
     detail:
-      "Structured application pipelines per country, deadline enforcement, document vaults, accommodation matching and relocation case management.",
+      "Country-by-country application steps, deadline reminders, a safe document store, housing matches and one case file per move.",
   },
   {
     title: "Phase 4 · Academy & careers",
     detail:
-      "Cohort delivery online, assessments, verified employer job board, and a graduate network that feeds our own and our partners' desks.",
+      "Classes online, a real test, a job board with checked employers, and a graduate network that feeds our desks and our partners'.",
   },
 ];
 
@@ -110,7 +110,7 @@ function About() {
         image={images.island}
         eyebrow="About Hague Travel"
         title={<>{BRAND.tagline.replace(".", "")}</>}
-        sub="We are the travel desk we wished existed when we were booking for other people's families: honest prices, visible paperwork, and a named person who answers."
+        sub="We built the travel desk we wished existed when we were booking for other people's families: honest prices, visible paperwork, and a named person who answers."
       >
         <div className="flex flex-wrap gap-2">
           <Pill tone="gold">{BRAND.group}</Pill>
@@ -123,22 +123,18 @@ function About() {
         <div className="grid gap-8 lg:grid-cols-[1.15fr_1fr]">
           <div className="space-y-4 text-sm leading-relaxed sm:text-[15px]">
             <p>
-              The Nigerian travel market runs on two habits. One is the self-service marketplace:
-              fast, cheap, no human, and completely silent the moment a flight is cancelled or a
-              visa needs an explanation. The other is the WhatsApp consultant: responsive,
-              knowledgeable, and impossible to audit — no invoice, no paper trail, no visible price.
+              Two things hold Nigerian travel back. First, the self-service site: fast and cheap, no
+              human, and silent the moment a flight is cancelled. Second, the agent who knows you,
+              but keeps the price and the papers to himself.
             </p>
             <p>
-              Hague Travel was built to hold both halves at once. The self-service tools to search,
-              compare and understand a price. The human consultant to negotiate it, document it and
-              defend it. And a rule nobody can break: we never present something as confirmed when a
-              supplier has not confirmed it.
+              Hague Travel does both at once. You get the tools to search, compare and read a price.
+              And you get a consultant who negotiates the fare, holds the file, and answers when
+              something moves.
             </p>
             <p>
-              That is why every number on this site is labelled indicative, why government fees are
-              printed separately from our fee, and why a visa page tells you plainly that the
-              decision is not ours to make. Trust is not a tagline; it is the willingness to say
-              what you cannot do.
+              That is why every number here is labelled as a guide, why government fees are printed
+              apart from our fee, and why a visa page tells you plainly who decides.
             </p>
             <div className="rounded-3xl border border-border bg-secondary p-5">
               <p className="flex items-center gap-2 font-bold">
@@ -197,32 +193,32 @@ function About() {
             {
               icon: Handshake,
               t: "Say what we cannot do",
-              d: "Visa approval, seat inventory, claim decisions and passport issuance are not ours. We state it before you pay, not after you ask.",
+              d: "Visas, seats, claims and passports are not ours to decide. We say it before you pay, not after you ask.",
             },
             {
               icon: TrendingUp,
               t: "Price in the open",
-              d: "Government charges, supplier costs and our fee appear as three lines on every invoice. If we earn a commission somewhere, you are told.",
+              d: "Every invoice shows three lines: what the government charges, what the supplier charges, what we charge. If a partner pays us, you hear it from us first.",
             },
             {
               icon: Users,
               t: "One named person",
-              d: "You get a consultant, not a ticket queue. They own your file, they chase the supplier, and they are still there when the flight is cancelled.",
+              d: "You get one consultant, not a call queue. They own your file, chase the supplier, and are still there when a flight is cancelled.",
             },
             {
               icon: Building2,
               t: "Paper over promises",
-              d: "Quotations with expiry dates, vouchers with names on them, receipts, and a written escalation trail. The file is the service.",
+              d: "Quotes with expiry dates, vouchers with your name on them, receipts, and a written trail if it goes wrong. The file is the service.",
             },
             {
               icon: Compass,
               t: "Teach, then hire",
-              d: "The Academy exists because good consultants are scarce. We train people properly, and our partners get first look at the ones who pass.",
+              d: "Good consultants are rare, so we train them. Our partners get first look at the ones who pass.",
             },
             {
               icon: Target,
               t: "Grow in phases",
-              d: "We automate what is proven, not what is promised. Suppliers, payments and inventory come online when the desk already runs them well.",
+              d: "We only automate what already works. Feeds, payments and live inventory go online once the desk runs them well by hand.",
             },
           ].map((v, i) => (
             <Reveal key={v.t} delay={i * 50}>
@@ -240,9 +236,8 @@ function About() {
 
       <Section eyebrow="How we make money" title="Twelve revenue streams, all disclosed">
         <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          A travel business that will not explain its economics should not be trusted with your
-          itinerary. These are our lines — each one either a fee we charge or a commission a partner
-          pays, with the disclosure that goes with it.
+          A travel business that will not explain how it earns should not hold your itinerary. These
+          are our lines — a fee we charge, a margin we keep, or a commission a partner pays.
         </p>
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {REVENUE_STREAMS.map((r, i) => (
@@ -269,9 +264,9 @@ function About() {
             Four phases, in the order they earn their keep
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-foreground/75">
-            This preview is the completed Phase 1 surface. Phases 2 to 4 are the real build: a
-            database of client files, payment rails with invoices and refunds, supplier APIs or GDS
-            ticketing, and the case-management spine behind every desk on this site.
+            This preview is Phase 1, done. Phases 2 to 4 are the real build: client files in a
+            database, payments with invoices and refunds, live fare and hotel feeds, an academy
+            system, and a CMS for packages, jobs and countries. Until then, nothing here is live.
           </p>
           <div className="mt-9">
             <Steps items={ROADMAP} />
@@ -305,7 +300,7 @@ function About() {
       <Section
         eyebrow="Where we work"
         title="Destinations our desks handle today"
-        sub="Coverage is partner-led and changes with intake seasons; the list below is what our consultants currently file against."
+        sub="Coverage comes from our partners and changes each intake. This is what our consultants file against today."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {destinations.map((d, i) => (
@@ -328,16 +323,16 @@ function About() {
           ))}
         </div>
         <Notice className="mt-6" tone="sea" title="Coverage is honest, not aspirational">
-          Destinations and institutions are subject to partner coverage. Where we cannot serve a
-          country well, we say so and refer you to someone who can — that referral costs you nothing
-          and earns us nothing.
+          Countries and schools depend on partner coverage. Where we cannot serve a place well, we
+          say so and point you to someone who can. That answer costs us a sale and protects your
+          money.
         </Notice>
         <div className="mt-8">
           <FeatureGrid
             columns={2}
             items={[
               "Consultant-led quotations on every service",
-              "Government fees always itemised separately",
+              "Government fees always on their own line",
               "No booking shown as confirmed without a supplier",
               "Encrypted document handling with a purge date",
               "Referral commissions disclosed in writing",

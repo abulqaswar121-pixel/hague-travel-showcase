@@ -27,7 +27,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/corporate")({
   head: pageMeta(
     "Corporate & Business Travel Management",
-    "Managed travel for Nigerian and international companies: negotiated fares, travel policy enforcement, group movements, consolidated invoicing, duty of care and a named account team.",
+    "Managed travel for companies: negotiated fares, rules your team follows, group moves, one invoice, safety cover and a named account team.",
   ),
   component: Corporate,
 });
@@ -71,7 +71,7 @@ const fields: FieldDef[] = [
     rows: 4,
     full: true,
     placeholder:
-      "Booking only, or booking + visas + accommodation + invoicing + reporting. Tell us the pain, not the wish list.",
+      "Booking only, or booking plus visas, rooms, one invoice and reports. Tell us the pain, not the wish list.",
   },
   {
     name: "billing",
@@ -103,7 +103,7 @@ function Corporate() {
             One account team for every <em className="text-gold">business trip</em>.
           </>
         }
-        sub="Negotiated fares, policy enforcement, group movements, consolidated invoicing and duty-of-care reporting — managed by consultants who answer the phone."
+        sub="Negotiated fares, rules your team follows, group moves, one invoice, and safety reporting — handled by consultants who answer the phone."
       >
         <div className="flex flex-wrap gap-2">
           <Pill tone="gold">Named account manager</Pill>
@@ -119,10 +119,9 @@ function Corporate() {
         <div className="grid gap-6 lg:grid-cols-[1fr_1.05fr]">
           <div>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Most Nigerian companies run travel on a mixture of an app, a friendly agent, a hotel's
-              direct line and the executive's assistant. Every one of those is competent. Together
-              they are unreportable — no negotiated rate, no duty-of-care view, no policy, no
-              invoice you can reconcile.
+              Most Nigerian companies run travel on an app, a friendly agent, a hotel's direct line
+              and the executive's assistant. Each one works alone, so nobody sees the whole cost and
+              nobody owns the risk.
             </p>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               We take the whole loop: policy, booking, visas, ground arrangements, invoices and a
@@ -145,7 +144,7 @@ function Corporate() {
               "Travel policy coded into the booking flow — class, fare cap, advance notice",
               "Visa and documentation desk for staff and dependants, with per-country checklists",
               "Group movement planning: crew rotations, conference delegations, retreats",
-              "Duty-of-care reporting: who is where, and who is unreachable",
+              "Safety reporting: who is where, and who cannot be reached",
               "Consolidated invoicing with cost-centre codes on every line",
               "Rebooking, refunds and no-show handling chased by us, not your assistant",
               "Monthly review meeting with spend, savings and leakage analysis",
@@ -184,8 +183,8 @@ function Corporate() {
           ]}
         />
         <Notice className="mt-6" tone="sea" title="What we will not claim">
-          {COMPLIANCE_NOTES.indicative} Corporate savings depend on your lanes, seasonality and
-          suppliers — we publish modelled ranges, never invented savings percentages.
+          {COMPLIANCE_NOTES.indicative} Savings depend on your routes, your season and your
+          suppliers. We give ranges we modelled, never made-up percentages.
         </Notice>
       </Section>
 
@@ -237,9 +236,9 @@ function Corporate() {
               Delegations, crews, retreats and cohorts
             </h2>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-ink-foreground/80">
-              Groups are where travel goes wrong: names change, passports expire, someone is on a
-              different fare class, and the invoice is 40 lines late. We run groups on a manifest —
-              one document with every traveller, every document status, every deadline.
+              Groups are where travel goes wrong: names change, passports expire, one person is on a
+              different fare class, and the invoice is forty lines late. We run a group move as one
+              file, one invoice and one owner.
             </p>
             <ul className="mt-6 space-y-2.5 text-sm">
               {[
@@ -248,7 +247,7 @@ function Corporate() {
                 "Rooming lists and shared arrangements agreed with the hotel in writing",
                 "Group documentation packs and per-traveller visa checklists",
                 "On-the-ground lead, transfers and a 24/7 incident number",
-                "One reconciliation invoice with per-cost-centre splits",
+                "One invoice, split by cost centre",
               ].map((x) => (
                 <li key={x} className="flex gap-2.5">
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
@@ -263,8 +262,8 @@ function Corporate() {
                 <Calculator className="h-4 w-4 text-gold" /> Indicative management fee
               </p>
               <p className="mt-3 text-sm leading-relaxed text-ink-foreground/85">
-                Small accounts are usually run on a per-trip service fee; larger books move to a
-                retainer plus per-trip fee so the pricing matches the workload honestly.
+                Small accounts usually pay a fee per trip. Bigger books move to a monthly retainer
+                plus a per-trip fee, so the price matches the real workload.
               </p>
               <dl className="mt-5 space-y-2 text-sm">
                 {[
@@ -294,9 +293,9 @@ function Corporate() {
                 <LineChart className="h-4 w-4 text-gold" /> What your finance team gets
               </p>
               <p className="mt-3 text-sm leading-relaxed text-ink-foreground/85">
-                A monthly workbook: spend by cost centre, by traveller, by lane, by cabin;
-                advance-notice compliance; refund and no-show losses; and every supplier charge
-                reconciled to a receipt.
+                A monthly workbook: spend by cost centre, traveller, lane and cabin; how often
+                policy was followed; refund and no-show losses; and every change we made with a
+                supplier.
               </p>
             </div>
           </div>
@@ -318,7 +317,7 @@ function Corporate() {
             },
             {
               t: "Business travel insurance",
-              d: "Group cover on one schedule, with duty-of-care reporting and a named incident contact.",
+              d: "One group policy on one schedule, safety reporting, and one named contact if something happens.",
               to: "/insurance" as const,
             },
             {
@@ -350,11 +349,11 @@ function Corporate() {
         <div className="mx-auto grid max-w-6xl gap-5 px-4 sm:px-5 lg:grid-cols-[1.1fr_1fr]">
           <EnquiryForm
             title="Request a corporate travel review"
-            description="Send us your volume and profile. We come back with a written review of where your travel spend is leaking and a proposed structure."
+            description="Send us your volume and profile. We come back with a written review of where your travel money leaks and a proposed structure."
             cta="Request the review"
             refPrefix="HTC"
             fields={fields}
-            note="No fares are quoted here. Any figure we send afterwards is a written, dated quotation with an expiry."
+            note="No fares are quoted here. Any figure we send later is a written, dated quote with an expiry."
             successTitle="Corporate review requested"
             successLines={[
               "The account desk reviews your volume profile and prepares an audit scope.",

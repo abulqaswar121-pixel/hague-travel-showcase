@@ -21,7 +21,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/jobs/")({
   head: pageMeta(
     "Careers & Job Board",
-    "Example role categories for travel consultants, reservations, visa officers and relocation coordinators — employed, freelance, commission-based and independent-agent work. Not live vacancies.",
+    "Example travel roles — consultant, reservations, visa officer, relocation coordinator — employed, freelance, commission or agent work. Not live vacancies.",
   ),
   component: JobsIndex,
 });
@@ -93,7 +93,7 @@ function JobsIndex() {
             Travel careers, without the <em className="text-gold">myth</em>.
           </>
         }
-        sub="Example role categories from verified partners — what the job actually involves, how it is paid, and what prepares you for it. Moderated, never guaranteed."
+        sub="Example role categories from verified partners — what the job involves, how it is paid, and what gets you ready. Checked before publishing, never guaranteed."
       >
         <div className="flex flex-wrap gap-2">
           <Pill tone="gold">Example categories — not live vacancies</Pill>
@@ -105,7 +105,7 @@ function JobsIndex() {
       <Section
         eyebrow="The board"
         title="What roles look like in this industry"
-        sub="Filter by category or working mode. Each listing states the employment type so nobody discovers the pay structure after an interview."
+        sub="Filter by category or working mode. Each listing says how you are paid, so nobody learns it after an interview."
       >
         <div className="rounded-3xl border border-border bg-card p-4 sm:p-5">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
@@ -314,7 +314,7 @@ function JobsIndex() {
         <div className="grid gap-5 lg:grid-cols-[1.1fr_1fr]">
           <EnquiryForm
             title="Candidate registration"
-            description="Free. We review your profile, help you tighten it, and introduce you when a matching verified role opens."
+            description="Free. We review your profile, help you tighten it, and call you when a matching verified role opens."
             cta="Register my profile"
             refPrefix="HTJ"
             fields={fields}
@@ -354,8 +354,8 @@ function JobsIndex() {
                 Post a role through the partner desk
               </p>
               <p className="mt-2 text-sm leading-relaxed text-ink-foreground/80">
-                Send your registration details and the role brief. We verify, moderate the wording
-                for compliance, and publish — never before.
+                Send your registration details and the role brief. We check it, fix the wording for
+                compliance, and publish — never before.
               </p>
               <button
                 type="button"

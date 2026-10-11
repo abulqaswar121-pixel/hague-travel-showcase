@@ -20,7 +20,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/insurance")({
   head: pageMeta(
     "Travel Insurance Quotes",
-    "Compare single-trip, annual multi-trip, medical and evacuation, cancellation, baggage and student cover through verified insurance partners. The insurer underwrites and decides claims.",
+    "Compare single-trip, annual, medical, cancellation, baggage and student cover from verified partners. The insurer underwrites the policy and decides claims.",
   ),
   component: Insurance,
 });
@@ -107,7 +107,7 @@ function Insurance() {
             Cover you can actually <em className="text-gold">claim on</em>.
           </>
         }
-        sub="We compare policies through verified insurance partners, show you the limits and exclusions before you buy, and help you file if the worst happens."
+        sub="We compare policies from verified partners, show you the cover and the exclusions before you buy, and help you claim if something goes wrong."
       >
         <div className="flex flex-wrap gap-2">
           <Pill tone="gold">Partner-underwritten</Pill>
@@ -119,7 +119,7 @@ function Insurance() {
       <Section
         eyebrow="Quote journey"
         title="Build your quote in three steps"
-        sub="A demonstration calculator on indicative partner rates. The final premium comes from the insurer after your declaration."
+        sub="A demo calculator on guide prices. The real price comes from the insurer after you send your details."
       >
         <div className="grid gap-5 lg:grid-cols-[1.35fr_1fr]">
           <div className="space-y-5">
@@ -256,8 +256,8 @@ function Insurance() {
                 <Shield className="h-4 w-4 text-primary" /> Request a bound quote
               </p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Send your declaration. We obtain the formal quote from the partner insurer, with the
-                exact wording, so nothing is sold on a summary.
+                Send your details. We ask the insurer for a formal quote with the real policy words,
+                so you never buy from a summary.
               </p>
               <div className="mt-4">
                 <EnquiryForm
@@ -289,7 +289,7 @@ function Insurance() {
         tone="muted"
         eyebrow="Products compared"
         title="Six cover types, one honest table"
-        sub="Every line is what a verified partner typically offers; the certificate governs."
+        sub="This is what a verified partner usually offers. The policy document is what counts."
       >
         <div className="overflow-x-auto rounded-3xl border border-border bg-card">
           <table className="w-full min-w-[46rem] text-left text-sm">
@@ -329,7 +329,7 @@ function Insurance() {
             },
             {
               t: "Business & group cover",
-              d: "Single schedule for up to 60 travellers, with duty-of-care reporting and a named contact for incidents.",
+              d: "One schedule for up to 60 travellers, with safety reporting and one named contact if something happens.",
             },
             {
               t: "Medical & evacuation",

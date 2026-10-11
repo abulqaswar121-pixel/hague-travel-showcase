@@ -51,7 +51,7 @@ export const Route = createFileRoute("/contact")({
   head: () => {
     const base = pageMeta(
       "Contact a Hague Travel Consultant",
-      "Reach the right desk first time: flights, hotels, packages, study abroad, relocation, passports, insurance, academy, careers, corporate and existing-booking support.",
+      "Reach the right desk first time: flights, hotels, trips, study, relocation, passports, insurance, academy, jobs, corporate and bookings you already hold.",
     )();
     return {
       ...base,
@@ -92,13 +92,13 @@ function fieldsFor(topic: string | undefined): FieldDef[] {
       rows: 5,
       full: true,
       placeholder:
-        "Route, dates, party size, budget range and what you already tried. Two minutes here saves three calls.",
+        "Route, dates, how many people, your budget and what you already tried. Two minutes here saves three calls.",
     },
     {
       name: "consent",
       label: "I understand this form does not create a booking",
       type: "checkbox",
-      help: "It sends a request to a consultant. Nothing is confirmed until a supplier confirms and we issue documents to you.",
+      help: "It sends a request to a consultant. Nothing is booked until the supplier says yes and we send your documents.",
     },
   ];
 }
@@ -118,7 +118,7 @@ function Contact() {
             Talk to a person who can <em className="text-gold">actually help</em>.
           </>
         }
-        sub="Pick a desk, send the detail you already have, and a consultant answers within the service window below. No call-centre script, no ticket number for a queue."
+        sub="Pick a desk, send what you already have, and a consultant answers inside the window below. No call-centre script, no ticket number for a queue."
       >
         <div className="flex flex-wrap gap-2">
           <Pill tone="gold">
@@ -195,7 +195,7 @@ function Contact() {
             cta="Send my request"
             refPrefix="HT-ENQ"
             fields={fields}
-            note="Requests are answered in the order of travel urgency, not the order received. A deadline you can name always moves you up."
+            note="We answer by travel urgency, not by who wrote first. A date you can name moves you up."
             successTitle="Request received"
             successLines={[
               "Your enquiry is logged and routed to the desk you selected.",
@@ -268,8 +268,8 @@ function Contact() {
 
             <Notice tone="sea" title="Never pay into a personal account">
               Every Hague Travel payment goes against an invoice from the company. If someone asks
-              you to send money to a personal wallet "to speed up" a visa, a seat or a refund, that
-              is fraud — call the desk immediately.
+              you to send money to a personal wallet to 'speed up' a visa, a seat or a refund, that
+              is fraud. Stop, and tell us.
             </Notice>
           </div>
         </div>

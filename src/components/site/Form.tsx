@@ -215,9 +215,9 @@ export function FormSuccess({
       <CheckCircle2 className="mx-auto h-12 w-12 text-success" />
       <h3 className="mt-4 text-2xl sm:text-3xl">{title}</h3>
       <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-        Your reference is <span className="font-bold text-foreground">{reference}</span>. A Hague
-        Travel consultant picks this up during desk hours and will reply by email, phone or WhatsApp
-        — whichever you prefer.
+        Your reference is <span className="font-bold text-foreground">{reference}</span>
+        {". "}A Hague Travel consultant picks this up during desk hours and replies by email, phone
+        or WhatsApp — whichever you prefer.
       </p>
       {lines.length ? (
         <ul className="mx-auto mt-6 max-w-md space-y-2 text-left text-sm">
@@ -254,8 +254,8 @@ export function FormSuccess({
         </a>
       </div>
       <p className="mt-5 text-xs text-muted-foreground">
-        Demo preview: this form validates locally and shows a confirmation. It does not transmit
-        data or create a booking.
+        Demo preview: this form checks your answers and shows a confirmation. It does not send data
+        or create a booking.
       </p>
     </div>
   );

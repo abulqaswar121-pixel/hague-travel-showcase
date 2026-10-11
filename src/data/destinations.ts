@@ -80,7 +80,7 @@ const DESTINATIONS: StudyDestination[] = [
     faqs: [
       {
         q: "Do you guarantee a UK visa?",
-        a: "No. The decision rests solely with UK Visas and Immigration. We prepare a complete, consistent, well-evidenced application — that is what we control.",
+        a: "No. Only UK Visas and Immigration can decide. We prepare a full, honest, well-evidenced file — that part is ours.",
       },
       {
         q: "Can I work while studying?",

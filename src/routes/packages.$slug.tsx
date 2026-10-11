@@ -80,7 +80,7 @@ function PackageDetail() {
         day,
         title: "Open day — free at leisure",
         detail:
-          "Nothing scheduled. Rest, explore independently, or ask us to add an excursion, a driver or a reservation for the day; anything we add is quoted before it is booked.",
+          "Nothing planned. Rest, or walk out on your own. Want a trip or a driver today? We quote it first, then book it.",
         meals: p.meals[0] ?? "As arranged",
       })),
   ].sort((a, b) => a.day - b.day);
@@ -255,8 +255,8 @@ function PackageDetail() {
             <section>
               <h2 className="text-2xl sm:text-3xl">Day-by-day itinerary</h2>
               <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                Sequence can shift with flight times and local conditions. Anything we change on the
-                ground, we tell you about before you are on the coach.
+                Times can move with flights and local weather. If we change anything on the ground,
+                you hear it before the coach leaves.
               </p>
               <ol className="mt-6 space-y-3 border-l-2 border-gold/40 pl-5 sm:pl-6">
                 {itinerary.map((d, i) => (
@@ -415,8 +415,8 @@ function PackageDetail() {
             <section>
               <h2 className="text-2xl">Fee breakdown</h2>
               <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-                Money paid to a government or authority is never mixed with our service fee. This is
-                the same split you will see on your invoice.
+                Money for the government is never mixed with our fee. This is the same split you
+                will see on your invoice.
               </p>
               <div className="mt-5">
                 <FeeSplit

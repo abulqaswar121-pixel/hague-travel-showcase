@@ -44,8 +44,7 @@ function NotFoundComponent() {
       <p className="mt-4 font-display text-7xl leading-none text-gold sm:text-8xl">404</p>
       <h1 className="mt-5 text-2xl sm:text-3xl">This destination isn't on our map yet</h1>
       <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-foreground/70">
-        The page you tried doesn't exist. Every service we do offer is one tap away from the
-        homepage.
+        That page does not exist. Every service we offer is one tap from the homepage.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Link
@@ -75,7 +74,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
     <div className="flex min-h-screen flex-col items-center justify-center bg-background px-5 text-center">
       <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">This page didn't load</h1>
       <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-        Something went wrong on our end. Try again, or head back to the homepage and start a fresh
+        Something went wrong on our side. Try again, or go back to the homepage and start a new
         search.
       </p>
       <div className="mt-7 flex flex-wrap justify-center gap-2">
@@ -109,7 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Flights, hotels, tour packages, study abroad, work and relocation, passports, travel insurance and a travel careers academy — with consultant-led service.",
+          "Flights, hotels, trips, study abroad, work and relocation, passports, insurance and travel training — with a consultant who owns your file.",
       },
       { property: "og:site_name", content: BRAND.name },
       { property: "og:type", content: "website" },

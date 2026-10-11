@@ -47,7 +47,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/")({
   head: pageMeta(
     "Flights, Holidays, Study Abroad & Relocation",
-    "Book flights, hotels and curated tour packages, apply to study abroad, relocate for work and train for a travel career. Hague Travel pairs online convenience with real consultants.",
+    "Flights, hotels, trips, study abroad, relocation and travel training — online tools with a real consultant, from the first quote to landing.",
     { image: images.hero },
   ),
   component: Index,
@@ -57,25 +57,25 @@ const PILLARS = [
   {
     icon: Plane,
     t: "Flights & Travel",
-    d: "Flights, hotels, packages, transfers, insurance and extras — quoted by a human.",
+    d: "Flights, hotels, tours, cars, insurance and extras. A person quotes them for you.",
     to: "/flights",
   },
   {
     icon: GraduationCap,
     t: "Study Abroad",
-    d: "Course selection, admissions, visa documentation, housing and pre-departure.",
+    d: "Pick a course, apply, get the visa, find housing, then leave ready.",
     to: "/study-abroad",
   },
   {
     icon: Briefcase,
     t: "Work & Relocation",
-    d: "Readiness assessment, pathway choice, family planning and settlement.",
+    d: "Check if you are ready, pick a route, plan for the family, then settle in.",
     to: "/relocation",
   },
   {
     icon: FileText,
     t: "Passports & Docs",
-    d: "New passports, renewals and checklists — guidance only, never issuance.",
+    d: "New passports, renewals and checklists. We guide; only the government issues.",
     to: "/passports",
   },
   {
@@ -87,13 +87,13 @@ const PILLARS = [
   {
     icon: Headphones,
     t: "Hague Travel Academy",
-    d: "Quarterly virtual training for aspiring travel consultants.",
+    d: "Online training every quarter for people who want to work in travel.",
     to: "/academy",
   },
   {
     icon: Handshake,
     t: "Corporate Travel",
-    d: "Flight desk, group moves, relocation contracts and travel management.",
+    d: "Staff flights, group moves, contracts and one clean monthly invoice.",
     to: "/corporate",
   },
   {
@@ -108,12 +108,12 @@ const PILLARS = [
 const WHY = [
   {
     title: "Online convenience",
-    detail: "Search, compare and request in seconds — no phone tag before you see a number.",
+    detail: "Search, compare and ask. You see a price before anyone calls you.",
     icon: Sparkles,
   },
   {
     title: "Human experts",
-    detail: "A named consultant owns your file from enquiry to arrival, on WhatsApp and phone.",
+    detail: "One named consultant. From your first message to your safe arrival.",
     icon: Headphones,
   },
   {
@@ -124,7 +124,7 @@ const WHY = [
   },
   {
     title: "Whole journey",
-    detail: "Ticket, visa pack, housing, baggage, pickup and settlement — planned as one trip.",
+    detail: "Ticket, visa papers, housing, bags, pickup and settling in — planned as one trip.",
     icon: Compass,
   },
 ] as const;
@@ -220,8 +220,8 @@ function Index() {
       {/* --------------------------------------------------------- PILLARS */}
       <Section
         eyebrow="One platform, every journey"
-        title="Where can I book my next trip — and what can you help me pursue?"
-        sub="Everything below is handled by a consultant, not a chatbot. Start anywhere."
+        title="What do you want to plan?"
+        sub="Every desk below has a real person on it. Start anywhere."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {PILLARS.map((p, i) => (
@@ -250,7 +250,7 @@ function Index() {
         tone="muted"
         eyebrow="Hague Experiences"
         title="Featured holidays & seasonal offers"
-        sub="Deposits and staged payments where supplier terms allow. Every departure shows its own cancellation tiers."
+        sub="Pay a deposit, then the balance in steps. Each trip lists its own cancel rules."
         action={<ArrowLink to="/packages">All packages</ArrowLink>}
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -293,7 +293,7 @@ function Index() {
       <Section
         eyebrow="Popular international routes"
         title="Where Nigerians are flying this season"
-        sub="Indicative return economy fares. A consultant confirms live availability, baggage rules and fare conditions before anything is issued."
+        sub="Return economy prices, as a guide. A consultant checks the live fare and the bags before we issue anything."
         action={<ArrowLink to="/flights">Search flights</ArrowLink>}
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -332,9 +332,9 @@ function Index() {
                 From admission letter to your first lecture.
               </h2>
               <p className="mt-4 max-w-lg text-sm leading-relaxed text-ink-foreground/75 sm:text-base">
-                Course matching, applications, financial-evidence discipline, visa documentation,
-                housing, flights and orientation — one guided journey, with the decision-making
-                authority of universities and embassies stated plainly at every step.
+                We match your course, help with the application, get your money proof right, prepare
+                the visa papers, then book housing and flights. The school and the embassy still
+                decide. We make sure your file is ready for them.
               </p>
               <div className="mt-7 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
                 {destinations.map((c) => (
@@ -353,8 +353,8 @@ function Index() {
                 ))}
               </div>
               <p className="mt-5 text-[11px] leading-relaxed text-ink-foreground/50">
-                Countries shown are subject to verified partner coverage — we confirm the desk
-                before you pay anything.
+                We cover these countries through verified partners. We check the desk is ready
+                before you pay.
               </p>
               <div className="mt-7 flex flex-wrap gap-2.5">
                 <ButtonLink to="/study-abroad" variant="gold">
@@ -372,8 +372,8 @@ function Index() {
       {/* -------------------------------------------- JOBS + ACADEMY SPLIT */}
       <Section
         eyebrow="Verified overseas job categories"
-        title="Opportunities we can genuinely prepare you for"
-        sub="Example role categories, not live vacancies. Each one maps to an Academy module so you know exactly what to learn next."
+        title="Jobs we can get you ready for"
+        sub="Example roles, not live jobs. Each one shows which Academy module gets you ready."
         action={<ArrowLink to="/jobs">Careers portal</ArrowLink>}
       >
         <div className="grid gap-4 lg:grid-cols-3">
@@ -391,7 +391,7 @@ function Index() {
         tone="muted"
         eyebrow="Hague Travel Academy"
         title="Upcoming cohorts — Feb · May · Aug · Nov"
-        sub="Paid virtual training for aspiring consultants: live classes, recordings, assignments, practical booking exercises and a final assessment."
+        sub="Live classes, recordings, homework and a final test — training for people who want to sell travel."
         action={<ArrowLink to="/academy">Programme & curriculum</ArrowLink>}
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -417,7 +417,7 @@ function Index() {
       <Section
         eyebrow="Passports & documentation"
         title="The paperwork that decides everything else"
-        sub="Assistance, checklists and appointment discipline — issuance stays with the government."
+        sub="We check your forms and book your appointment. Only the government issues a passport."
       >
         <div className="grid gap-6 lg:grid-cols-[1.15fr_1fr]">
           <Reveal>
@@ -433,9 +433,8 @@ function Index() {
                   Government fees and our fees, always on separate lines
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  We quote the authority's charge and our service charge independently, in writing,
-                  before you pay either. You can also choose to self-submit and use us for document
-                  review only.
+                  You see two prices in writing: the government fee and our fee. You can also file
+                  it yourself and pay us only to check your papers.
                 </p>
                 <div className="mt-5 grid gap-2 sm:grid-cols-2">
                   <FeatureGrid
@@ -490,8 +489,8 @@ function Index() {
       <Section
         tone="muted"
         eyebrow="Why Hague Travel"
-        title="Online convenience and human experts — not one or the other"
-        sub="The differentiator is that we do not stop at the ticket."
+        title="Search online. Then talk to a human."
+        sub="Most agencies stop at the ticket. We keep going until you arrive."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {WHY.map((w, i) => (
@@ -532,7 +531,7 @@ function Index() {
       <Section
         eyebrow="Real journeys"
         title="Trusted by travellers, students and families"
-        sub="Verified reviews from completed bookings — the ones we can name."
+        sub="Reviews from trips we finished, from people we can name."
         action={<ArrowLink to="/contact">Work with us</ArrowLink>}
       >
         <div className="grid gap-4 lg:grid-cols-3">
@@ -564,8 +563,8 @@ function Index() {
                 Honest answers, before you ask.
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                The five questions we get every day. The rest live in the help centre — including
-                how complaints and refunds are handled.
+                Five questions people ask every day. More answers sit in the help centre, including
+                refunds and complaints.
               </p>
               <div className="mt-6 flex flex-wrap gap-2.5">
                 <ButtonLink to="/faqs" variant="primary">

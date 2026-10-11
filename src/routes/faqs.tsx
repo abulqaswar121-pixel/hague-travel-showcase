@@ -22,7 +22,7 @@ export const Route = createFileRoute("/faqs")({
   validateSearch,
   head: pageMeta(
     "Help Centre & FAQs",
-    "Answers on fares, availability, visas, government fees, deposits, refunds, documents, insurance, Academy enrolment and job-board moderation.",
+    "Plain answers on fares, seats, visas, government fees, deposits, refunds, documents, insurance, Academy enrolment and the job board.",
   ),
   component: Faqs,
 });
@@ -58,7 +58,7 @@ function Faqs() {
             Straight answers, before you <em className="text-gold">book anything</em>.
           </>
         }
-        sub="The questions our consultants are asked every day — fares, visas, deposits, documents, insurance, the Academy and the job board."
+        sub="What our consultants are asked every day: fares, visas, deposits, documents, insurance, the Academy and the job board."
       >
         <div className="flex flex-wrap gap-2">
           <Pill tone="gold">{pluralise(all.length, "published answer")}</Pill>
@@ -205,8 +205,8 @@ function Faqs() {
               </ol>
             </div>
             <Notice title="Read the policy pages too">
-              Refunds, cancellation windows and what we can never guarantee are set out in full on
-              our policy pages, not just here.
+              Refunds, cancel windows and what nobody can guarantee are written in full on our
+              policy pages, not just here.
             </Notice>
             <div className="flex flex-wrap gap-2">
               <Link

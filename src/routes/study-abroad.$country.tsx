@@ -162,8 +162,8 @@ function CountryPage() {
             <section>
               <h2 className="text-2xl sm:text-3xl">Institutions we place into</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                A realistic list for this profile band — we confirm current entry requirements and
-                fees before you apply to any of them.
+                A fair list for a profile like yours. We check the entry rules and fees again before
+                you apply.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {d.topInstitutions.map((u) => (
@@ -190,7 +190,7 @@ function CountryPage() {
             <section>
               <h2 className="text-2xl sm:text-3xl">Your document checklist</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Tick these as you gather them — the format matters as much as the content.
+                Tick each one as you collect it. The format matters as much as the paper itself.
               </p>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                 {d.documents.map((doc) => (

@@ -17,7 +17,7 @@ export const BRAND = {
   group: "A sister brand of the Hague group",
   heroTitle: "Your World. Your Next Chapter.",
   heroSub:
-    "From flight bookings to international education and relocation, let us help you plan the journey ahead.",
+    "Flights, hotels, study abroad, relocation and travel training — one desk, one consultant who owns your file.",
   siteLine: "Flights. Holidays. Hotels. Study Abroad. Work Abroad. Relocation. Travel Careers.",
   company: "Hague Travel (a brand of Hague Digital Solutions)",
   rc: "RC-3789349",
@@ -92,7 +92,7 @@ export const NAV_GROUPS: NavGroup[] = [
     label: "Flights & Travel",
     to: "/flights",
     eyebrow: "Flights & Travel",
-    blurb: "Search, compare and request a consultant-confirmed quotation for any journey.",
+    blurb: "Search, compare, then let a consultant confirm the real price with the airline.",
     image: images.hero,
     children: [
       { label: "Flights", to: "/flights", description: "Domestic, international, multi-city" },
@@ -119,7 +119,7 @@ export const NAV_GROUPS: NavGroup[] = [
     label: "Study Abroad",
     to: "/study-abroad",
     eyebrow: "Study Abroad",
-    blurb: "Course selection to pre-departure, with document discipline at the centre.",
+    blurb: "From picking a course to packing your bags, with your papers checked at every step.",
     image: images.campus,
     children: [
       {
@@ -139,7 +139,7 @@ export const NAV_GROUPS: NavGroup[] = [
     label: "Work & Relocation",
     to: "/relocation",
     eyebrow: "Work & Relocation",
-    blurb: "Pathways, paperwork and the practical reality of moving a household.",
+    blurb: "Pathways, paperwork and the plain reality of moving a house.",
     image: images.relocation,
     children: [
       { label: "Work visa guidance", to: "/relocation" },
@@ -169,7 +169,7 @@ export const NAV_GROUPS: NavGroup[] = [
     label: "Academy",
     to: "/academy",
     eyebrow: "Hague Travel Academy",
-    blurb: "Paid virtual training for aspiring travel consultants, every quarter.",
+    blurb: "Online training for people who want to work in travel, every quarter.",
     image: images.academy,
     children: [
       { label: "Programme", to: "/academy" },
@@ -246,18 +246,18 @@ export const CURRENCIES = [
 
 export const COMPLIANCE_NOTES = {
   indicative:
-    "Interactive concept preview. Live fares, hotel inventory, payments and confirmed bookings require integration with actual suppliers. Every price shown is indicative until a supplier confirms it.",
-  visa: "Visa decisions rest solely with the relevant embassy, consulate or immigration authority. Hague Travel provides documentation guidance and submission support only — no outcome is guaranteed or implied.",
+    "Interactive concept preview. Live fares, hotel inventory, payments and confirmed bookings require integration with actual suppliers. Prices on this site are a guide. Nothing is fixed until the supplier says yes.",
+  visa: "A visa is approved only by the embassy or immigration office — never by us. We help you put honest, complete papers together. We cannot promise a result.",
   passport:
-    "Passport issuance, biometrics and approvals are handled solely by the relevant government authority. Hague Travel provides guidance and support only.",
-  fees: "Government, embassy, biometric and university charges are always listed separately from Hague Travel agency fees on your invoice.",
+    "Only the government can issue a passport, take your biometrics and approve it. We help with the forms, the photos and the appointment. That is all we do.",
+  fees: "Every invoice shows two lines: what the government, embassy or school charges, and what we charge for our work.",
   partners:
-    "We may receive referral commissions from verified insurance and education-finance partners. Where we do, it is disclosed to you in writing and does not change your price.",
+    "Some partners pay us a referral commission. We always tell you in writing. It does not change your price.",
   documents:
-    "Identity documents are handled through encrypted upload, restricted to your assigned consultant, and purged 14 days after your travel date unless you ask us to retain them.",
+    "We take documents through an encrypted upload. Only your consultant can open them. We delete them 14 days after your trip, unless you ask us to keep them.",
   academy:
     "Certificates are issued by Hague Travel Academy and are not IATA or government accreditation.",
-  jobs: "These are example role categories, not live vacancies. We never charge candidates to access legitimate listings and never promise placement or earnings.",
+  jobs: "These are example role categories, not live vacancies. You never pay to use the board. We do not promise you a job or an income.",
   financing:
-    "Hague Travel is not a lender. Financing is a referral and application-support service; nothing is approved until the lender confirms it in writing.",
+    "Hague Travel is not a lender. We refer you to verified partners and help you apply. Nothing is approved until the lender writes to you.",
 } as const;

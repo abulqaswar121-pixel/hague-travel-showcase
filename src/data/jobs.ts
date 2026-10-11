@@ -46,7 +46,7 @@ const JOBS: JobListing[] = [
     employer: "Independent agency contracts",
     source: "Hague Travel partner briefs",
     summary:
-      "Generate leads through content and paid social, run festive and study-intake campaigns, and convert enquiries into quoted trips.",
+      "Bring in leads through content and paid social, run festive and school-intake campaigns, and turn questions into booked trips.",
     responsibilities: [
       "Plan monthly campaign calendars around package departures and intakes",
       "Write and schedule content; report on cost per qualified enquiry",
@@ -104,7 +104,7 @@ const JOBS: JobListing[] = [
     employer: "Hague Experiences departures",
     source: "Internal tour operations",
     summary:
-      "Escort festive and cultural group departures: airport meet, hotel liaison, activity timing, duty-of-care and on-trip problem solving.",
+      "Lead festive and cultural group trips: meet people at the airport, deal with the hotel, keep the timing right, look after the group and fix problems on the ground.",
     responsibilities: [
       "Run the departure-day brief and manage group check-in",
       "Liaise with ground handlers, guides and hotels against the itinerary",
@@ -166,8 +166,8 @@ const JOBS: JobListing[] = [
     responsibilities: [
       "Manage end-to-end itineraries for execs and project teams",
       "Enforce travel policy and flag exceptions with approval trails",
-      "Reconcile invoices, credit memos and refunds monthly",
-      "Report savings, leakage and duty-of-care incidents",
+      "Match invoices, credit notes and refunds every month",
+      "Report savings, lost money and safety incidents",
     ],
     qualifications: [
       "3+ years corporate travel or TMC experience",

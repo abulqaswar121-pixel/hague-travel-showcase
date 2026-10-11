@@ -6,21 +6,21 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/terms")({
   head: pageMeta(
     "Booking Terms & Conditions",
-    "How Hague Travel quotes, books, invoices and supports a trip: indicative quotations, deposits, supplier terms, changes, documents, liability and complaints.",
+    "How we quote, book, invoice and support a trip: guide prices, deposits, supplier rules, changes, documents, who is answerable, and complaints.",
     { ogType: "article" },
   ),
   component: Terms,
 });
 
 const BRAND_LINE =
-  "Written complaints and questions go to desk@haguetravel.example, or the WhatsApp line shown on every page of this site.";
+  "Send complaints and questions to desk@haguetravel.example, or the WhatsApp line shown on every page.";
 
 const SECTIONS: LegalSection[] = [
   {
     id: "scope",
     title: "Scope of our service",
     intro:
-      "Hague Travel is a travel advisory and booking agency. We arrange services on your behalf with third-party suppliers; we are not the carrier, hotel, insurer, university or government authority.",
+      "We are a travel agency. We arrange services with other companies — the airline, the hotel, the insurer, the school, the government. We are not them, and we cannot decide what they decide.",
     blocks: [
       {
         h: "What we do",
@@ -50,26 +50,26 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Every price starts as indicative",
         p: [
-          "Prices shown anywhere on this site are indicative. A fare, room rate or package price becomes binding only when the supplier confirms it and we issue a written quotation with an expiry date.",
+          "Prices on this site are a guide. A fare, room rate or package price only becomes the price when the supplier confirms it and we send a written quote with an expiry date.",
         ],
         note: COMPLIANCE_NOTES.indicative,
       },
       {
         h: "Quotation validity",
         p: [
-          "Airline fares usually hold for 24–72 hours; package and group rates usually hold 7 days. The expiry is printed on the quotation. After expiry we re-check rather than assume.",
+          "Airline fares usually hold for 24 to 72 hours. Package and group rates usually hold 7 days. The date is printed on your quote. After that we check again — we do not assume.",
         ],
       },
       {
         h: "Currency",
         p: [
-          "NGN is our primary billing currency. Where a supplier bills in USD or GBP, the quotation states the currency and the exchange basis. The site's currency switcher is a display aid only — invoices are raised in the supplier's currency.",
+          "We bill in naira first. If a supplier bills in USD or GBP, the quote states the currency and the rate we used. The switcher in the header is only for reading. Invoices stay in the currency we agreed.",
         ],
       },
       {
         h: "Taxes and charges",
         p: [
-          "Government, carrier, airport, visa, biometric and university charges are itemised separately from our agency fee on every invoice.",
+          "Government, airline, airport, visa, biometric and school charges sit on their own lines, apart from our fee, on every invoice.",
         ],
       },
     ],
@@ -81,25 +81,25 @@ const SECTIONS: LegalSection[] = [
       {
         h: "When a booking exists",
         p: [
-          "A booking exists only when (a) you accept the written quotation, (b) the required deposit is received, and (c) the supplier has confirmed and we have issued your ticket, voucher or certificate of confirmation.",
+          "A booking exists only when three things are true: you accept the written quote, we have your deposit, and the supplier has confirmed and we have sent your ticket, voucher or certificate.",
         ],
       },
       {
         h: "Deposits",
         p: [
-          "Individual packages usually require 30% to hold space; groups 20% with a name-deferral window; airline tickets are payable in full at issue. Your quotation states the exact rule.",
+          "Most packages need 30% to hold space. Groups need 20%, with time to add names. Airline tickets are paid in full when issued. Your quote states the exact rule.",
         ],
       },
       {
         h: "Deadlines we enforce",
         p: [
-          "Deposit and balance deadlines come from supplier terms. If a deadline passes unpaid, the supplier may release your space or re-price the fare; we are not able to override that.",
+          "Deposit and balance dates come from the supplier. If a date passes unpaid, they may release your space or re-price the fare. We cannot override that.",
         ],
       },
       {
         h: "Names and documents",
         p: [
-          "Passenger names must match the passport exactly. A name correction after issue may be impossible or chargeable by the carrier, and is not an error we can fix for free.",
+          "Names must match the passport exactly. After a ticket is issued, a name fix may be impossible, or the airline charges for it. It is not an error we can repair for free.",
         ],
       },
     ],
@@ -111,19 +111,19 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Both rules apply",
         p: [
-          "Any change or cancellation is subject to the supplier's rules and ours, whichever is stricter. Supplier penalties are passed through at cost; our service fee for handling the change is stated before we act.",
+          "Changes and cancellations follow the supplier's rules and ours, whichever is stricter. Supplier penalties are passed to you at cost, and our handling fee is stated in writing before we act.",
         ],
       },
       {
         h: "Where to read the detail",
         p: [
-          "The percentages and windows are on the Refund & Cancellation Policy page, and repeated on the specific package page you booked. The confirmation email restates them for your booking.",
+          "The exact percentages and dates are on the Refund & Cancellation Policy page and on the package page you booked. Your confirmation email says them again.",
         ],
       },
       {
         h: "Refund timing",
         p: [
-          "Supplier refunds typically take 14–60 days because they depend on the carrier or hotel, not us. We chase them and report status at every stage.",
+          "Supplier refunds usually take 14 to 60 days, because they depend on the airline or hotel, not us. We chase them and update you at every stage.",
         ],
       },
     ],
@@ -145,7 +145,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Information you provide",
         p: [
-          "You are responsible for the accuracy of the information you give us. Incomplete or inaccurate disclosure can void insurance cover, trigger a visa refusal or make a booking unusable at your cost.",
+          "You are answerable for what you tell us. Wrong or missing information can void insurance, cause a visa refusal, or make a booking useless at your own cost.",
         ],
       },
     ],
@@ -157,13 +157,13 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Our liability",
         p: [
-          "Our liability for any claim is limited to the value of the agency service fees we earned on the affected booking, except where Nigerian law requires otherwise. Supplier acts and omissions — delays, overbooking, injury, loss — are the supplier's responsibility, and we will pursue them for you.",
+          "If something goes wrong, our liability is capped at the service fees we earned on that booking, unless Nigerian law says otherwise. What a supplier does — or fails to do — is on the supplier.",
         ],
       },
       {
         h: "Not acceptable",
         p: [
-          "Fraudulent documents, misrepresentation, attempted illegal work or immigration routes, and abuse of staff. We will close the file, retain nothing owed to you, and report criminal conduct where required.",
+          "Fake documents, lying about your case, trying to work or migrate illegally, or abusing our staff. We close the file, keep nothing we owe you, and report crime to the police.",
         ],
       },
     ],
@@ -184,7 +184,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Governing law",
         p: [
-          "These terms are governed by the laws of the Federal Republic of Nigeria, with Lagos as the seat for any dispute. Nothing here limits your statutory consumer rights.",
+          "Nigerian law governs these terms, and Lagos is where any dispute is heard. Nothing here takes away your consumer rights in law.",
         ],
       },
       { h: "Contact", p: [BRAND_LINE] },
@@ -198,7 +198,7 @@ function Terms() {
       eyebrow="Legal & policy"
       title="Booking Terms & Conditions"
       updated="10 October 2026"
-      summary="The plain-English agreement between you and Hague Travel: what we book, what we cannot promise, when money is owed, and how a problem gets resolved."
+      summary="The plain-English agreement between you and Hague Travel: what we book, what we cannot promise, when money is owed, and how a problem gets fixed."
       sections={SECTIONS}
       compliance={COMPLIANCE_NOTES.fees}
     />

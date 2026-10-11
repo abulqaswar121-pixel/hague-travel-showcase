@@ -987,7 +987,7 @@ const TOUR_PACKAGES: TourPackage[] = [
     roomBasis: "Single occupancy delegate rooms",
     meals: ["Breakfast", "Working lunches (3 days)", "Two dinners and gala awards night"],
     activities: [
-      "Facilitated strategy sessions with AV and flipcharts",
+      "Strategy sessions run by a moderator, with AV and flipcharts",
       "Kigali Genocide Memorial remembrance tour",
       "Team build: lake Kayonza canoeing and norms workshop",
       "Volcanoes National Park gorilla trek (permit ₦820,000, optional)",
@@ -1020,7 +1020,8 @@ const TOUR_PACKAGES: TourPackage[] = [
       {
         day: 2,
         title: "Strategy day",
-        detail: "Two facilitated sessions, break-out rooms, lake-side team lunch.",
+        detail:
+          "Two sessions with a moderator, break-out rooms, and lunch by the lake with the team.",
         meals: "Breakfast, Lunch",
       },
       {

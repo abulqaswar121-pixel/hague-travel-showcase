@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/privacy")({
   head: pageMeta(
     "Privacy & Data Handling",
-    "What Hague Travel collects, why we collect it, who it is shared with, how long identity documents are kept, and how you exercise your rights under the Nigeria Data Protection Act.",
+    "What we collect, why, who sees it, how long we keep identity documents, and your rights under the Nigeria Data Protection Act.",
     { ogType: "article" },
   ),
   component: Privacy,
@@ -20,13 +20,13 @@ const SECTIONS: LegalSection[] = [
       {
         h: "In one paragraph",
         p: [
-          "We collect the minimum needed to book a trip and file a visa or admission application, we share it only with the supplier, authority or partner that needs it, we keep identity documents only as long as your file is live, and we never sell your data or place advertising pixels on your passport scan.",
+          "We collect only what a booking or a visa file needs. We share it only with the supplier, authority or partner who must see it. Identity documents stay with us for 14 days after you travel, unless you ask for longer.",
         ],
       },
       {
         h: "In this preview",
         p: [
-          "This site is an interactive concept preview. Forms validate in your browser, the data in them never leaves your device, and no account, cookie profile or analytics identifier is written by this demo.",
+          "This site is a concept preview. Forms check your answers in your browser, nothing is sent anywhere, and the site sets no cookie, profile or analytics ID. The rules below describe how we handle data at the desk.",
         ],
         note: "No data is transmitted or stored by this preview. That is deliberate.",
       },
@@ -82,7 +82,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Marketing",
         p: [
-          "We only send offers to people who asked. Every message has one-tap opt-out, and consent is recorded with the date and channel it was given on.",
+          "We send offers only to people who asked. Every message has a one-tap opt-out, and we record when and how you said yes.",
         ],
       },
     ],
@@ -106,13 +106,13 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Never shared",
         p: [
-          "We do not sell personal data, rent lists, or feed your file into third-party advertising. Where a partner pays us a referral commission, that relationship is disclosed to you in writing and does not change what you pay.",
+          "We do not sell data, rent lists, or feed your file into ad networks. Where a partner pays us a commission, we tell you in writing and it never changes your price.",
         ],
       },
       {
         h: "Inside Hague Travel",
         p: [
-          "Access is role-scoped. A flight agent sees the itinerary and passport details for their queue; the visa consultant sees your document pack; finance sees invoices, not medical evidence. Every access is logged.",
+          "People see only what their job needs. A flight agent sees your itinerary and passport for their queue. The visa consultant sees your document pack. Finance sees invoices, not medical papers.",
         ],
       },
     ],
@@ -136,7 +136,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "If something goes wrong",
         p: [
-          "We notify affected clients within 72 hours of confirming a breach, with what was exposed, what we are doing, and what you should do. We do not outsource that notification to a template vendor.",
+          "If we confirm a breach, we tell affected clients within 72 hours: what leaked, what we are doing, and what you should do. We do not hand that notice to a template vendor.",
         ],
       },
     ],
@@ -159,7 +159,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Closed files",
         p: [
-          "Archived files are encrypted, access-restricted to compliance and the managing partner, and reviewed annually to confirm the retention basis still exists.",
+          "Archived files are encrypted and open only to compliance and the managing partner. Once a year we check that we still need them.",
         ],
       },
     ],
@@ -182,13 +182,13 @@ const SECTIONS: LegalSection[] = [
       {
         h: "How to ask",
         p: [
-          "Email desk@haguetravel.example with the subject line DATA REQUEST. We respond within 72 hours with the request confirmed, and complete it within 30 days. There is no fee for a first request.",
+          "Email desk@haguetravel.example with the subject DATA REQUEST. We confirm within 72 hours and finish within 30 days. The first request is free.",
         ],
       },
       {
         h: "Complain",
         p: [
-          "If you are unhappy with our answer, you may escalate to the Nigeria Data Protection Commission. We will give you the route in writing rather than hide it.",
+          "Not happy with our answer? Write to the Nigeria Data Protection Commission. We will give you the route in writing rather than hide it.",
         ],
       },
     ],
@@ -223,7 +223,7 @@ function Privacy() {
       eyebrow="Legal & policy"
       title="Privacy & Data Handling"
       updated="10 October 2026"
-      summary="Travel files contain the most sensitive documents a business will ever hold. This is exactly what we collect, why, who sees it, and how you take it back."
+      summary="Travel files hold some of the most private documents a business can hold. Here is exactly what we collect, why, who sees it, and how you take it back."
       sections={SECTIONS}
       compliance={COMPLIANCE_NOTES.documents}
     />

@@ -18,7 +18,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/passports")({
   head: pageMeta(
     "Passport Assistance & Document Guidance",
-    "New passport assistance, renewal and replacement guidance, photo specifications, appointment scheduling and secure document handling. Guidance only — issuance stays with the government.",
+    "Help with new passports, renewals, photos, appointments and safe document handling. We guide only — only the government issues a passport.",
   ),
   component: Passports,
 });
@@ -93,7 +93,7 @@ function Passports() {
             Get the document <em className="text-gold">right</em>, the first time.
           </>
         }
-        sub="Application review, guarantor forms, photo specifications, appointment scheduling and secure file handling — so a rejected form never costs you a trip."
+        sub="We check your forms, fix the photos and guarantor papers, book your appointment and keep your file safe — so one bad form does not cost you a trip."
       >
         <div className="flex flex-wrap gap-2">
           <Pill tone="gold">Assistance & guidance only</Pill>
@@ -110,8 +110,8 @@ function Passports() {
             <p className="font-bold">Read this first</p>
             <p className="mt-1.5 text-sm leading-relaxed">{COMPLIANCE_NOTES.passport}</p>
             <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-              Anyone who promises you a passport in days, or offers to bypass biometrics, is
-              describing a crime — not a service. We will never take an assignment like that.
+              Anyone who promises a passport in days, or says they can skip biometrics, is
+              describing a crime, not a service. We will never take that job.
             </p>
           </div>
         </div>
@@ -121,7 +121,7 @@ function Passports() {
       <Section
         eyebrow="Two pathways"
         title="New application, or renewal & replacement"
-        sub="Each has its own checklist, timing reality and fee structure. Pick one to see the detail."
+        sub="Each has its own list, timing and fees. Pick one to see it."
       >
         <div className="grid gap-4 lg:grid-cols-2">
           {PASSPORT_PATHWAYS.map((p, i) => (
@@ -197,8 +197,8 @@ function Passports() {
             Print these, tick them, keep them with your file
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-foreground/75">
-            Every checklist we work from is public. We use the same list to audit your pack before
-            submission — nothing is hidden and nothing is "handled internally".
+            Every list we use is public. We check your pack against the same list before you submit.
+            Nothing is hidden, and nothing is 'handled inside'.
           </p>
           <div className="mt-9 grid gap-4 lg:grid-cols-3">
             {PACKING_CHECKLISTS.map((c, i) => (
@@ -226,7 +226,7 @@ function Passports() {
       {/* Security + fees */}
       <Section
         eyebrow="Handling & fees"
-        title="Your documents, and your money, stay separated and traceable"
+        title="Your papers and your money stay apart, and both are easy to trace"
       >
         <div className="grid gap-6 lg:grid-cols-[1fr_1.15fr]">
           <Reveal>
@@ -270,9 +270,9 @@ function Passports() {
                 ]}
               />
               <Notice className="mt-4" tone="sea" title="Why the split matters">
-                We cannot speed up a government process with our fee, and we do not charge you for
-                waiting on theirs. Payment for our work is invoiced by Hague Travel; every authority
-                charge is paid direct or receipted at cost.
+                Our fee cannot make a government faster, and we never charge you for waiting on
+                them. You pay Hague Travel for our work. Every authority charge goes to them, with a
+                receipt.
               </Notice>
             </div>
           </Reveal>
@@ -325,11 +325,11 @@ function Passports() {
         <div className="mx-auto max-w-3xl px-4 sm:px-5">
           <EnquiryForm
             title="Request passport assistance"
-            description="Tell us what you need and where you are applying. We review your forms, fix the photo and guarantor issues, and book the appointment."
+            description="Tell us what you need and where you are applying. We check your forms, fix photo and guarantor issues, and book the appointment."
             cta="Send my request"
             refPrefix="HTP-D"
             fields={fields}
-            note="No passport can be issued by Hague Travel. We provide guidance, documentation and appointment support only."
+            note="Hague Travel cannot issue a passport. We help with the papers and the appointment, nothing more."
             successTitle="Request received"
             successLines={[
               "We audit your application details against the current NIS requirements.",

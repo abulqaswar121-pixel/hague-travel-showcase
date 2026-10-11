@@ -45,7 +45,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/academy")({
   head: pageMeta(
     "Hague Travel Academy — Virtual Travel Consulting Training",
-    "Paid quarterly cohorts for aspiring travel consultants: live classes, recordings, assignments, practical booking exercises, final assessment and career preparation.",
+    "Quarterly online training for people who want to work in travel: live classes, recordings, assignments, booking practice and a final test.",
   ),
   component: Academy,
 });
@@ -157,7 +157,7 @@ function Academy() {
             Learn the trade from people who <em className="text-gold">run it</em>.
           </>
         }
-        sub="A paid virtual programme for aspiring travel consultants, booking officers and entrepreneurs — live classes, recordings, assignments, practical booking exercises and a final assessment, every quarter."
+        sub="A paid online programme for people who want to work in travel: live classes, recordings, assignments, real booking practice and a final test, every quarter."
       >
         <div className="flex flex-wrap gap-2">
           <Pill tone="gold">4 cohorts a year</Pill>
@@ -217,8 +217,8 @@ function Academy() {
             February, May, August and November — every three months
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-foreground/75">
-            Registration closes one week before the first class. Seats are capped so the practical
-            sessions stay real.
+            Registration closes one week before class starts. We cap seats so the practical sessions
+            stay real.
           </p>
           <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {cohorts.map((c, i) => (
@@ -272,9 +272,8 @@ function Academy() {
           ))}
         </div>
         <Notice className="mt-6" tone="sea" title="Tools and environments">
-          Where a module requires licensed GDS access or specialised booking software, we provide a
-          training environment or an authorised demonstration account. You never work against live
-          passenger names or real client files.
+          If a module needs licensed GDS access or special booking software, we give you a training
+          environment or a demo account.
         </Notice>
       </Section>
 
@@ -309,8 +308,9 @@ function Academy() {
                 Certification, described accurately
               </p>
               <p className="mt-3 text-sm leading-relaxed text-accent-foreground">
-                On passing the final assessment you receive a Hague Travel Academy Certificate of
-                Completion listing your modules, the practical exercise performed and your grade.
+                When you pass the final test, you get a Hague Travel Academy Certificate of
+                Completion that lists your modules, the work you did and the date. Read the line
+                above it first: it is an academy certificate, nothing more.
               </p>
               <div className="mt-4 rounded-2xl bg-card/70 p-4">
                 <p className="flex items-start gap-2 text-sm font-bold leading-relaxed">
@@ -346,9 +346,8 @@ function Academy() {
                 Three steps: details, payment summary, confirmation
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                This is a demo. No card is charged and no seat is reserved — but the flow is exactly
-                what the live programme will use, including the honest certificate description and
-                refund window.
+                This is a demo. No card is charged and no seat is held — but the flow is exactly
+                what the live programme will use, including the honest certificate wording.
               </p>
               <div className="mt-6 rounded-3xl border border-border bg-secondary p-5">
                 <p className="text-[11px] font-black uppercase tracking-widest text-muted-foreground">
@@ -543,9 +542,8 @@ function Academy() {
                   </div>
                   <p className="mt-4 flex items-start gap-2 text-[11px] leading-relaxed text-muted-foreground">
                     <Banknote className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-                    Preview only — no gateway, no card details and no money moves. In production
-                    this screen becomes a Paystack/Flutterwave checkout with receipts, invoices and
-                    refund handling.
+                    Preview only — no gateway, no card details, no money moves. Later this becomes a
+                    Paystack or Flutterwave checkout with receipts, invoices and refunds.
                   </p>
                 </div>
               ) : null}
@@ -664,7 +662,7 @@ function Academy() {
         </div>
         <ComplianceNote
           className="mt-6"
-          text="Refund window: full to 7 days after the first class, 50% to the end of Module 2, none after. See the Refund & Cancellation Policy."
+          text="Refunds: full up to 7 days after class starts, 50% until the end of Module 2, nothing after that."
         />
       </Section>
     </>

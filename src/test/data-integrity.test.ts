@@ -78,14 +78,13 @@ describe("package data completeness", () => {
 
 describe("compliance copy", () => {
   it("keeps the mandated disclaimers in the data layer", () => {
-    expect(COMPLIANCE_NOTES.visa).toMatch(/solely with the relevant embassy/);
-    expect(COMPLIANCE_NOTES.passport).toMatch(
-      /issued solely by the relevant government authority|issuance, biometrics and approvals are handled solely/,
-    );
+    // Plain English is the house style; the promise each note makes is the contract.
+    expect(COMPLIANCE_NOTES.visa).toMatch(/approved only by the embassy or immigration office/i);
+    expect(COMPLIANCE_NOTES.passport).toMatch(/only the government can issue a passport/i);
     expect(COMPLIANCE_NOTES.academy).toMatch(/not IATA or government accreditation/);
     expect(COMPLIANCE_NOTES.jobs).toMatch(/example role categories, not live vacancies/);
     expect(COMPLIANCE_NOTES.financing).toMatch(/not a lender/);
-    expect(COMPLIANCE_NOTES.fees).toMatch(/separately from Hague Travel agency fees/);
+    expect(COMPLIANCE_NOTES.fees).toMatch(/Every invoice shows two lines/i);
   });
 
   it("keeps the booking-panel disclaimer wording verbatim", () => {

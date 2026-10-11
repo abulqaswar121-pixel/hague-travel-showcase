@@ -44,7 +44,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/dashboard")({
   head: pageMeta(
     "Your Travel Desk — Demo Dashboard",
-    "A preview of the client dashboard: enquiry status, application trackers, document vault, Academy progress, saved packages and payment balances.",
+    "A preview of the client dashboard: enquiry status, application trackers, your documents, Academy progress, saved trips and what you still owe.",
     { robots: "noindex" },
   ),
   component: Dashboard,
@@ -356,8 +356,9 @@ function EnquiriesPanel() {
         </TableBody>
       </Table>
       <div className="border-t border-border p-4 text-xs text-muted-foreground">
-        Indicative quotations expire on the date printed in the email. Nothing here is a confirmed
-        booking — a booking exists only when the supplier confirms and we issue your documents.
+        Guide quotes expire on the date in the email. Nothing here is a booked ticket. A booking
+        exists only when the airline, hotel or supplier says yes, our system records it, and you get
+        the paper.
       </div>
     </div>
   );
@@ -451,9 +452,8 @@ function ApplicationsPanel() {
               </p>
               <p className="mt-2 text-sm leading-relaxed font-medium">{a.nextAction}</p>
               <p className="mt-3 text-[11px] leading-relaxed opacity-80">
-                Deadlines come from the university and the visa authority, not from us. Missing one
-                restarts the queue — that is the only part of this process we genuinely cannot
-                rescue.
+                The school and the visa office set these dates, not us. Miss one and the queue
+                starts again — that is the one part of this we cannot fix for you.
               </p>
               <button
                 type="button"
@@ -481,7 +481,7 @@ function DocumentsPanel() {
         <div>
           <p className="font-display text-xl">Document vault</p>
           <p className="mt-1 text-xs text-muted-foreground">
-            Encrypted at rest, visible to your assigned consultant only, purged 14 days after
+            Encrypted on our servers, visible only to your consultant, and deleted 14 days after you
             travel.
           </p>
         </div>

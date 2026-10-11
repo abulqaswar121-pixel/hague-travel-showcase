@@ -69,7 +69,7 @@ type RawSearch = Record<string, unknown>;
 export const Route = createFileRoute("/flights")({
   head: pageMeta(
     "Flight Booking & Quotations",
-    "Search domestic and international flights with cabin, baggage and fare-condition comparison. Every fare is indicative until a consultant confirms it with the airline.",
+    "Search domestic and international flights with cabins, bags and fare rules side by side. Prices are a guide until a consultant checks with the airline.",
   ),
   validateSearch: readSearch,
   component: Flights,
@@ -158,7 +158,7 @@ function Flights() {
             Fly anywhere, <em className="text-gold">with a human</em> on your side.
           </>
         }
-        sub="Compare cabins, baggage and connections yourself — then a consultant confirms live availability, fare rules and the final price with the airline before anything is issued."
+        sub="Compare cabins, bags and stops yourself. Then a consultant checks the live fare with the airline before we issue anything."
       />
 
       <div className="relative z-10 mx-auto -mt-14 max-w-7xl px-4 sm:px-5">
@@ -170,7 +170,7 @@ function Flights() {
         title={
           searched ? `Indicative options · ${from} → ${to}` : "Run a search to see sample options"
         }
-        sub="These are demonstration results generated for the preview. They are not live inventory and nothing here is confirmed."
+        sub="Sample results for this preview. Not live seats. Nothing here is booked."
         size="sm"
       >
         {searched ? (
@@ -295,10 +295,9 @@ function Flights() {
               <Notice title="Nothing here is a ticket">
                 <IndicativeTag className="mt-2" />
                 <p className="mt-2">
-                  Fares, seats and baggage allowances are illustrative. Your consultant requests
-                  live availability from the airline or consolidator and sends a written quotation
-                  with total fare, baggage rules and fare conditions. Only after you accept and pay
-                  is a ticket issued.
+                  Fares, seats and bags on this page are examples. Your consultant asks the airline
+                  for the live price, then sends a written quote with the total fare, the bags and
+                  the rules.
                 </p>
               </Notice>
               <div className="rounded-2xl border border-border bg-secondary p-5 text-sm leading-relaxed">
@@ -318,9 +317,9 @@ function Flights() {
             <Search className="mx-auto h-8 w-8 text-muted-foreground" />
             <p className="mt-3 font-semibold">No search yet</p>
             <p className="mx-auto mt-1.5 max-w-md text-sm leading-relaxed text-muted-foreground">
-              Use the panel above, or pick a popular route on the homepage. This preview generates
-              sample results so you can see the full flow — search, indicative options, then a
-              consultant-handled quotation request.
+              Use the panel above, or tap a route on the home page. This preview makes sample
+              results, so you can see the full flow: search, compare, then a real quote from a
+              person.
             </p>
           </div>
         )}
@@ -331,7 +330,7 @@ function Flights() {
         tone="muted"
         eyebrow="What this desk handles"
         title="Every kind of journey, one team"
-        sub="Domestic and international, one-way to multi-round-the-world, published fares to negotiated group blocks."
+        sub="One way, return or many cities. Nigeria or abroad. Published fares or group blocks."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {[
@@ -341,7 +340,7 @@ function Flights() {
             },
             {
               t: "One-way, return, multi-city",
-              d: "Mixed cabins and open jaws are fine — we price them properly instead of forcing two tickets.",
+              d: "Want two cities or mixed cabins? That is fine. We price it as one trip, not two tickets.",
             },
             {
               t: "Cabin, baggage & connections",
@@ -349,7 +348,7 @@ function Flights() {
             },
             {
               t: "Group, family, student, corporate",
-              d: "Blocks, installments, name-change rules and duty-of-care documentation.",
+              d: "Room blocks, payment plans, name-change rules and safety records.",
             },
             {
               t: "Flexible dates & special requests",
@@ -378,7 +377,7 @@ function Flights() {
                 ? `Flight quotation request — ${selected.airline}`
                 : "Request a flight quotation"
             }
-            description="A consultant works your request, checks live availability and replies with a written quote. This form does not hold a seat or issue a ticket."
+            description="A consultant checks live seats and sends a written quote. This form does not hold a seat or write a ticket."
             cta="Get my written quotation"
             refPrefix="HTQ"
             successTitle="Quotation request received"

@@ -13,7 +13,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/study-abroad")({
   head: pageMeta(
     "Study Abroad with Hague Travel",
-    "Destinations, admissions support, visa documentation, financial-evidence discipline and pre-departure orientation — with verified partner coverage.",
+    "Countries, admissions help, visa papers and pre-departure support — with verified partner coverage.",
   ),
   component: StudyAbroadLayout,
 });

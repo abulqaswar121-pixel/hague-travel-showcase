@@ -14,7 +14,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/hotels")({
   head: pageMeta(
     "Hotels, Apartments & Long-Stay Housing",
-    "Search hotels, serviced apartments and villas with star and amenity filters, plus dedicated long-stay housing for students and relocating professionals.",
+    "Search hotels, apartments and villas by price, stars and amenities, plus long-stay housing for students and people moving for work.",
   ),
   component: Hotels,
 });
@@ -150,7 +150,7 @@ function Hotels() {
             Rest well, <em className="text-gold">wherever</em> you land.
           </>
         }
-        sub="Hotels, serviced apartments, hostels and villas with the filters you expect — plus a dedicated long-stay desk for students and relocating professionals."
+        sub="Hotels, apartments, hostels and villas, with the filters you expect. Plus a long-stay desk for students and people moving."
       />
 
       <Section eyebrow="Search" title="Find the stay, then let us hold it" size="sm">
@@ -280,7 +280,7 @@ function Hotels() {
       <Section
         eyebrow="Availability"
         title={`${filtered.length} stay${filtered.length === 1 ? "" : "s"} matching your filters`}
-        sub="Rates are indicative per room per night. Cancellation rules and inclusions are confirmed with the property before payment."
+        sub="Prices are per room, per night, as a guide. We check the cancel rules with the property before you pay."
         size="sm"
       >
         {filtered.length ? (
@@ -301,8 +301,8 @@ function Hotels() {
           </div>
         ) : (
           <Notice tone="sea" icon={Search} title="Nothing matched — widen the search">
-            Try removing an amenity or raising the nightly budget. Or send us the brief: our desk
-            sources inventory beyond what is displayed here.
+            Drop an amenity, or raise the nightly budget. Or send us your brief — we find rooms that
+            are not listed here.
           </Notice>
         )}
         <ComplianceNote className="mt-5" text={COMPLIANCE_NOTES.indicative} />
@@ -338,10 +338,9 @@ function Hotels() {
             <TabsContent value="short" className="mt-6">
               <div className="rounded-3xl glass p-6">
                 <p className="max-w-2xl text-sm leading-relaxed text-ink-foreground/85">
-                  Booking vouchers, cancellation rules and reservation support come from our hotel
-                  desk. Family rooms, airport hotels and long-stay rates are all requested against
-                  the same file as your flight, so a delay on one leg rebooks the other without you
-                  chasing anyone.
+                  Our hotel desk sends your voucher and the cancel rules. Family rooms, airport
+                  hotels and long stays sit on the same file as your flight, so if one leg moves we
+                  rebook the other without you chasing anyone.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   <Pill>Vouchers by email</Pill>
@@ -355,10 +354,9 @@ function Hotels() {
             <TabsContent value="long" className="mt-6 space-y-5">
               <div className="rounded-3xl glass p-6">
                 <p className="max-w-2xl text-sm leading-relaxed text-ink-foreground/85">
-                  A separate long-stay category for students and relocating professionals: monthly
-                  budgets, deposits, move-in dates and proximity to your university or workplace. We
-                  verify the landlord or provider, review the tenancy terms with you, and never ask
-                  you to send a deposit to an unconfirmed account.
+                  A long-stay section for students and working people: monthly budget, deposit,
+                  move-in date, and how far it is from your school or office. We check the landlord
+                  and the papers first.
                 </p>
               </div>
               <div className="grid gap-4">
@@ -402,7 +400,7 @@ function Hotels() {
               <TabsContent value="hotel" className="mt-4">
                 <EnquiryForm
                   title={enquiring ? "Accommodation enquiry" : "Enquire about a stay"}
-                  description="We check live room availability, exact rate and cancellation rules with the property, then send it in writing."
+                  description="We ask the property for live rooms, the exact rate and the cancel rules, then put it in writing."
                   cta="Send accommodation enquiry"
                   refPrefix="HTH"
                   fields={enquiryFields}
@@ -418,11 +416,11 @@ function Hotels() {
               <TabsContent value="housing" className="mt-4">
                 <EnquiryForm
                   title="Student & relocation housing request"
-                  description="Tell us the budget, the deposit you can fund and where you need to be. We shortlist verified options before you fly."
+                  description="Tell us your budget, the deposit you can pay and where you need to be. We send a short list before you fly."
                   cta="Request housing shortlist"
                   refPrefix="HTL"
                   fields={housingFields}
-                  note="We never ask you to transfer a deposit to an unverified account. Tenancy terms are reviewed with you before signature."
+                  note="Never send a deposit to an account we have not checked. We read the tenancy terms with you before you sign."
                   successTitle="Housing brief received"
                   successLines={[
                     "We shortlist verified providers inside your monthly budget.",
@@ -464,8 +462,8 @@ function Hotels() {
               </ul>
             </div>
             <Notice title="Taxes and levies">
-              City tax, tourism levies and service charges are shown separately on your confirmation
-              so the number you pay matches the number you approved.
+              City tax, tourism levy and service charges sit on their own lines, so what you pay
+              matches what you said yes to.
             </Notice>
           </div>
         </div>

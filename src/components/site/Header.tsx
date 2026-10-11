@@ -413,8 +413,8 @@ export function Header() {
             </ul>
 
             <div className="mt-5 rounded-2xl bg-ink-foreground/8 p-4 text-xs leading-relaxed text-ink-foreground/70">
-              Prices shown are indicative. Visa and passport decisions rest with the relevant
-              authority — we never guarantee an outcome.
+              Prices are a guide. Only an embassy or a government can approve a visa or a passport —
+              we never promise an outcome.
             </div>
           </nav>
 

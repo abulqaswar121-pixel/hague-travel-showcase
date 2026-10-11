@@ -132,8 +132,7 @@ export function PageHero({
                 <ShieldCheck className="h-4 w-4 text-gold" /> Pay in Naira
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Sparkles className="h-4 w-4 text-gold" /> Indicative prices, never invented
-                bookings
+                <Sparkles className="h-4 w-4 text-gold" /> Guide prices, never invented bookings
               </span>
             </div>
           )}

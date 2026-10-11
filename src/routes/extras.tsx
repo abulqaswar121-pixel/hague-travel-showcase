@@ -34,7 +34,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/extras")({
   head: pageMeta(
     "Airport Transfers, Lounges, eSIM & Travel Extras",
-    "Airport pickups, group coaches, lounge access, SIM and eSIM data, extra baggage, special assistance, car hire, destination guides and printable packing checklists.",
+    "Airport cars, group coaches, lounges, SIM and eSIM data, extra bags, help at the gate, car hire, city guides and printable packing lists.",
   ),
   component: Extras,
 });
@@ -106,7 +106,7 @@ function Extras() {
             The parts that make a trip <em className="text-gold">work</em>.
           </>
         }
-        sub="Airport transfers, lounge access, connectivity, baggage, assistance and the destination knowledge a guide would give you — arranged on the same file as your flight."
+        sub="Airport cars, lounges, data, bags and help at the gate — all on the same file as your flight."
       >
         <div className="flex flex-wrap gap-2">
           <Pill tone="gold">Added to any booking</Pill>
@@ -118,7 +118,7 @@ function Extras() {
       <Section
         eyebrow="Ground & comfort"
         title="Add-ons, priced"
-        sub="Indicative prices confirmed against the supplier before you pay."
+        sub="Guide prices. We check with the supplier before you pay."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {TRAVEL_EXTRAS.map((x, i) => {
@@ -164,9 +164,9 @@ function Extras() {
               A driver who is already tracking your flight
             </h2>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-ink-foreground/80">
-              Every transfer is booked against your flight number. If you are delayed, the driver
-              knows before you reach the curb — that single detail is why families and groups use
-              this desk instead of a ride-hail app at 3am.
+              We book every car against your flight number. If you are late, the driver knows before
+              you step outside. That is why families and groups use this desk instead of an app at
+              3am.
             </p>
             <div className="mt-7">
               <FeatureGrid
@@ -237,9 +237,9 @@ function Extras() {
                 <div className="rounded-3xl glass p-6">
                   <p className="font-display text-2xl">Group & corporate moves</p>
                   <p className="mt-3 text-sm leading-relaxed text-ink-foreground/85">
-                    Coaches for 30–50 travellers, split pickups across terminals, luggage trailers,
-                    a ground manager with a manifest, and one consolidated invoice. Used for
-                    pilgrimage groups, retreats, school teams and rotational crew moves.
+                    Buses for 30 to 50 people, pickups split by terminal, luggage trailers, a ground
+                    manager with a list, and one invoice. Used for pilgrimages, retreats, school
+                    teams and crew moves.
                   </p>
                   <Link
                     to="/corporate"
@@ -257,7 +257,7 @@ function Extras() {
       <Section
         eyebrow="Knowledge"
         title="Destination guides & packing checklists"
-        sub="Written by the consultants who send clients there. No affiliate padding — just what actually matters on day one."
+        sub="Written by the consultants who send people there. No paid links — just what matters on day one."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {DESTINATION_GUIDES.map((g, i) => (
@@ -307,7 +307,7 @@ function Extras() {
         <div className="mx-auto grid max-w-6xl gap-5 px-4 sm:px-5 lg:grid-cols-[1.1fr_1fr]">
           <EnquiryForm
             title="Add an extra to my trip"
-            description="Transfers, lounges, eSIM, baggage, assistance or car hire. Mention your booking reference and we add it to the same file."
+            description="Cars, lounges, eSIM, bags, help or a rental. Send your booking number and we add it to the same file."
             cta="Request this add-on"
             refPrefix="HTX"
             fields={fields}
@@ -321,8 +321,8 @@ function Extras() {
           />
           <div className="space-y-3">
             <Notice title="Not a booking until the supplier confirms">
-              Add-on prices on this page are indicative. A driver, lounge slot or eSIM bundle is
-              only yours once the supplier confirms and we send a voucher.
+              Add-on prices here are a guide. A driver, a lounge or a data plan is yours when the
+              supplier says yes and we send the voucher.
             </Notice>
             <div className="rounded-3xl border border-border bg-card p-5">
               <p className="font-bold">Frequently added together</p>

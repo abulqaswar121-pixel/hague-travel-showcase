@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/visa-disclaimer")({
   head: pageMeta(
     "Visa & Immigration Disclaimer",
-    "Visa and admission decisions rest solely with embassies, consulates and immigration authorities. Hague Travel provides documentation guidance and submission support only.",
+    "Visas and admissions are decided by embassies and immigration offices — never by us. We handle the paperwork and the process, nothing more.",
     { ogType: "article" },
   ),
   component: VisaDisclaimer,
@@ -21,7 +21,7 @@ const SECTIONS: LegalSection[] = [
         h: "Read this first",
         note: COMPLIANCE_NOTES.visa,
         p: [
-          "No agency, consultant, lawyer or 'connection' can decide a visa outcome. The decision belongs exclusively to the embassy, consulate or immigration authority of the country you are applying to, and to the university for admission.",
+          "No agency, consultant, lawyer or 'connection' can decide your visa. Only the embassy or immigration office of the country you are applying to can do that.",
         ],
       },
       {
@@ -66,7 +66,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Our actual scope",
         p: [
-          "Advisory, documentation, appointment booking, submission support, tracking and escalation. Our fee pays for that work. It does not buy influence with an authority, and we will not pretend otherwise.",
+          "Advice, paperwork, appointments, submission help, tracking and escalation. That is what our fee pays for. It does not buy influence with any office, and we will not pretend it does.",
         ],
       },
     ],
@@ -89,7 +89,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Why we ask hard questions",
         p: [
-          "When we ask why you chose this course, this city and this employer, we are rehearsing the exact question at the visa interview. A consultant who never asks you those questions is not assessing your file.",
+          "When we ask why this course, this city, this employer, we are practising the exact question from the visa interview. A consultant who never asks those is not preparing you.",
         ],
       },
       {
@@ -112,25 +112,25 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Fabricated documents",
         p: [
-          "Bank statements, employment letters and offers produced by a 'processor' are fraud. Beyond the refusal, they commonly cause a 10-year deception ban on UK, US, Canadian, Australian and Schengen applications. No visa is worth a decade of your movement.",
+          "Bank statements, job letters and offers made by a 'processor' are fraud. Past the refusal, they usually bring a 10-year deception ban in the UK, US, Canada, Australia and Schengen.",
         ],
       },
       {
         h: "Guaranteed-work scams",
         p: [
-          "An 'employer' who asks for a registration, visa, medical or file fee before a signed contract, and guarantees a visa, is running a scam. Report it to us and we will publish the pattern — never the person's unverified name.",
+          "An 'employer' who asks for money for registration, a visa, a medical or a file before a signed contract — and promises a visa — is running a scam. Tell us, and we publish the pattern without naming you.",
         ],
       },
       {
         h: "Marriage and asylum routes as 'options'",
         p: [
-          "These are not service options for sale. Advising anyone to misrepresent a relationship or a protection claim is criminal encouragement, and we refuse it in writing.",
+          "These are not services for sale. Telling someone to lie about a relationship or an asylum claim is a crime, and we refuse it in writing.",
         ],
       },
       {
         h: "Third parties on social media",
         p: [
-          "We do not operate through unnamed Telegram or WhatsApp handles, we do not accept payment to a personal account, and we do not ask you to 'send cash to the officer'. If someone claims to be us and asks for that, they are not.",
+          "We do not work through unnamed Telegram or WhatsApp handles, we do not take payment to a personal account, and we never ask you to 'send cash to the officer'. If someone claims to be us, check the number on this site first.",
         ],
       },
     ],
@@ -142,19 +142,19 @@ const SECTIONS: LegalSection[] = [
       {
         h: "We are not immigration lawyers",
         p: [
-          "Our consultants are trained and experienced in documentation and process. We are not registered immigration advisers for every destination; where a case needs one — refusals, appeals, criminal history, prior bans — we tell you, and we will work alongside your lawyer rather than compete with them.",
+          "Our consultants know the paperwork and the process. We are not licensed immigration advisers for every country. When a case needs one — refusals, appeals, criminal or protection issues — we say so and work with a licensed adviser instead of pretending.",
         ],
       },
       {
         h: "Rules move",
         p: [
-          "Immigration rules change with little notice. Requirements published on this site are indicative and current to the best of our knowledge at the time of writing; the authority's published rules always govern. We check the live source before every submission, and never a blog.",
+          "Immigration rules change with little warning. What is on this site is a guide, correct when we wrote it. The authority's own rules always win.",
         ],
       },
       {
         h: "Fees and refusal consequences",
         p: [
-          "Application fees are generally non-refundable when a decision is made, whatever the outcome. A refusal also affects your deposit with a university and any airline ticket issued early. That is why we sequence: admission → financial evidence → then tickets.",
+          "Application fees are usually not refundable once a decision is made, whatever that decision is. A refusal also puts your school deposit and any early ticket at risk. That is why we time the payments.",
         ],
       },
     ],
@@ -175,7 +175,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "We will not use your story for marketing",
         p: [
-          "Every success story on this site is used with written consent, with the refusal reasons and hard parts intact. A testimonial that omits the process is not a testimonial, it is an advertisement.",
+          "Every story here is used with written consent, refusal reasons and hard parts included. A testimonial that hides the process is not a testimonial — it is an advert.",
         ],
       },
     ],
@@ -188,7 +188,7 @@ function VisaDisclaimer() {
       eyebrow="Legal & policy"
       title="Visa & Immigration Disclaimer"
       updated="10 October 2026"
-      summary="The most important page on this site. It explains what no agency can promise, what we can be held to, and how to spot the promises that get people banned."
+      summary="The most important page on this site. It says what no agency can promise, what we can be held to, and how to spot the promises that get people banned."
       sections={SECTIONS}
       compliance={COMPLIANCE_NOTES.visa}
     />

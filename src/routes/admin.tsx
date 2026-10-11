@@ -67,7 +67,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/admin")({
   head: pageMeta(
     "Admin Console — Demo",
-    "Preview of the Hague Travel back office: package CMS with draft, scheduled and published states, promo codes with auto-expiry, campaign banners, employer moderation, payments and reporting.",
+    "A look inside the Hague Travel back office: the package manager, promo codes that expire, banners, employer reviews, payments and reports.",
     { robots: "noindex" },
   ),
   component: Admin,
@@ -152,9 +152,8 @@ function Admin() {
                 Hague Travel console
               </h1>
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-foreground/75">
-                What the team sees: the experience CMS that publishes every package on this site,
-                the money, the moderation queue and the reports. Preview data — nothing you change
-                here is saved.
+                What our team sees: the package manager behind every listing on this site, the
+                money, the review queue and the reports. Preview data — no live records.
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -207,9 +206,8 @@ function Admin() {
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-5 lg:py-12">
         <Notice tone="gold" title="Demo console with no persistence">
-          Every button in this preview shows you the workflow — status changes, moderation decisions
-          and toggles update component state only, and are lost on reload. There is no
-          authentication, no database and no audit trail in this build.
+          Every button here shows the workflow. Status changes, review decisions and toggles only
+          update this screen, and are lost when you reload.
         </Notice>
 
         <div className="mt-8">
@@ -230,8 +228,8 @@ function Admin() {
                     <div>
                       <p className="font-display text-xl">Tour packages</p>
                       <p className="mt-1 text-xs text-muted-foreground">
-                        Draft → scheduled → published. Stale offers auto-expire; scheduled rows go
-                        live at 00:01 WAT on their publish date.
+                        Draft, then scheduled, then published. Old offers expire on their own, and
+                        scheduled ones go live at 00:01 WAT on their date.
                       </p>
                     </div>
                     <button
@@ -491,8 +489,8 @@ function Admin() {
                         </LineChart>
                       </ChartContainer>
                       <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
-                        August is the study peak; the dashed gold line marks the ₦10m target the
-                        desk is run against.
+                        August is the study peak. The dashed gold line is the ₦10m monthly target
+                        the desk works to.
                       </p>
                     </div>
                   </div>
@@ -525,8 +523,8 @@ function Admin() {
                       ))}
                     </ul>
                     <p className="mt-4 text-[11px] leading-relaxed text-muted-foreground">
-                      Banners auto-retire at the end of their window so the homepage never
-                      advertises a departed tour.
+                      Banners switch off when their window ends, so the homepage never advertises a
+                      trip that has already gone.
                     </p>
                   </div>
                   <div className="rounded-3xl border border-border bg-card p-5">
@@ -722,8 +720,8 @@ function Admin() {
                     <div>
                       <p className="font-display text-xl">Invoices, balances &amp; refunds</p>
                       <p className="mt-1 text-xs text-muted-foreground">
-                        Government and supplier charges are always carried on separate invoice lines
-                        from agency fees.
+                        Government and supplier charges always sit on their own lines, apart from
+                        our fees.
                       </p>
                     </div>
                     <Pill tone="gold">{COMPLIANCE_NOTES.fees.slice(0, 44)}…</Pill>
@@ -831,7 +829,7 @@ function Admin() {
                   <div className="rounded-3xl border border-border bg-card p-5">
                     <p className="font-bold">Audit log</p>
                     <p className="mt-1 text-xs text-muted-foreground">
-                      Every state change on a client file is written here, with actor and timestamp.
+                      Every change to a client file is written here, with the name and the time.
                     </p>
                     <ol className="mt-4 space-y-2.5">
                       {ACTIVITY_LOG.map((l, i) => (
@@ -848,9 +846,9 @@ function Admin() {
                       ))}
                     </ol>
                     <div className="mt-4 rounded-2xl bg-secondary p-4 text-[11px] leading-relaxed text-muted-foreground">
-                      Retention: identity documents purged 14 days after travel unless the client
-                      asks otherwise; invoices and payment records kept 6 years; access to every
-                      document logged and reviewable.
+                      We keep identity documents for 14 days after travel, then delete them unless
+                      you ask us to hold them. Invoices and payment records stay 6 years. Every file
+                      view is logged.
                     </div>
                   </div>
                 </div>
@@ -863,7 +861,7 @@ function Admin() {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {[
               "Postgres-backed package, client and case records with real permissions and SSO",
-              "Payment gateway webhooks, invoice numbering and reconciliation to the ledger",
+              "Payment webhooks, invoice numbers, and refunds matched to the ledger",
               "Airline/GDS availability and ticketing; hotel content and room-block APIs",
               "Automated document expiry, deadline reminders and WhatsApp/email notifications",
             ].map((x) => (

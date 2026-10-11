@@ -421,7 +421,7 @@ export const STAFF_ROLES = [
   { role: "Visa consultant", people: 4, scope: "Case files, documents, checklists" },
   { role: "Academy instructor", people: 4, scope: "Cohorts, lessons, assessments" },
   { role: "Recruitment moderator", people: 1, scope: "Employer approval, vacancy moderation" },
-  { role: "Finance officer", people: 2, scope: "Payments, balances, refunds, reconciliation" },
+  { role: "Finance officer", people: 2, scope: "Payments, balances, refunds and matching records" },
 ];
 
 export const EMPLOYER_QUEUE = [

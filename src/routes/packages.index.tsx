@@ -13,7 +13,7 @@ import type { Category } from "@/data/types";
 export const Route = createFileRoute("/packages/")({
   head: pageMeta(
     "Holiday & Tour Packages",
-    "Beach escapes, festive departures, honeymoons, family and group tours, African cultural journeys, city breaks, pilgrimage and corporate retreats — with deposits, deadlines and cancellation tiers on every listing.",
+    "Beach trips, festive departures, honeymoons, family and group tours, cultural journeys, city breaks, pilgrimage and retreats — with deposits, deadlines and cancel rules shown.",
   ),
   component: PackagesIndex,
 });
@@ -71,7 +71,7 @@ function PackagesIndex() {
             Holidays worth <em className="text-gold">the wait</em>.
           </>
         }
-        sub="Managed listings, not flyers. Every package shows its itinerary, hotel category, meals, transfers, exclusions, deposit schedule, cancellation tiers, group size, remaining spaces and visa position before you enquire."
+        sub="Real listings, not flyers. Each one shows the day-by-day plan, hotel class, meals, cars, what is left out, the deposit plan, cancel rules, group size, seats left and the visa help you get."
       >
         <div className="flex flex-wrap gap-2">
           <Pill tone="gold">Deposits & staged payments</Pill>
@@ -83,7 +83,7 @@ function PackagesIndex() {
       <Section
         eyebrow="Catalogue"
         title={`${list.length} departure${list.length === 1 ? "" : "s"} open`}
-        sub="Filter by the nine package categories the CMS supports. Prices are indicative per person and confirmed against live supplier inventory."
+        sub="Nine trip types, straight from the CMS. Prices are per person, as a guide, until the supplier confirms."
         size="sm"
         action={
           <button
@@ -192,8 +192,8 @@ function PackagesIndex() {
             <Palmtree className="mx-auto h-8 w-8 text-muted-foreground" />
             <p className="mt-3 font-semibold">No departure matches those filters</p>
             <p className="mx-auto mt-1.5 max-w-sm text-sm text-muted-foreground">
-              Past-date listings expire automatically. Tell us what you want and we will build it as
-              a private group departure.
+              Old dates drop off on their own. Tell us what you want and we will build it as a
+              private group trip.
             </p>
             <button
               type="button"
@@ -209,15 +209,15 @@ function PackagesIndex() {
           {[
             {
               t: "Every listing is managed",
-              d: "Authorised staff create, duplicate, schedule, publish, unpublish and archive packages without a developer. Seasonal campaigns, promo codes and early-bird pricing are set per listing.",
+              d: "Our team can create, copy, set a date, publish, hide or archive a trip — no developer needed. Campaigns, promo codes and early-bird prices are set on each listing.",
             },
             {
-              t: "Prices confirmed, not invented",
-              d: "What you see is indicative. Your consultant confirms live availability, hotel category and flight inventory before any invoice is raised.",
+              t: "Prices checked, not invented",
+              d: "What you see is a guide. Your consultant checks live seats, hotel class and flights before we send an invoice.",
             },
             {
               t: "Capacity you can trust",
-              d: "Minimum and maximum group size and remaining spaces are live fields — if the minimum is not met, we offer a date change or a full refund of unpaid balances.",
+              d: "Group minimums and seats left are live numbers. If the minimum is not met, we offer new dates or return your money.",
             },
           ].map((x) => (
             <div key={x.t} className="rounded-2xl border border-border bg-secondary p-5">

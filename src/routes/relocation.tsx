@@ -25,7 +25,7 @@ import { pageMeta } from "@/lib/meta";
 export const Route = createFileRoute("/relocation")({
   head: pageMeta(
     "Work Visas, Overseas Jobs & Professional Relocation",
-    "Work-permit guidance, verified overseas opportunity screening, family relocation planning, housing, baggage, airport pickup, settlement orientation and transparent education-financing referrals.",
+    "Permit guidance, checked overseas roles, family planning, housing, bags, airport pickup, settling in, and open referrals to finance partners.",
   ),
   component: Relocation,
 });
@@ -101,10 +101,10 @@ function Relocation() {
             Moving countries is a <em className="text-gold">project</em>, not a ticket.
           </>
         }
-        sub="Readiness assessment, pathway choice, documents, family planning, housing, freight, pickup and settlement — run by a consultant who has done the move before."
+        sub="Check if you are ready, pick a pathway, sort your papers, plan for the family, find a home, move your things and settle in — with a consultant who has moved before."
       >
         <div className="flex flex-wrap gap-2">
-          <Pill tone="gold">Pathway-first advice</Pill>
+          <Pill tone="gold">Routes before promises</Pill>
           <Pill tone="gold">Employer verification</Pill>
           <Pill>Family moves welcome</Pill>
         </div>
@@ -115,10 +115,9 @@ function Relocation() {
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:px-5 md:flex-row md:items-center">
           <ShieldAlert className="h-6 w-6 shrink-0 text-accent-foreground" />
           <p className="text-sm leading-relaxed text-accent-foreground">
-            <span className="font-black uppercase tracking-wider">Safeguard:</span> we do not
-            advertise guaranteed visas, guaranteed jobs or unverified sponsorships. Employers and
-            recruitment partners are verified, service fees are disclosed, and we comply with the
-            employment and immigration rules of the relevant country.
+            <span className="font-black uppercase tracking-wider">Safeguard:</span> We never promise
+            a visa, a job or a sponsor. We check every employer and partner, state our fees in
+            writing, and follow the work and immigration rules of each country.
           </p>
         </div>
       </div>
@@ -127,7 +126,7 @@ function Relocation() {
       <Section
         eyebrow="The consultation workflow"
         title="Eight stages, each with a defined output"
-        sub="You always know which stage you are in, what you owe and what the next deliverable is."
+        sub="You always know your stage, what you owe and what comes next."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {RELOCATION_WORKFLOW.map((w, i) => (
@@ -151,7 +150,7 @@ function Relocation() {
         tone="muted"
         eyebrow="Services & pricing"
         title="What you can buy, and what it costs"
-        sub="Each line is a service, not a promise about an outcome. Government and third-party charges are always separate."
+        sub="Each line is work we do, not a promise about the result. Government and partner costs stay on their own lines."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {RELOCATION_SERVICES.map((s, i) => (
@@ -192,8 +191,8 @@ function Relocation() {
       {/* Overseas jobs pointer */}
       <Section
         eyebrow="Overseas opportunities"
-        title="Employer-sponsored listings, screened before they reach you"
-        sub="Every advertised role must show the employer or partner, country, duties, qualifications, verified salary where available, work-authorisation requirements, deadline and the source of the vacancy."
+        title="Job listings we check before you see them"
+        sub="Every listing must name the employer, country, duties, what they want, the real salary if there is one, the permit rules, the deadline and where the job came from."
       >
         <div className="grid gap-4 lg:grid-cols-[1.3fr_1fr]">
           <Reveal>
@@ -292,8 +291,8 @@ function Relocation() {
               title="Nothing is approved until the lender says so"
               className="mt-5"
             >
-              We help you apply properly and track the outcome. We never represent financing as
-              approved before written confirmation from the lender.
+              We help you apply well and follow the result. We never call financing approved until
+              the lender says so in writing.
             </Notice>
           </div>
         </div>
@@ -331,11 +330,11 @@ function Relocation() {
         <div className="mx-auto max-w-3xl px-4 sm:px-5">
           <EnquiryForm
             title="Request a relocation consultation"
-            description="A 60-minute session: your profile, realistic pathways, total cost and what to fix first. Written summary afterwards."
+            description="60 minutes on your profile: real pathways, the true cost, and what to fix first. You get a written summary after."
             cta="Book my consultation"
             refPrefix="HTR"
             fields={fields}
-            note="Consultation fee is quoted on booking and is separate from any government or third-party charge."
+            note="The consult fee is quoted when you book. It is separate from any government or partner charge."
             successTitle="Consultation requested"
             successLines={[
               "We confirm a slot inside desk hours and send a short document checklist.",

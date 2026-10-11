@@ -268,7 +268,7 @@ function JobDetail() {
         <div className="mx-auto max-w-3xl px-4 sm:px-5">
           <MultiStepForm
             title={`Apply — ${job.title}`}
-            description="Your answers stay in this browser. In production they become a candidate record on the partner desk."
+            description="Your answers stay in this browser. Later they become a candidate record on the partner desk."
             cta="Submit my profile"
             refPrefix="HTJA"
             steps={[
