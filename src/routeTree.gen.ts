@@ -10,14 +10,36 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AcademyRouteImport } from './routes/academy'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as FlightsRouteImport } from './routes/flights'
 import { Route as HotelsRouteImport } from './routes/hotels'
+import { Route as JobsRouteImport } from './routes/jobs'
+import { Route as PassportsRouteImport } from './routes/passports'
+import { Route as RelocationRouteImport } from './routes/relocation'
+import { Route as StudyAbroadRouteImport } from './routes/study-abroad'
 import { Route as PackagesIndexRouteImport } from './routes/packages.index'
 import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademyRoute = AcademyRouteImport.update({
+  id: '/academy',
+  path: '/academy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CorporateRoute = CorporateRouteImport.update({
+  id: '/corporate',
+  path: '/corporate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FlightsRoute = FlightsRouteImport.update({
@@ -28,6 +50,26 @@ const FlightsRoute = FlightsRouteImport.update({
 const HotelsRoute = HotelsRouteImport.update({
   id: '/hotels',
   path: '/hotels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobsRoute = JobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PassportsRoute = PassportsRouteImport.update({
+  id: '/passports',
+  path: '/passports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RelocationRoute = RelocationRouteImport.update({
+  id: '/relocation',
+  path: '/relocation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudyAbroadRoute = StudyAbroadRouteImport.update({
+  id: '/study-abroad',
+  path: '/study-abroad',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PackagesIndexRoute = PackagesIndexRouteImport.update({
@@ -43,39 +85,103 @@ const PackagesSlugRoute = PackagesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/academy': typeof AcademyRoute
+  '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
   '/flights': typeof FlightsRoute
   '/hotels': typeof HotelsRoute
+  '/jobs': typeof JobsRoute
+  '/passports': typeof PassportsRoute
+  '/relocation': typeof RelocationRoute
+  '/study-abroad': typeof StudyAbroadRoute
   '/packages/$slug': typeof PackagesSlugRoute
   '/packages/': typeof PackagesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/academy': typeof AcademyRoute
+  '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
   '/flights': typeof FlightsRoute
   '/hotels': typeof HotelsRoute
+  '/jobs': typeof JobsRoute
+  '/passports': typeof PassportsRoute
+  '/relocation': typeof RelocationRoute
+  '/study-abroad': typeof StudyAbroadRoute
   '/packages/$slug': typeof PackagesSlugRoute
   '/packages': typeof PackagesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/academy': typeof AcademyRoute
+  '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
   '/flights': typeof FlightsRoute
   '/hotels': typeof HotelsRoute
+  '/jobs': typeof JobsRoute
+  '/passports': typeof PassportsRoute
+  '/relocation': typeof RelocationRoute
+  '/study-abroad': typeof StudyAbroadRoute
   '/packages/$slug': typeof PackagesSlugRoute
   '/packages/': typeof PackagesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/flights' | '/hotels' | '/packages/$slug' | '/packages/'
+  fullPaths:
+    | '/'
+    | '/academy'
+    | '/contact'
+    | '/corporate'
+    | '/flights'
+    | '/hotels'
+    | '/jobs'
+    | '/passports'
+    | '/relocation'
+    | '/study-abroad'
+    | '/packages/$slug'
+    | '/packages/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/flights' | '/hotels' | '/packages/$slug' | '/packages'
+  to:
+    | '/'
+    | '/academy'
+    | '/contact'
+    | '/corporate'
+    | '/flights'
+    | '/hotels'
+    | '/jobs'
+    | '/passports'
+    | '/relocation'
+    | '/study-abroad'
+    | '/packages/$slug'
+    | '/packages'
   id:
-    '__root__' | '/' | '/flights' | '/hotels' | '/packages/$slug' | '/packages/'
+    | '__root__'
+    | '/'
+    | '/academy'
+    | '/contact'
+    | '/corporate'
+    | '/flights'
+    | '/hotels'
+    | '/jobs'
+    | '/passports'
+    | '/relocation'
+    | '/study-abroad'
+    | '/packages/$slug'
+    | '/packages/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AcademyRoute: typeof AcademyRoute
+  ContactRoute: typeof ContactRoute
+  CorporateRoute: typeof CorporateRoute
   FlightsRoute: typeof FlightsRoute
   HotelsRoute: typeof HotelsRoute
+  JobsRoute: typeof JobsRoute
+  PassportsRoute: typeof PassportsRoute
+  RelocationRoute: typeof RelocationRoute
+  StudyAbroadRoute: typeof StudyAbroadRoute
   PackagesSlugRoute: typeof PackagesSlugRoute
   PackagesIndexRoute: typeof PackagesIndexRoute
 }
@@ -87,6 +193,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academy': {
+      id: '/academy'
+      path: '/academy'
+      fullPath: '/academy'
+      preLoaderRoute: typeof AcademyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate': {
+      id: '/corporate'
+      path: '/corporate'
+      fullPath: '/corporate'
+      preLoaderRoute: typeof CorporateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/flights': {
@@ -101,6 +228,34 @@ declare module '@tanstack/react-router' {
       path: '/hotels'
       fullPath: '/hotels'
       preLoaderRoute: typeof HotelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jobs': {
+      id: '/jobs'
+      path: '/jobs'
+      fullPath: '/jobs'
+      preLoaderRoute: typeof JobsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/passports': {
+      id: '/passports'
+      path: '/passports'
+      fullPath: '/passports'
+      preLoaderRoute: typeof PassportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/relocation': {
+      id: '/relocation'
+      path: '/relocation'
+      fullPath: '/relocation'
+      preLoaderRoute: typeof RelocationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/study-abroad': {
+      id: '/study-abroad'
+      path: '/study-abroad'
+      fullPath: '/study-abroad'
+      preLoaderRoute: typeof StudyAbroadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/packages/': {
@@ -122,8 +277,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AcademyRoute: AcademyRoute,
+  ContactRoute: ContactRoute,
+  CorporateRoute: CorporateRoute,
   FlightsRoute: FlightsRoute,
   HotelsRoute: HotelsRoute,
+  JobsRoute: JobsRoute,
+  PassportsRoute: PassportsRoute,
+  RelocationRoute: RelocationRoute,
+  StudyAbroadRoute: StudyAbroadRoute,
   PackagesSlugRoute: PackagesSlugRoute,
   PackagesIndexRoute: PackagesIndexRoute,
 }
