@@ -86,7 +86,7 @@ ${join(housing)}
 STUDY-ABROAD DESTINATIONS
 ${join(study)}
 
-HAQUE TRAVEL ACADEMY — OPEN COHORTS
+HAGUE TRAVEL ACADEMY — OPEN COHORTS
 ${join(cohorts)}
 
 REMOTE / TRAVEL JOBS CURRENTLY LISTED (no fees ever charged to apply)
