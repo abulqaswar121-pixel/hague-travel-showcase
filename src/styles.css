@@ -75,32 +75,32 @@
 :root {
   --radius: 0.875rem;
 
-  --background: oklch(0.986 0.006 85);
-  --foreground: oklch(0.21 0.032 235);
+  --background: oklch(0.981 0.005 258);
+  --foreground: oklch(0.214 0.048 258);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.21 0.032 235);
+  --card-foreground: oklch(0.214 0.048 258);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.21 0.032 235);
+  --popover-foreground: oklch(0.214 0.048 258);
 
-  /* Ocean teal — Hague Travel's own accent, distinct from Hague Export's vermilion */
-  --primary: oklch(0.45 0.085 197);
-  --primary-foreground: oklch(0.98 0.012 190);
+  /* Navy base, vermilion for actions and highlights, gold for secondary highlights */
+  --primary: oklch(0.589 0.192 37);
+  --primary-foreground: oklch(0.985 0.01 45);
 
-  --secondary: oklch(0.945 0.022 192);
-  --secondary-foreground: oklch(0.28 0.05 220);
-  --muted: oklch(0.957 0.011 85);
-  --muted-foreground: oklch(0.51 0.025 225);
-  --accent: oklch(0.93 0.045 75);
-  --accent-foreground: oklch(0.3 0.06 60);
+  --secondary: oklch(0.962 0.011 257);
+  --secondary-foreground: oklch(0.313 0.082 260);
+  --muted: oklch(0.969 0.008 254);
+  --muted-foreground: oklch(0.499 0.047 258);
+  --accent: oklch(0.962 0.058 96);
+  --accent-foreground: oklch(0.392 0.125 38);
 
-  --gold: oklch(0.79 0.142 72);
-  --gold-foreground: oklch(0.23 0.05 60);
-  --ink: oklch(0.19 0.045 232);
-  --ink-foreground: oklch(0.97 0.014 190);
-  --sea: oklch(0.72 0.1 198);
-  --sea-foreground: oklch(0.2 0.05 220);
-  --sunset: oklch(0.66 0.19 25);
-  --sunset-foreground: oklch(0.99 0.006 30);
+  --gold: oklch(0.666 0.157 58);
+  --gold-foreground: oklch(0.272 0.057 59);
+  --ink: oklch(0.214 0.048 258);
+  --ink-foreground: oklch(0.955 0.014 255);
+  --sea: oklch(0.595 0.17 256);
+  --sea-foreground: oklch(0.985 0.008 255);
+  --sunset: oklch(0.733 0.172 42);
+  --sunset-foreground: oklch(0.3 0.09 35);
   --success: oklch(0.64 0.15 152);
   --success-foreground: oklch(0.18 0.04 160);
   --whatsapp: oklch(0.7 0.163 152);
@@ -108,38 +108,38 @@
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.9 0.014 85);
-  --input: oklch(0.9 0.014 85);
-  --ring: oklch(0.45 0.085 197);
+  --border: oklch(0.919 0.019 256);
+  --input: oklch(0.919 0.019 256);
+  --ring: oklch(0.589 0.192 37);
 
-  --chart-1: oklch(0.45 0.085 197);
-  --chart-2: oklch(0.79 0.142 72);
-  --chart-3: oklch(0.66 0.19 25);
-  --chart-4: oklch(0.72 0.1 150);
-  --chart-5: oklch(0.6 0.09 250);
+  --chart-1: oklch(0.589 0.192 37);
+  --chart-2: oklch(0.666 0.157 58);
+  --chart-3: oklch(0.512 0.116 259);
+  --chart-4: oklch(0.595 0.17 256);
+  --chart-5: oklch(0.743 0.077 260);
 
-  --sidebar: oklch(0.98 0.01 190);
-  --sidebar-foreground: oklch(0.21 0.032 235);
-  --sidebar-primary: oklch(0.45 0.085 197);
-  --sidebar-primary-foreground: oklch(0.98 0.012 190);
-  --sidebar-accent: oklch(0.945 0.022 192);
-  --sidebar-accent-foreground: oklch(0.28 0.05 220);
-  --sidebar-border: oklch(0.9 0.014 85);
-  --sidebar-ring: oklch(0.45 0.085 197);
+  --sidebar: oklch(0.969 0.008 254);
+  --sidebar-foreground: oklch(0.214 0.048 258);
+  --sidebar-primary: oklch(0.589 0.192 37);
+  --sidebar-primary-foreground: oklch(0.985 0.01 45);
+  --sidebar-accent: oklch(0.936 0.037 54);
+  --sidebar-accent-foreground: oklch(0.392 0.125 38);
+  --sidebar-border: oklch(0.919 0.019 256);
+  --sidebar-ring: oklch(0.589 0.192 37);
 
   --gradient-hero: linear-gradient(
     180deg,
-    oklch(0.19 0.045 232 / 0.62) 0%,
-    oklch(0.19 0.045 232 / 0.32) 38%,
-    oklch(0.19 0.045 232 / 0.92) 100%
+    oklch(0.214 0.048 258 / 0.62) 0%,
+    oklch(0.214 0.048 258 / 0.34) 38%,
+    oklch(0.214 0.048 258 / 0.94) 100%
   );
-  --gradient-gold: linear-gradient(135deg, oklch(0.85 0.13 82), oklch(0.72 0.16 55));
-  --gradient-ink: linear-gradient(160deg, oklch(0.25 0.05 225), oklch(0.15 0.04 238));
-  --gradient-sea: linear-gradient(140deg, oklch(0.55 0.1 200), oklch(0.35 0.09 220));
-  --gradient-sunset: linear-gradient(135deg, oklch(0.75 0.17 40), oklch(0.6 0.2 15));
-  --shadow-elegant: 0 30px 60px -22px oklch(0.2 0.05 230 / 0.34);
-  --shadow-soft: 0 10px 30px -14px oklch(0.2 0.05 230 / 0.24);
-  --shadow-gold: 0 14px 30px -12px oklch(0.75 0.15 60 / 0.55);
+  --gradient-gold: linear-gradient(135deg, oklch(0.816 0.14 82), oklch(0.666 0.157 58));
+  --gradient-ink: linear-gradient(160deg, oklch(0.27 0.06 258), oklch(0.17 0.045 258));
+  --gradient-sea: linear-gradient(140deg, oklch(0.595 0.17 256), oklch(0.313 0.082 260));
+  --gradient-sunset: linear-gradient(135deg, oklch(0.733 0.172 42), oklch(0.589 0.192 37));
+  --shadow-elegant: 0 30px 60px -22px oklch(0.214 0.048 258 / 0.34);
+  --shadow-soft: 0 10px 30px -14px oklch(0.214 0.048 258 / 0.24);
+  --shadow-gold: 0 14px 30px -12px oklch(0.666 0.157 58 / 0.5);
 }
 
 @layer base {

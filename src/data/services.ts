@@ -711,7 +711,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: "How do I complain or escalate?",
-    a: "Write to complaints@haguetravel.example with your booking reference. We acknowledge within one business day, resolve within seven, and give you the escalation route to the relevant consumer body if we fail.",
+    a: "Write to info@haguetravel.com with your booking reference. We acknowledge within one business day, resolve within seven, and give you the escalation route to the relevant consumer body if we fail.",
     topic: "Support",
   },
 ];

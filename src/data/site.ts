@@ -21,11 +21,11 @@ export const BRAND = {
   siteLine: "Flights. Holidays. Hotels. Study Abroad. Work Abroad. Relocation. Travel Careers.",
   company: "Hague Travel (a brand of Hague Digital Solutions)",
   rc: "RC-3789349",
-  email: "hello@haguetravel.example",
-  desk: "desk@haguetravel.example",
+  email: "info@haguetravel.com",
+  desk: "info@haguetravel.com",
   phone: "+234 810 395 4351",
   hours: "Mon–Sat, 8:00am – 10:00pm WAT",
-  address: "Ikeja, Lagos, Nigeria · Remote support worldwide",
+  address: "Suite 5, Hague House, Victoria Island, Lagos, Nigeria",
 } as const;
 
 /**

@@ -180,7 +180,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "The process",
         list: [
-          "Reply to your booking confirmation or email desk@haguetravel.example with your reference",
+          "Reply to your booking confirmation or email info@haguetravel.com with your reference",
           "State what you are cancelling and why — it changes which rules apply",
           "We acknowledge within one working day and send the calculated figures in writing",
           "You confirm acceptance of the figures",
@@ -197,7 +197,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "Disputes",
         p: [
-          "Unhappy with a decision? Email desk@haguetravel.example with REFUND ESCALATION in the subject. A lead reads it within 3 working days and the managing partner within 7. Every escalation ends with a written answer.",
+          "Unhappy with a decision? Email info@haguetravel.com with REFUND ESCALATION in the subject. A lead reads it within 3 working days and the managing partner within 7. Every escalation ends with a written answer.",
         ],
       },
     ],

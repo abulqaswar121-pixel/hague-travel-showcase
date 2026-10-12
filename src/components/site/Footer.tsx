@@ -67,8 +67,14 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-5 pb-28 pt-16 lg:pb-16">
         <div className="grid gap-10 lg:grid-cols-[1.3fr_2.4fr]">
           <div>
-            <p className="font-display text-3xl leading-tight">{BRAND.name}</p>
-            <p className="mt-1.5 text-sm font-semibold text-gold">{BRAND.tagline}</p>
+            <img
+              src="/logo.png"
+              alt={`${BRAND.name} logo`}
+              width={760}
+              height={570}
+              className="h-24 w-auto sm:h-28"
+            />
+            <p className="mt-2 text-sm font-semibold text-gold">{BRAND.tagline}</p>
             <p className="mt-2 text-xs text-ink-foreground/55">{BRAND.group}</p>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink-foreground/70">
               {BRAND.siteLine}

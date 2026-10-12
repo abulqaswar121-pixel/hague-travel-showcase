@@ -13,7 +13,7 @@ export const Route = createFileRoute("/terms")({
 });
 
 const BRAND_LINE =
-  "Send complaints and questions to desk@haguetravel.example, or the WhatsApp line shown on every page.";
+  "Send complaints and questions to info@haguetravel.com, or the WhatsApp line shown on every page.";
 
 const SECTIONS: LegalSection[] = [
   {

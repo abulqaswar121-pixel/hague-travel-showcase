@@ -166,7 +166,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "See something wrong?",
         list: [
-          "Anyone asking candidates or clients for a 'guaranteed visa' fee — report it to desk@haguetravel.example",
+          "Anyone asking candidates or clients for a 'guaranteed visa' fee — report it to info@haguetravel.com",
           "An employer demanding payment for a listing or visa — we reject them and warn the network",
           "A document offered to you as 'processed' — send us the screenshot before you pay",
           "One of our own staff requesting a payment outside an invoice — escalate to the managing partner",

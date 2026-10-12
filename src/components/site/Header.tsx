@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { ChevronDown, Globe2, LayoutDashboard, Menu, MessageCircle, Plane, X } from "lucide-react";
+import { ChevronDown, Globe2, LayoutDashboard, Menu, MessageCircle, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCurrency } from "@/lib/currency";
 import { SmartLink } from "./SmartLink";
@@ -84,9 +84,13 @@ export function Header() {
             className="group flex shrink-0 items-center gap-2.5 text-ink-foreground"
             aria-label={`${BRAND.name} home`}
           >
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-gold-gradient shadow-gold transition group-hover:rotate-12 lg:h-10 lg:w-10">
-              <Plane className="h-4 w-4 -rotate-45 text-gold-foreground lg:h-[18px] lg:w-[18px]" />
-            </span>
+            <img
+              src="/logo-mark.png"
+              alt=""
+              width={640}
+              height={320}
+              className="h-8 w-auto shrink-0 transition group-hover:-translate-y-px lg:h-9"
+            />
             <span className="leading-none">
               <span className="block font-display text-lg font-semibold tracking-tight lg:text-xl">
                 {BRAND.name}
@@ -180,7 +184,7 @@ export function Header() {
               href={waLink(waMessages.general)}
               target="_blank"
               rel="noreferrer"
-              className="hidden items-center gap-2 rounded-full bg-gold-gradient px-4 py-2.5 text-[13px] font-bold text-gold-foreground shadow-gold transition hover:brightness-105 sm:inline-flex"
+              className="hidden items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-[13px] font-bold text-primary-foreground shadow-elegant transition hover:brightness-110 sm:inline-flex"
             >
               <MessageCircle className="h-4 w-4" /> Talk to a consultant
             </a>
@@ -295,10 +299,13 @@ export function Header() {
           aria-label="Site menu"
         >
           <div className="flex items-center justify-between border-b border-ink-foreground/10 px-5 py-4">
-            <span className="font-display text-lg font-semibold">
-              {BRAND.name}
-              <span className="mt-0.5 block text-[9px] font-semibold uppercase tracking-[0.2em] text-gold">
-                {BRAND.tagline}
+            <span className="flex items-center gap-2.5">
+              <img src="/logo-mark.png" alt="" width={640} height={320} className="h-7 w-auto" />
+              <span className="font-display text-lg font-semibold">
+                {BRAND.name}
+                <span className="mt-0.5 block text-[9px] font-semibold uppercase tracking-[0.2em] text-gold">
+                  {BRAND.tagline}
+                </span>
               </span>
             </span>
             <button

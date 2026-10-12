@@ -182,7 +182,7 @@ const SECTIONS: LegalSection[] = [
       {
         h: "How to ask",
         p: [
-          "Email desk@haguetravel.example with the subject DATA REQUEST. We confirm within 72 hours and finish within 30 days. The first request is free.",
+          "Email info@haguetravel.com with the subject DATA REQUEST. We confirm within 72 hours and finish within 30 days. The first request is free.",
         ],
       },
       {

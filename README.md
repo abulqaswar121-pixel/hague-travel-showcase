@@ -1,11 +1,5 @@
 # Hague Travel — interactive preview
 
-> The Hague brand have given me another job to do... Just like preview/ demo one that I build for
-> “Hague Connect” I want to build for Hague Travel see the doc attached above... So I will send the
-> repo of Hague Export I built alongside with the prompt you're going to give to give Arena AI with
-> the doc so it build a perfect one for me so I sync to preview here after linking this project repo
-> to it
-
 This repository is a **clickable, high-fidelity preview** of Hague Travel: every page, form,
 filter, quote journey, dashboard and admin workflow described in the brief is implemented, but
 there is **no backend**. All content comes from typed mock data in `src/data/`, so the whole site
