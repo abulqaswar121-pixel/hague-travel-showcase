@@ -62,7 +62,7 @@ export function createResponsesCall(config: ResponsesCallConfig) {
     result,
     response: () =>
       result.toUIMessageStreamResponse({
-        originalMessages: messages as UIMessage[],
+        originalMessages: config.originalMessages,
         sendReasoning: true,
         headers: runIdFetch.getRunId()
           ? { "X-Lovable-AIG-Run-ID": runIdFetch.getRunId()! }
