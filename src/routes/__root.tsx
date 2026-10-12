@@ -13,7 +13,8 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
-import { Footer, MobileConsultBar, WhatsAppFab } from "@/components/site/Footer";
+import { Footer, MobileConsultBar } from "@/components/site/Footer";
+import { AssistantWidget } from "@/components/site/AssistantWidget";
 import { Toaster } from "@/components/ui/sonner";
 import { CurrencyProvider } from "@/lib/currency";
 import { BRAND } from "@/data/site";
@@ -161,7 +162,7 @@ function RootComponent() {
           <Outlet />
         </main>
         <Footer />
-        <WhatsAppFab />
+        <AssistantWidget />
         <MobileConsultBar />
         <HashScroller />
         <Toaster position="top-center" richColors closeButton />

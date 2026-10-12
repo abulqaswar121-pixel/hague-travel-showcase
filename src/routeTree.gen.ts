@@ -28,6 +28,7 @@ import { Route as RelocationRouteImport } from './routes/relocation'
 import { Route as StudyAbroadRouteImport } from './routes/study-abroad'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as VisaDisclaimerRouteImport } from './routes/visa-disclaimer'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as JobsIndexRouteImport } from './routes/jobs.index'
 import { Route as JobsIdRouteImport } from './routes/jobs.$id'
 import { Route as PackagesIndexRouteImport } from './routes/packages.index'
@@ -130,6 +131,11 @@ const VisaDisclaimerRoute = VisaDisclaimerRouteImport.update({
   path: '/visa-disclaimer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JobsIndexRoute = JobsIndexRouteImport.update({
   id: '/jobs/',
   path: '/jobs/',
@@ -181,6 +187,7 @@ export interface FileRoutesByFullPath {
   '/study-abroad': typeof StudyAbroadRouteWithChildren
   '/terms': typeof TermsRoute
   '/visa-disclaimer': typeof VisaDisclaimerRoute
+  '/api/chat': typeof ApiChatRoute
   '/jobs/$id': typeof JobsIdRoute
   '/packages/$slug': typeof PackagesSlugRoute
   '/study-abroad/$country': typeof StudyAbroadCountryRoute
@@ -207,6 +214,7 @@ export interface FileRoutesByTo {
   '/relocation': typeof RelocationRoute
   '/terms': typeof TermsRoute
   '/visa-disclaimer': typeof VisaDisclaimerRoute
+  '/api/chat': typeof ApiChatRoute
   '/jobs/$id': typeof JobsIdRoute
   '/packages/$slug': typeof PackagesSlugRoute
   '/study-abroad/$country': typeof StudyAbroadCountryRoute
@@ -235,6 +243,7 @@ export interface FileRoutesById {
   '/study-abroad': typeof StudyAbroadRouteWithChildren
   '/terms': typeof TermsRoute
   '/visa-disclaimer': typeof VisaDisclaimerRoute
+  '/api/chat': typeof ApiChatRoute
   '/jobs/$id': typeof JobsIdRoute
   '/packages/$slug': typeof PackagesSlugRoute
   '/study-abroad/$country': typeof StudyAbroadCountryRoute
@@ -264,6 +273,7 @@ export interface FileRouteTypes {
     | '/study-abroad'
     | '/terms'
     | '/visa-disclaimer'
+    | '/api/chat'
     | '/jobs/$id'
     | '/packages/$slug'
     | '/study-abroad/$country'
@@ -290,6 +300,7 @@ export interface FileRouteTypes {
     | '/relocation'
     | '/terms'
     | '/visa-disclaimer'
+    | '/api/chat'
     | '/jobs/$id'
     | '/packages/$slug'
     | '/study-abroad/$country'
@@ -317,6 +328,7 @@ export interface FileRouteTypes {
     | '/study-abroad'
     | '/terms'
     | '/visa-disclaimer'
+    | '/api/chat'
     | '/jobs/$id'
     | '/packages/$slug'
     | '/study-abroad/$country'
@@ -345,6 +357,7 @@ export interface RootRouteChildren {
   StudyAbroadRoute: typeof StudyAbroadRouteWithChildren
   TermsRoute: typeof TermsRoute
   VisaDisclaimerRoute: typeof VisaDisclaimerRoute
+  ApiChatRoute: typeof ApiChatRoute
   JobsIdRoute: typeof JobsIdRoute
   PackagesSlugRoute: typeof PackagesSlugRoute
   JobsIndexRoute: typeof JobsIndexRoute
@@ -486,6 +499,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VisaDisclaimerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/jobs/': {
       id: '/jobs/'
       path: '/jobs'
@@ -565,6 +585,7 @@ const rootRouteChildren: RootRouteChildren = {
   StudyAbroadRoute: StudyAbroadRouteWithChildren,
   TermsRoute: TermsRoute,
   VisaDisclaimerRoute: VisaDisclaimerRoute,
+  ApiChatRoute: ApiChatRoute,
   JobsIdRoute: JobsIdRoute,
   PackagesSlugRoute: PackagesSlugRoute,
   JobsIndexRoute: JobsIndexRoute,
