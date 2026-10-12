@@ -10,6 +10,8 @@ type ResponsesCallConfig = {
   model: string;
   system?: string;
   messages: ModelMessage[];
+  /** Incoming client messages, for stream reconciliation and persistence. */
+  originalMessages?: UIMessage[];
   maxOutputTokens?: number;
   /** Use only for an explicitly requested OpenAI chat model. */
   chatModel?: boolean;
