@@ -8,7 +8,7 @@ import { BRAND, CURRENCIES, NAV_FLAT, NAV_GROUPS, waLink, waMessages } from "@/d
 import type { CurrencyCode } from "@/data/types";
 import { toast } from "sonner";
 import { MobileConsultBar } from "./Footer";
-import approvedLogo from "@/assets/hague-travel-approved-logo.png.asset.json";
+import { BrandMark } from "./BrandMark";
 
 /**
  * Mega-menu header. Transparent over the dark hero, solid once scrolled.
@@ -85,13 +85,7 @@ export function Header() {
             className="group flex shrink-0 items-center gap-2.5 text-ink-foreground"
             aria-label={`${BRAND.name} home`}
           >
-            <img
-              src={approvedLogo.url}
-              alt={`${BRAND.name} logo`}
-              width={1584}
-              height={672}
-              className="h-12 w-40 shrink-0 rounded bg-card object-contain px-2 py-1 transition group-hover:-translate-y-px lg:h-14 lg:w-44"
-            />
+            <BrandMark tagline />
           </Link>
 
           {/* Desktop mega nav */}
@@ -293,7 +287,7 @@ export function Header() {
         >
           <div className="flex items-center justify-between border-b border-ink-foreground/10 px-5 py-4">
             <span className="flex items-center gap-2.5">
-              <img src={approvedLogo.url} alt={`${BRAND.name} logo`} width={1584} height={672} className="h-14 w-44 rounded bg-card object-contain px-2 py-1" />
+              <BrandMark tagline />
             </span>
             <button
               type="button"
