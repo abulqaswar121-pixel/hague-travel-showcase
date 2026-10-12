@@ -4,6 +4,7 @@ import { SmartLink } from "./SmartLink";
 import { Clock, Mail, MapPin, MessageCircle, Phone, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BRAND, COMPLIANCE_NOTES, FOOTER_COLUMNS, WHATSAPP, waLink, waMessages } from "@/data/site";
+import approvedLogo from "@/assets/hague-travel-approved-logo.png.asset.json";
 
 export function WhatsAppFab() {
   const [mounted, setMounted] = useState(false);
@@ -68,11 +69,11 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.3fr_2.4fr]">
           <div>
             <img
-              src="/logo.png"
+              src={approvedLogo.url}
               alt={`${BRAND.name} logo`}
-              width={760}
-              height={570}
-              className="h-24 w-auto sm:h-28"
+              width={1584}
+              height={672}
+              className="h-auto w-64 max-w-full rounded bg-card p-3"
             />
             <p className="mt-2 text-sm font-semibold text-gold">{BRAND.tagline}</p>
             <p className="mt-2 text-xs text-ink-foreground/55">{BRAND.group}</p>
