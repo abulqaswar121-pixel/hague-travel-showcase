@@ -39,9 +39,9 @@ function isUIMessage(value: unknown): value is UIMessage {
   if (typeof value !== "object" || value === null) return false;
   const candidate = value as Record<string, unknown>;
   return (
-    typeof candidate.id === "string" &&
-    typeof candidate.role === "string" &&
-    Array.isArray(candidate.parts)
+    typeof candidate["id"] === "string" &&
+    typeof candidate["role"] === "string" &&
+    Array.isArray(candidate["parts"])
   );
 }
 

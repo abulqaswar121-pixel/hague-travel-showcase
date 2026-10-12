@@ -40,10 +40,14 @@ export function createResponsesCall(config: ResponsesCallConfig) {
   const useReasoning = !config.chatModel;
   const result = streamText({
     model,
-    maxOutputTokens: config.maxOutputTokens,
     messages,
+    ...(config.maxOutputTokens === undefined
+      ? {}
+      : { maxOutputTokens: config.maxOutputTokens }),
     providerOptions: {
       openai: {
+        // The gateway is stateless; always resend complete inline history.
+        store: false,
         ...(useReasoning
           ? {
               forceReasoning: true,
@@ -52,21 +56,21 @@ export function createResponsesCall(config: ResponsesCallConfig) {
               include: ["reasoning.encrypted_content"],
             }
           : {}),
-        // The gateway is stateless; always resend complete inline history.
-        store: false,
       },
     },
   });
+
+  const runId = runIdFetch.getRunId();
 
   return {
     result,
     response: () =>
       result.toUIMessageStreamResponse({
-        originalMessages: config.originalMessages,
         sendReasoning: true,
-        headers: runIdFetch.getRunId()
-          ? { "X-Lovable-AIG-Run-ID": runIdFetch.getRunId()! }
-          : undefined,
+        ...(config.originalMessages
+          ? { originalMessages: config.originalMessages }
+          : {}),
+        ...(runId ? { headers: { "X-Lovable-AIG-Run-ID": runId } } : {}),
       }),
   };
 }
