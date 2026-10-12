@@ -8,6 +8,9 @@ import { memo, useMemo } from "react";
 
 type MotionHTMLProps = MotionProps & Record<string, unknown>;
 
+/** Motion's style without the optional-undefined union, for exactOptionalPropertyTypes. */
+type StyleValue = NonNullable<MotionProps["style"]>;
+
 // Cache motion components at module level to avoid creating during render
 const motionComponentCache = new Map<
   keyof JSX.IntrinsicElements,
@@ -61,7 +64,7 @@ const ShimmerComponent = ({
           "--spread": `${dynamicSpread}px`,
           backgroundImage:
             "var(--bg), linear-gradient(var(--color-muted-foreground), var(--color-muted-foreground))",
-        } as MotionProps["style"]
+        } as StyleValue
       }
       transition={{
         duration,
