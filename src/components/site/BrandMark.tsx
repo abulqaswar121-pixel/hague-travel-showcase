@@ -2,7 +2,7 @@ import { useId } from "react";
 import { cn } from "@/lib/utils";
 
 /** Crisp vector globe: lit blue sphere, cream grid, orange orbit and white plane. Scales to any zoom. */
-function GlobeEmblem({ className }: { className?: string }) {
+export function GlobeEmblem({ className }: { className?: string }) {
   const uid = useId().replace(/:/g, "");
   const clip = `g-clip-${uid}`;
   const fill = `g-fill-${uid}`;
