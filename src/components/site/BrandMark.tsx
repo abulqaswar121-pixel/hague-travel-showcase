@@ -42,7 +42,7 @@ function GlobeEmblem({ className }: { className?: string }) {
       </g>
 
       {/* plane */}
-      <g transform="translate(76 20) scale(1.05)">
+      <g transform="translate(73 15) scale(1.3)">
         <path
           fill="#FFFFFF"
           stroke="#EE761B"
