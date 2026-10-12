@@ -1,0 +1,24 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { contactFields, EnquiryForm, FeatureGrid, Notice, PageHero, Section } from "@/components/site/Blocks";
+import { images } from "@/data/site";
+import { meta } from "@/lib/meta";
+
+export const Route = createFileRoute("/study-abroad")({
+  head: () => meta("Study Abroad", "University applications, study visas, accommodation and pre-departure support in six destinations."),
+  component: Page,
+});
+
+function Page() {
+  return (
+    <>
+      <PageHero image={images.study} eyebrow="Study Abroad" title="From admission letter to your first lecture." sub="University applications, study visas, accommodation and pre-departure support in six destinations." />
+      <Section eyebrow="What we offer" title="Support at every step">
+        <FeatureGrid items={["Course & university selection","Admissions application support","Statement of purpose guidance","Study visa preparation","Financial document readiness","Interview preparation","Student accommodation","Pre-departure orientation & flights"]} />
+        <div className="mt-8"><Notice>Visa decisions rest solely with the relevant embassy or authority. Destinations are subject to verified partner coverage.</Notice></div>
+      </Section>
+      <section className="pb-20"><div className="mx-auto max-w-3xl px-5">
+        <EnquiryForm title="Talk to a consultant" fields={[...contactFields, { name: "notes", label: "How can we help?", type: "textarea", full: true }]} />
+      </div></section>
+    </>
+  );
+}
