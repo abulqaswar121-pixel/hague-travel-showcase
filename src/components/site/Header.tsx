@@ -98,7 +98,7 @@ export function Header() {
                 onMouseEnter={() => setOpen(g.label)}
                 aria-expanded={open === g.label}
                 className={cn(
-                  "flex items-center gap-1 rounded-full px-3.5 py-2 text-[13px] font-semibold transition",
+                  "flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-[13px] font-semibold transition",
                   open === g.label || active?.label === g.label
                     ? "bg-ink-foreground/10 text-gold"
                     : "text-ink-foreground/80 hover:text-gold",
@@ -118,7 +118,7 @@ export function Header() {
                 key={l.to}
                 to={l.to}
                 className={cn(
-                  "rounded-full px-3.5 py-2 text-[13px] font-semibold transition",
+                  "whitespace-nowrap rounded-full px-3 py-2 text-[13px] font-semibold transition",
                   pathname === l.to ? "text-gold" : "text-ink-foreground/80 hover:text-gold",
                 )}
               >
