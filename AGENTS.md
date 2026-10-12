@@ -10,3 +10,5 @@
 > the editor, so keep the branch in a working state.
 
 <!-- LOVABLE:END -->
+
+- Header, mobile menu and footer reuse one approved logo asset pointer; browser icons derive from its emblem to keep identity consistent.

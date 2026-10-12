@@ -8,6 +8,7 @@ import { BRAND, CURRENCIES, NAV_FLAT, NAV_GROUPS, waLink, waMessages } from "@/d
 import type { CurrencyCode } from "@/data/types";
 import { toast } from "sonner";
 import { MobileConsultBar } from "./Footer";
+import approvedLogo from "@/assets/hague-travel-approved-logo.png.asset.json";
 
 /**
  * Mega-menu header. Transparent over the dark hero, solid once scrolled.
@@ -85,20 +86,12 @@ export function Header() {
             aria-label={`${BRAND.name} home`}
           >
             <img
-              src="/logo-mark.png"
-              alt=""
-              width={640}
-              height={320}
-              className="h-8 w-auto shrink-0 transition group-hover:-translate-y-px lg:h-9"
+              src={approvedLogo.url}
+              alt={`${BRAND.name} logo`}
+              width={1584}
+              height={672}
+              className="h-12 w-40 shrink-0 rounded bg-card object-contain px-2 py-1 transition group-hover:-translate-y-px lg:h-14 lg:w-44"
             />
-            <span className="leading-none">
-              <span className="block font-display text-lg font-semibold tracking-tight lg:text-xl">
-                {BRAND.name}
-              </span>
-              <span className="mt-1 hidden text-[9px] font-semibold uppercase tracking-[0.22em] text-gold sm:block">
-                {BRAND.tagline}
-              </span>
-            </span>
           </Link>
 
           {/* Desktop mega nav */}
@@ -300,13 +293,7 @@ export function Header() {
         >
           <div className="flex items-center justify-between border-b border-ink-foreground/10 px-5 py-4">
             <span className="flex items-center gap-2.5">
-              <img src="/logo-mark.png" alt="" width={640} height={320} className="h-7 w-auto" />
-              <span className="font-display text-lg font-semibold">
-                {BRAND.name}
-                <span className="mt-0.5 block text-[9px] font-semibold uppercase tracking-[0.2em] text-gold">
-                  {BRAND.tagline}
-                </span>
-              </span>
+              <img src={approvedLogo.url} alt={`${BRAND.name} logo`} width={1584} height={672} className="h-14 w-44 rounded bg-card object-contain px-2 py-1" />
             </span>
             <button
               type="button"
