@@ -90,10 +90,11 @@ export function Header() {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+          scrolled ? "-translate-y-9" : "translate-y-0",
           scrolled || open ? "bg-ink/95 shadow-elegant backdrop-blur-xl" : "bg-ink/70 backdrop-blur-md",
         )}
       >
-        {/* Utility bar */}
+        {/* Utility bar — slides away on scroll */}
         <div className="border-b border-ink-foreground/10 bg-ink">
           <div className="mx-auto flex h-9 max-w-7xl items-center justify-between gap-3 px-4 text-[12px] font-semibold text-ink-foreground/80 sm:px-5">
             <a
@@ -106,23 +107,39 @@ export function Header() {
               {BRAND.phone}
             </a>
             <span className="hidden text-ink-foreground/55 md:inline">{BRAND.hours}</span>
-            <div className="flex items-center gap-0.5" role="group" aria-label="Display currency">
-              {CURRENCIES.map((c, i) => (
-                <span key={c.code} className="flex items-center">
-                  {i > 0 ? <span className="px-1 text-ink-foreground/30">|</span> : null}
-                  <button
-                    type="button"
-                    onClick={() => setCode(c.code as CurrencyCode)}
-                    aria-pressed={code === c.code}
-                    className={cn(
-                      "transition",
-                      code === c.code ? "text-gold" : "text-ink-foreground/55 hover:text-gold",
-                    )}
-                  >
-                    {c.code}
-                  </button>
-                </span>
-              ))}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setOpen(open === "__currency" ? null : "__currency")}
+                aria-expanded={open === "__currency"}
+                aria-label="Change display currency"
+                className="flex items-center gap-1 rounded-md px-2 py-1 transition hover:bg-ink-foreground/10"
+              >
+                <Globe2 className="h-3.5 w-3.5 text-gold" />
+                {CURRENCIES.find((c) => c.code === code)?.symbol} {code}
+                <ChevronDown className="h-3 w-3 opacity-60" />
+              </button>
+              {open === "__currency" ? (
+                <div className="absolute right-0 top-full z-[60] mt-1 w-44 rounded-xl border border-ink-foreground/10 bg-ink p-1 shadow-elegant">
+                  {CURRENCIES.map((c) => (
+                    <button
+                      key={c.code}
+                      type="button"
+                      onClick={() => {
+                        setCode(c.code as CurrencyCode);
+                        setOpen(null);
+                      }}
+                      className={cn(
+                        "flex w-full items-center justify-between rounded-lg px-3 py-2 text-left transition hover:bg-ink-foreground/10",
+                        code === c.code ? "text-gold" : "text-ink-foreground/80",
+                      )}
+                    >
+                      <span>{c.symbol} {c.code}</span>
+                      <span className="text-[10px] text-ink-foreground/45">{c.label}</span>
+                    </button>
+                  ))}
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
@@ -164,58 +181,54 @@ export function Header() {
                 />
               </button>
             ))}
-            {NAV_FLAT.map((l) => (
-              <SmartLink
-                key={l.to}
-                to={l.to}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setOpen(open === "__more" ? null : "__more")}
+                aria-expanded={open === "__more"}
                 className={cn(
-                  "whitespace-nowrap rounded-full px-3 py-2 text-[13px] font-semibold transition",
-                  pathname === l.to ? "text-gold" : "text-ink-foreground/80 hover:text-gold",
+                  "flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-[13px] font-semibold transition",
+                  open === "__more" || NAV_FLAT.some((l) => l.to === pathname)
+                    ? "bg-ink-foreground/10 text-gold"
+                    : "text-ink-foreground/80 hover:text-gold",
                 )}
               >
-                {l.label}
-              </SmartLink>
-            ))}
+                More
+                <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", open === "__more" && "rotate-180")} />
+              </button>
+              {open === "__more" ? (
+                <div className="absolute right-0 top-full z-50 mt-2 w-48 rounded-xl border border-ink-foreground/10 bg-ink p-1.5 shadow-elegant">
+                  {NAV_FLAT.map((l) => (
+                    <SmartLink
+                      key={l.to}
+                      to={l.to}
+                      className={cn(
+                        "block rounded-lg px-3 py-2 text-sm font-semibold transition hover:bg-ink-foreground/10",
+                        pathname === l.to ? "text-gold" : "text-ink-foreground/85 hover:text-gold",
+                      )}
+                    >
+                      {l.label}
+                    </SmartLink>
+                  ))}
+                </div>
+              ) : null}
+            </div>
           </nav>
 
           <div className="ml-auto flex items-center gap-2 xl:ml-3">
-            {/* Currency switcher — demo display conversion only */}
-            <div
-              className="hidden items-center gap-1 rounded-full border border-ink-foreground/20 p-0.5 sm:flex"
-              role="group"
-              aria-label="Display currency"
-            >
-              <Globe2 className="ml-1.5 h-3.5 w-3.5 text-gold" aria-hidden />
-              {CURRENCIES.map((c) => (
-                <button
-                  key={c.code}
-                  type="button"
-                  onClick={() => setCode(c.code as CurrencyCode)}
-                  aria-pressed={code === c.code}
-                  className={cn(
-                    "rounded-full px-2 py-1 text-[11px] font-bold transition",
-                    code === c.code
-                      ? "bg-gold-gradient text-gold-foreground"
-                      : "text-ink-foreground/70 hover:text-gold",
-                  )}
-                  title={
-                    c.code === "NGN"
-                      ? "Nigerian Naira — primary billing currency"
-                      : `${c.label} display conversion (demo)`
-                  }
-                >
-                  {c.symbol} {c.code}
-                </button>
-              ))}
-            </div>
-
             <Link
               to="/dashboard"
-              className="hidden h-9 w-9 place-items-center rounded-full border border-ink-foreground/20 text-ink-foreground/80 transition hover:border-gold hover:text-gold lg:grid"
+              className="hidden h-9 w-9 place-items-center rounded-full border border-ink-foreground/20 text-ink-foreground/80 transition hover:border-gold hover:text-gold xl:grid"
               aria-label="Customer dashboard"
               title="Customer dashboard (demo)"
             >
               <LayoutDashboard className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/packages"
+              className="hidden items-center gap-1.5 whitespace-nowrap rounded-full bg-gold-gradient px-4 py-2 text-[13px] font-bold text-gold-foreground shadow-gold transition hover:brightness-110 xl:inline-flex"
+            >
+              <Plane className="h-3.5 w-3.5" /> Book a trip
             </Link>
 
             {/* Compact booking CTA — keeps the phone navbar balanced next to the menu button */}
