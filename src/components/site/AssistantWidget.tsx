@@ -7,6 +7,9 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
+import conciergeAvatar from "@/assets/concierge-avatar.jpg";
+import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 import {
   Conversation,
@@ -138,19 +141,27 @@ function Concierge() {
 
   return (
     <>
-      <button
+      <TooltipProvider>
+      <Tooltip>
+      <TooltipTrigger asChild>
+      <Button
         type="button"
+        variant="ghost"
+        size="icon"
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
         aria-label={open ? "Close the concierge" : "Ask the Hague Travel concierge"}
         className={cn(
-          "fixed bottom-24 right-4 z-40 flex items-center gap-2 rounded-full bg-gold-gradient px-4 py-3.5 text-sm font-bold text-gold-foreground shadow-gold transition-all duration-300 hover:scale-[1.03] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 lg:bottom-6 lg:right-6",
+          "fixed bottom-24 right-4 z-40 size-14 overflow-hidden rounded-full border-2 border-logo-gold bg-ink p-0 shadow-soft transition-transform duration-300 hover:scale-105 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 lg:bottom-6 lg:right-6 lg:size-16",
           open && "pointer-events-none opacity-0",
         )}
       >
-        <TravelEmblem className="h-6 w-10" />
-        Ask the concierge
-      </button>
+        <img src={conciergeAvatar} alt="" width={816} height={816} loading="lazy" className="size-full object-cover" />
+      </Button>
+      </TooltipTrigger>
+      <TooltipContent side="left">Ask the concierge</TooltipContent>
+      </Tooltip>
+      </TooltipProvider>
 
       {open ? (
         <section

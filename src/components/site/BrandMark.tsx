@@ -12,13 +12,13 @@ export function TravelEmblem({ className }: { className?: string }) {
 export function BrandMark({ size = "md" }: { size?: "md" | "lg"; tagline?: boolean }) {
   const lg = size === "lg";
   return (
-    <span className="inline-flex shrink-0 items-center gap-2.5" aria-label="Hague Travel">
-      <TravelEmblem className={cn("shrink-0", lg ? "h-12 w-28" : "h-8 w-[74px] lg:h-10 lg:w-[92px]")} />
+    <span className="inline-flex shrink-0 flex-col items-center gap-0.5" aria-label="Hague Travel">
+      <TravelEmblem className={cn("shrink-0", lg ? "h-14 w-32" : "h-6 w-[74px] lg:h-8 lg:w-[92px]")} />
       <span className="flex flex-col items-center font-sans leading-none font-extrabold uppercase tracking-normal">
-        <span className={cn("text-ink-foreground", lg ? "text-4xl" : "text-2xl lg:text-[28px]")}>
+        <span className={cn("text-ink-foreground", lg ? "text-4xl" : "text-lg lg:text-2xl")}>
           Hague
         </span>
-        <span className={cn("mt-1 text-logo-gold", lg ? "text-lg" : "text-xs")}>Travel</span>
+        <span className={cn("mt-0.5 text-logo-gold", lg ? "text-lg" : "text-[9px] lg:text-[10px]")}>Travel</span>
       </span>
     </span>
   );
