@@ -7,7 +7,6 @@ import { SmartLink } from "./SmartLink";
 import { BRAND, CURRENCIES, NAV_FLAT, NAV_GROUPS, waLink, waMessages } from "@/data/site";
 import type { CurrencyCode } from "@/data/types";
 import { toast } from "sonner";
-import { MobileConsultBar } from "./Footer";
 import { BrandMark } from "./BrandMark";
 
 /**
@@ -419,7 +418,6 @@ export function Header() {
         </div>
       </div>
 
-      <MobileConsultBar />
     </>
   );
 }
