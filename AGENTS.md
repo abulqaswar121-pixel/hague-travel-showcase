@@ -11,4 +11,4 @@
 
 <!-- LOVABLE:END -->
 
-- Header, mobile menu and footer reuse one BrandMark component (live-text wordmark + transparent emblem); browser icons derive from its emblem to keep identity consistent.
+- Header, mobile menu and footer reuse BrandMark with live stacked lettering; the assistant reuses TravelEmblem, and browser icons derive from that same transparent emblem to keep identity consistent.
