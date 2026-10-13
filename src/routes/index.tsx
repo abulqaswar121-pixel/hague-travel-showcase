@@ -153,7 +153,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-4 sm:px-5">
           <div className="max-w-3xl text-ink-foreground">
             <p className="eyebrow animate-rise">
-              {BRAND.name} · {BRAND.group}
+              Explore. Experience. Remember.
             </p>
             <h1 className="mt-5 font-display text-[2.6rem] font-medium leading-[0.98] animate-rise sm:text-6xl lg:text-8xl">
               Your World.

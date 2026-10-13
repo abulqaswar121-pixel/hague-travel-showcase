@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { ChevronDown, Globe2, LayoutDashboard, Menu, MessageCircle, X } from "lucide-react";
+import { ChevronDown, Globe2, LayoutDashboard, Menu, MessageCircle, Plane, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCurrency } from "@/lib/currency";
 import { SmartLink } from "./SmartLink";
@@ -166,14 +166,13 @@ export function Header() {
               <LayoutDashboard className="h-4 w-4" />
             </Link>
 
-            <a
-              href={waLink(waMessages.general)}
-              target="_blank"
-              rel="noreferrer"
-              className="hidden items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-[13px] font-bold text-primary-foreground shadow-elegant transition hover:brightness-110 sm:inline-flex"
+            {/* Compact booking CTA — keeps the phone navbar balanced next to the menu button */}
+            <Link
+              to="/packages"
+              className="inline-flex items-center gap-1.5 rounded-full bg-gold-gradient px-4 py-2 text-[13px] font-bold text-gold-foreground shadow-gold transition hover:brightness-110 xl:hidden"
             >
-              <MessageCircle className="h-4 w-4" /> Talk to a consultant
-            </a>
+              <Plane className="h-3.5 w-3.5" /> Book a trip
+            </Link>
 
             <button
               type="button"
