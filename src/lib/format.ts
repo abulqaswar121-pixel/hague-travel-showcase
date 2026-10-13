@@ -29,11 +29,18 @@ export function formatPrice(
   const meta = CURRENCY_META[code];
   const value = convert(ngn, code);
   const fractionDigits = opts.decimals ?? (code === "NGN" ? 0 : value < 1000 ? 2 : 0);
-  const formatted = new Intl.NumberFormat(meta.locale, {
-    minimumFractionDigits: fractionDigits,
-    maximumFractionDigits: opts.compact ? 1 : fractionDigits,
-    ...(opts.compact ? { notation: "compact" as const } : {}),
-  }).format(value);
+  const max = opts.compact ? 1 : fractionDigits;
+  const min = Math.min(fractionDigits, max);
+  let formatted: string;
+  try {
+    formatted = new Intl.NumberFormat(meta.locale, {
+      minimumFractionDigits: min,
+      maximumFractionDigits: max,
+      ...(opts.compact ? { notation: "compact" as const } : {}),
+    }).format(value);
+  } catch {
+    formatted = Math.round(value).toLocaleString("en-US");
+  }
   return `${meta.symbol}${formatted}`;
 }
 
