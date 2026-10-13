@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { ChevronDown, Globe2, LayoutDashboard, Menu, MessageCircle, X } from "lucide-react";
+import { ChevronDown, Globe2, LayoutDashboard, Menu, MessageCircle, Plane, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCurrency } from "@/lib/currency";
 import { SmartLink } from "./SmartLink";
