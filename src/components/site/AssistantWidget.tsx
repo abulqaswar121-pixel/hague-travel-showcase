@@ -179,10 +179,10 @@ function Concierge() {
             </span>
             <div className="min-w-0 flex-1">
               <p className="truncate font-display text-base leading-tight font-semibold">
-                Nia · Hague Travel
+                Nia
               </p>
               <p className="truncate text-[11px] text-ink-foreground/65">
-                AI assistant · Online now
+                Hague Travel AI assistant · Online
               </p>
             </div>
             <a
