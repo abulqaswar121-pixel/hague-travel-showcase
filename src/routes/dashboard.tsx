@@ -76,7 +76,7 @@ function Dashboard() {
   return (
     <>
       {/* Demo header instead of a marketing hero */}
-      <section className="border-b border-border bg-ink pt-24 pb-10 text-ink-foreground lg:pt-28">
+      <section className="border-b border-border bg-ink pt-40 pb-10 text-ink-foreground lg:pt-44">
         <div className="mx-auto max-w-7xl px-4 sm:px-5">
           <div className="flex flex-wrap items-start justify-between gap-5">
             <div className="flex items-center gap-4">

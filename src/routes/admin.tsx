@@ -143,7 +143,7 @@ function Admin() {
 
   return (
     <>
-      <section className="bg-ink pt-24 pb-10 text-ink-foreground lg:pt-28">
+      <section className="bg-ink pt-40 pb-10 text-ink-foreground lg:pt-44">
         <div className="mx-auto max-w-7xl px-4 sm:px-5">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>

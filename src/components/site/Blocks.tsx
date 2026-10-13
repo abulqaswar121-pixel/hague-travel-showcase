@@ -86,7 +86,7 @@ export function PageHero({
     <section
       className={cn(
         "relative isolate overflow-hidden bg-ink",
-        size === "lg" ? "pt-32 pb-16 lg:pt-44 lg:pb-24" : "pt-28 pb-14 lg:pt-36 lg:pb-20",
+        size === "lg" ? "pt-48 pb-16 lg:pt-56 lg:pb-24" : "pt-44 pb-14 lg:pt-48 lg:pb-20",
       )}
     >
       <img

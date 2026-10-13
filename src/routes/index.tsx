@@ -140,7 +140,7 @@ function Index() {
   return (
     <>
       {/* ------------------------------------------------------------ HERO */}
-      <section className="relative isolate overflow-hidden bg-ink pb-14 pt-28 lg:pb-20 lg:pt-36">
+      <section className="relative isolate overflow-hidden bg-ink pb-14 pt-44 lg:pb-20 lg:pt-48">
         <img
           src={images.hero}
           alt="Aircraft wing above a bank of clouds at sunset"

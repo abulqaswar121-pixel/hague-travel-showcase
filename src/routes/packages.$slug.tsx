@@ -164,7 +164,7 @@ function PackageDetail() {
   return (
     <>
       {/* Gallery hero */}
-      <section className="relative isolate bg-ink pt-24 lg:pt-28">
+      <section className="relative isolate bg-ink pt-40 lg:pt-44">
         <div className="mx-auto max-w-7xl px-4 sm:px-5">
           <div className="grid gap-3 lg:grid-cols-[2.2fr_1fr]">
             <div className="relative overflow-hidden rounded-3xl">
