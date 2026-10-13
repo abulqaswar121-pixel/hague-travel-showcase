@@ -72,9 +72,43 @@ export function Header() {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-          scrolled || open ? "bg-ink/95 shadow-elegant backdrop-blur-xl" : "bg-transparent",
+          scrolled || open ? "bg-ink/95 shadow-elegant backdrop-blur-xl" : "bg-ink/70 backdrop-blur-md",
         )}
       >
+        {/* Utility bar */}
+        <div className="border-b border-ink-foreground/10 bg-ink">
+          <div className="mx-auto flex h-9 max-w-7xl items-center justify-between gap-3 px-4 text-[12px] font-semibold text-ink-foreground/80 sm:px-5">
+            <a
+              href={waLink(waMessages.general)}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 text-whatsapp hover:brightness-110"
+            >
+              <MessageCircle className="h-3.5 w-3.5" />
+              {BRAND.phone}
+            </a>
+            <span className="hidden text-ink-foreground/55 md:inline">{BRAND.hours}</span>
+            <div className="flex items-center gap-0.5" role="group" aria-label="Display currency">
+              {CURRENCIES.map((c, i) => (
+                <span key={c.code} className="flex items-center">
+                  {i > 0 ? <span className="px-1 text-ink-foreground/30">|</span> : null}
+                  <button
+                    type="button"
+                    onClick={() => setCode(c.code as CurrencyCode)}
+                    aria-pressed={code === c.code}
+                    className={cn(
+                      "transition",
+                      code === c.code ? "text-gold" : "text-ink-foreground/55 hover:text-gold",
+                    )}
+                  >
+                    {c.code}
+                  </button>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div
           ref={navRef}
           className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:px-5 lg:h-20"
