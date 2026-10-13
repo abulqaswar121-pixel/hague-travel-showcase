@@ -1,6 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { ChevronDown, Globe2, LayoutDashboard, Menu, MessageCircle, Plane, X } from "lucide-react";
+import {
+  ChevronDown,
+  Globe2,
+  LayoutDashboard,
+  Menu,
+  MessageCircle,
+  Plane,
+  Radio,
+  X,
+} from "lucide-react";
+
+const TICKER = [
+  "UK September intake — applications open",
+  "Dubai Easter packages now booking",
+  "Lagos → London fares from indicative ₦1.2m",
+  "Schengen visa document checks available",
+  "Travel Academy cohort — limited seats",
+  "Canada study permit guidance desk open",
+];
 import { cn } from "@/lib/utils";
 import { useCurrency } from "@/lib/currency";
 import { SmartLink } from "./SmartLink";
@@ -217,6 +235,23 @@ export function Header() {
             >
               <Menu className="h-5 w-5" />
             </button>
+          </div>
+        </div>
+
+        {/* Travel ticker */}
+        <div className="flex h-8 items-stretch overflow-hidden border-t border-ink-foreground/10 bg-ink text-[12px] font-semibold">
+          <span className="z-10 flex shrink-0 items-center gap-1.5 bg-gold-gradient px-3 font-bold uppercase tracking-wider text-gold-foreground">
+            <Radio className="h-3.5 w-3.5" /> Live
+          </span>
+          <div className="relative flex-1 overflow-hidden">
+            <div className="flex w-max animate-marquee items-center gap-8 whitespace-nowrap py-1.5 pl-6 text-ink-foreground/80">
+              {[...TICKER, ...TICKER].map((t, i) => (
+                <span key={i} className="flex items-center gap-2">
+                  <span className="text-gold">•</span>
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
