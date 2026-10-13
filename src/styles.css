@@ -44,6 +44,7 @@
 
   /* Hague Travel brand accents */
   --color-gold: var(--gold);
+  --color-logo-gold: var(--logo-gold);
   --color-gold-foreground: var(--gold-foreground);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
@@ -94,6 +95,7 @@
   --accent-foreground: oklch(0.392 0.125 38);
 
   --gold: oklch(0.666 0.157 58);
+  --logo-gold: oklch(0.84 0.17 88);
   --gold-foreground: oklch(0.272 0.057 59);
   --ink: oklch(0.214 0.048 258);
   --ink-foreground: oklch(0.955 0.014 255);

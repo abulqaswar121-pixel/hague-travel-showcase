@@ -22,7 +22,7 @@ import {
   PromptInputSubmit,
   PromptInputTextarea,
 } from "@/components/ai-elements/prompt-input";
-import { GlobeEmblem } from "@/components/site/BrandMark";
+import { TravelEmblem } from "@/components/site/BrandMark";
 import { BRAND, waLink, waMessages } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -148,7 +148,7 @@ function Concierge() {
           open && "pointer-events-none opacity-0",
         )}
       >
-        <GlobeEmblem className="h-6 w-6" />
+        <TravelEmblem className="h-6 w-10" />
         Ask the concierge
       </button>
 
@@ -162,7 +162,7 @@ function Concierge() {
           )}
         >
           <header className="flex items-center gap-3 border-b border-ink-foreground/10 bg-ink px-4 py-3 text-ink-foreground">
-            <GlobeEmblem className="h-9 w-9 shrink-0" />
+            <TravelEmblem className="h-9 w-14 shrink-0" />
             <div className="min-w-0 flex-1">
               <p className="truncate font-display text-base leading-tight font-semibold">
                 Hague Concierge
@@ -204,7 +204,7 @@ function Concierge() {
               {messages.length === 0 ? (
                 <ConversationEmptyState className="px-2 py-6">
                   <div className="flex w-full flex-col items-center gap-4">
-                    <GlobeEmblem className="h-14 w-14" />
+                    <TravelEmblem className="h-14 w-28" />
                     <div className="space-y-1.5">
                       <h3 className="font-display text-lg font-semibold">
                         Ask the Hague concierge
