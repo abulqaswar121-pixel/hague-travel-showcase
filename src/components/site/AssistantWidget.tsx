@@ -8,8 +8,6 @@ import {
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import conciergeAvatar from "@/assets/concierge-avatar.jpg";
-import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 import {
   Conversation,
@@ -25,7 +23,6 @@ import {
   PromptInputSubmit,
   PromptInputTextarea,
 } from "@/components/ai-elements/prompt-input";
-import { TravelEmblem } from "@/components/site/BrandMark";
 import { BRAND, waLink, waMessages } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -141,45 +138,51 @@ function Concierge() {
 
   return (
     <>
-      <TooltipProvider>
-      <Tooltip>
-      <TooltipTrigger asChild>
-      <Button
-        type="button"
-        variant="ghost"
-        size="icon"
-        onClick={() => setOpen((value) => !value)}
-        aria-expanded={open}
-        aria-label={open ? "Close the concierge" : "Ask the Hague Travel concierge"}
+      <div
         className={cn(
-          "fixed bottom-24 right-4 z-40 size-14 overflow-hidden rounded-full border-2 border-logo-gold bg-ink p-0 shadow-soft transition-transform duration-300 hover:scale-105 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 lg:bottom-6 lg:right-6 lg:size-16",
+          "fixed bottom-5 right-4 z-40 flex items-center gap-2 lg:bottom-6 lg:right-6",
           open && "pointer-events-none opacity-0",
         )}
       >
-        <img src={conciergeAvatar} alt="" width={816} height={816} loading="lazy" className="size-full object-cover" />
-      </Button>
-      </TooltipTrigger>
-      <TooltipContent side="left">Ask the concierge</TooltipContent>
-      </Tooltip>
-      </TooltipProvider>
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="rounded-2xl border border-border bg-card px-3 py-1.5 text-left shadow-soft"
+        >
+          <span className="block text-xs font-bold leading-tight text-card-foreground">Chat with Nia</span>
+          <span className="block text-[10px] leading-tight text-muted-foreground">AI travel assistant · 24/7</span>
+        </button>
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-label="Chat with Nia, the Hague Travel AI assistant"
+          className="relative size-14 rounded-full border-2 border-logo-gold bg-ink shadow-soft transition-transform hover:scale-105 lg:size-16"
+        >
+          <img src={conciergeAvatar} alt="" width={816} height={816} loading="lazy" className="size-full rounded-full object-cover" />
+          <span className="absolute right-0.5 bottom-0.5 size-3 rounded-full border-2 border-card bg-whatsapp" />
+        </button>
+      </div>
 
       {open ? (
         <section
           role="dialog"
-          aria-label="Hague Travel concierge"
+          aria-label="Chat with Nia"
           className={cn(
             "fixed inset-0 z-50 flex flex-col overflow-hidden bg-card text-card-foreground",
             "sm:inset-auto sm:bottom-24 sm:right-4 sm:top-auto sm:left-auto sm:h-[min(660px,calc(100vh-7rem))] sm:w-[min(430px,calc(100vw-2rem))] sm:rounded-3xl sm:border sm:border-border sm:shadow-elegant lg:bottom-6",
           )}
         >
           <header className="flex items-center gap-3 border-b border-ink-foreground/10 bg-ink px-4 py-3 text-ink-foreground">
-            <TravelEmblem className="h-9 w-14 shrink-0" />
+            <span className="relative shrink-0">
+              <img src={conciergeAvatar} alt="" width={816} height={816} className="size-10 rounded-full border-2 border-logo-gold object-cover" />
+              <span className="absolute right-0 bottom-0 size-2.5 rounded-full border-2 border-ink bg-whatsapp" />
+            </span>
             <div className="min-w-0 flex-1">
               <p className="truncate font-display text-base leading-tight font-semibold">
-                Hague Concierge
+                Nia
               </p>
               <p className="truncate text-[11px] text-ink-foreground/65">
-                AI customer service · a human is one tap away
+                Hague Travel AI assistant · Online
               </p>
             </div>
             <a
@@ -215,14 +218,13 @@ function Concierge() {
               {messages.length === 0 ? (
                 <ConversationEmptyState className="px-2 py-6">
                   <div className="flex w-full flex-col items-center gap-4">
-                    <TravelEmblem className="h-14 w-28" />
+                    <img src={conciergeAvatar} alt="" width={816} height={816} className="size-20 rounded-full border-2 border-logo-gold object-cover" />
                     <div className="space-y-1.5">
                       <h3 className="font-display text-lg font-semibold">
-                        Ask the Hague concierge
+                        Hi, I'm Nia 👋
                       </h3>
                       <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-                        Trips, visas, admissions, passports, cohorts and housing —
-                        answered from what is actually on this site.
+                        Your Hague Travel assistant. Ask me about trips, visas, study abroad, passports or fees — or tap WhatsApp above to reach a consultant.
                       </p>
                     </div>
                     <div className="flex w-full flex-col gap-2">
@@ -243,6 +245,9 @@ function Concierge() {
 
               {messages.map((message) => (
                 <Message key={message.id} from={message.role}>
+                  {message.role === "assistant" ? (
+                    <img src={conciergeAvatar} alt="" width={816} height={816} className="size-7 shrink-0 self-start rounded-full object-cover" />
+                  ) : null}
                   <MessageContent
                     className={
                       message.role === "user"
