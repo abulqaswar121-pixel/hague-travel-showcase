@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AcademyRouteImport } from './routes/academy'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as DashboardRouteImport } from './routes/dashboard'
@@ -26,6 +27,7 @@ import { Route as PortalRouteImport } from './routes/portal'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
 import { Route as RelocationRouteImport } from './routes/relocation'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as StudyAbroadRouteImport } from './routes/study-abroad'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as VisaDisclaimerRouteImport } from './routes/visa-disclaimer'
@@ -64,6 +66,11 @@ const AcademyRoute = AcademyRouteImport.update({
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -129,6 +136,11 @@ const RefundPolicyRoute = RefundPolicyRouteImport.update({
 const RelocationRoute = RelocationRouteImport.update({
   id: '/relocation',
   path: '/relocation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StudyAbroadRoute = StudyAbroadRouteImport.update({
@@ -232,6 +244,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/academy': typeof AcademyRoute
   '/admin': typeof AdminRouteWithChildren
+  '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
   '/dashboard': typeof DashboardRoute
@@ -245,6 +258,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/refund-policy': typeof RefundPolicyRoute
   '/relocation': typeof RelocationRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/study-abroad': typeof StudyAbroadRouteWithChildren
   '/terms': typeof TermsRoute
   '/visa-disclaimer': typeof VisaDisclaimerRoute
@@ -269,6 +283,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/academy': typeof AcademyRoute
+  '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
   '/dashboard': typeof DashboardRoute
@@ -281,6 +296,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/refund-policy': typeof RefundPolicyRoute
   '/relocation': typeof RelocationRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/terms': typeof TermsRoute
   '/visa-disclaimer': typeof VisaDisclaimerRoute
   '/admin/academy': typeof AdminAcademyRoute
@@ -306,6 +322,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/academy': typeof AcademyRoute
   '/admin': typeof AdminRouteWithChildren
+  '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/corporate': typeof CorporateRoute
   '/dashboard': typeof DashboardRoute
@@ -319,6 +336,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/refund-policy': typeof RefundPolicyRoute
   '/relocation': typeof RelocationRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/study-abroad': typeof StudyAbroadRouteWithChildren
   '/terms': typeof TermsRoute
   '/visa-disclaimer': typeof VisaDisclaimerRoute
@@ -346,6 +364,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/academy'
     | '/admin'
+    | '/auth'
     | '/contact'
     | '/corporate'
     | '/dashboard'
@@ -359,6 +378,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/refund-policy'
     | '/relocation'
+    | '/reset-password'
     | '/study-abroad'
     | '/terms'
     | '/visa-disclaimer'
@@ -383,6 +403,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/academy'
+    | '/auth'
     | '/contact'
     | '/corporate'
     | '/dashboard'
@@ -395,6 +416,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/refund-policy'
     | '/relocation'
+    | '/reset-password'
     | '/terms'
     | '/visa-disclaimer'
     | '/admin/academy'
@@ -419,6 +441,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/academy'
     | '/admin'
+    | '/auth'
     | '/contact'
     | '/corporate'
     | '/dashboard'
@@ -432,6 +455,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/refund-policy'
     | '/relocation'
+    | '/reset-password'
     | '/study-abroad'
     | '/terms'
     | '/visa-disclaimer'
@@ -458,6 +482,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AcademyRoute: typeof AcademyRoute
   AdminRoute: typeof AdminRouteWithChildren
+  AuthRoute: typeof AuthRoute
   ContactRoute: typeof ContactRoute
   CorporateRoute: typeof CorporateRoute
   DashboardRoute: typeof DashboardRoute
@@ -471,6 +496,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   RefundPolicyRoute: typeof RefundPolicyRoute
   RelocationRoute: typeof RelocationRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   StudyAbroadRoute: typeof StudyAbroadRouteWithChildren
   TermsRoute: typeof TermsRoute
   VisaDisclaimerRoute: typeof VisaDisclaimerRoute
@@ -509,6 +535,13 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -600,6 +633,13 @@ declare module '@tanstack/react-router' {
       path: '/relocation'
       fullPath: '/relocation'
       preLoaderRoute: typeof RelocationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/study-abroad': {
@@ -792,6 +832,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AcademyRoute: AcademyRoute,
   AdminRoute: AdminRouteWithChildren,
+  AuthRoute: AuthRoute,
   ContactRoute: ContactRoute,
   CorporateRoute: CorporateRoute,
   DashboardRoute: DashboardRoute,
@@ -805,6 +846,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   RefundPolicyRoute: RefundPolicyRoute,
   RelocationRoute: RelocationRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   StudyAbroadRoute: StudyAbroadRouteWithChildren,
   TermsRoute: TermsRoute,
   VisaDisclaimerRoute: VisaDisclaimerRoute,
