@@ -1,5 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { AlertTriangle, HandCoins, ShieldAlert, Users } from "lucide-react";
+import { useState } from "react";
+import {
+  AlertTriangle,
+  ArrowRight,
+  CheckCircle2,
+  Circle,
+  ClipboardList,
+  HandCoins,
+  ShieldAlert,
+  Target,
+  Users,
+} from "lucide-react";
+import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { EnquiryForm, contactFields, type FieldDef } from "@/components/site/Form";
 import {
   ComplianceNote,
@@ -90,6 +103,266 @@ const fields: FieldDef[] = [
   },
 ];
 
+const READINESS_QUESTIONS = [
+  {
+    id: "offer",
+    q: "I have a job offer, admission or a named skilled pathway in mind.",
+    help: "A named employer, course or occupation code changes everything that follows.",
+  },
+  {
+    id: "qualification",
+    q: "My qualification or licence is assessed or recognised in the destination.",
+    help: "Credential evaluation, IELTS/OET or a professional body letter.",
+  },
+  {
+    id: "passport",
+    q: "My passport is valid for at least 12 months after the planned move.",
+    help: "Most routes need 6–12 months beyond the intended stay.",
+  },
+  {
+    id: "funds",
+    q: "I can evidence funds for the first three months, or I have a sponsor.",
+    help: "Bank statements, payslips or a sponsor's undertaking.",
+  },
+  {
+    id: "family",
+    q: "My partner or children are included in the plan (or not applicable).",
+    help: "Dependants add fees, housing needs and school timelines.",
+  },
+] as const;
+
+const CHECKLIST_ITEMS = [
+  "Passport and identity documents",
+  "Qualification assessment / licence recognition",
+  "Employment evidence and references",
+  "Police clearance certificate",
+  "Medical, TB test and biometrics",
+  "Housing search or short-stay booking",
+  "Shipping, excess baggage or freight quote",
+  "School or childcare applications",
+  "Bank account, SIM and driving licence plan",
+  "Airport pickup and first-week orientation",
+] as const;
+
+const ANSWERS = [
+  { value: "yes", label: "Yes", score: 2 },
+  { value: "partly", label: "Partly", score: 1 },
+  { value: "no", label: "Not yet", score: 0 },
+] as const;
+
+function RelocationPlanner() {
+  const [answers, setAnswers] = useState<Record<string, "yes" | "partly" | "no">>({});
+  const [checked, setChecked] = useState<string[]>([]);
+
+  const answered = READINESS_QUESTIONS.filter((question) => answers[question.id]).length;
+  const score = READINESS_QUESTIONS.reduce(
+    (total, question) =>
+      total + (ANSWERS.find((a) => a.value === answers[question.id])?.score ?? 0),
+    0,
+  );
+  const band =
+    answered < 5
+      ? { label: "Answer all five to see your reading", tone: "muted" as const }
+      : score >= 8
+        ? { label: "Strong starting position", tone: "success" as const }
+        : score >= 5
+          ? { label: "Some gaps to close first", tone: "gold" as const }
+          : { label: "Start with a readiness consultation", tone: "danger" as const };
+
+  const toggle = (item: string) =>
+    setChecked((current) =>
+      current.includes(item) ? current.filter((entry) => entry !== item) : [...current, item],
+    );
+
+  const percent = Math.round((checked.length / CHECKLIST_ITEMS.length) * 100);
+
+  return (
+    <Section
+      id="prepare"
+      eyebrow="Before you book"
+      title="Check your fit, then build the brief"
+      sub="Two tools you can use without talking to anybody. Neither one is legal advice, and neither one can approve a visa."
+    >
+      <Tabs defaultValue="eligibility">
+        <TabsList className="w-full justify-start overflow-x-auto rounded-full bg-secondary p-1 sm:w-auto">
+          <TabsTrigger value="eligibility" className="gap-1.5 rounded-full text-xs sm:text-sm">
+            <Target className="h-3.5 w-3.5" /> Eligibility self-check
+          </TabsTrigger>
+          <TabsTrigger value="checklist" className="gap-1.5 rounded-full text-xs sm:text-sm">
+            <ClipboardList className="h-3.5 w-3.5" /> Service checklist
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="eligibility" className="mt-4">
+          <div className="grid gap-4 lg:grid-cols-[1.45fr_1fr]">
+            <div className="rounded-3xl border border-border bg-card p-5 sm:p-6">
+              <div className="space-y-4">
+                {READINESS_QUESTIONS.map((question, index) => (
+                  <div
+                    key={question.id}
+                    className="border-b border-border pb-4 last:border-0 last:pb-0"
+                  >
+                    <p className="text-sm font-semibold leading-snug">
+                      <span className="mr-1.5 text-muted-foreground">{index + 1}.</span>
+                      {question.q}
+                    </p>
+                    <p className="mt-1 text-xs text-muted-foreground">{question.help}</p>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {ANSWERS.map((answer) => (
+                        <button
+                          key={answer.value}
+                          type="button"
+                          aria-pressed={answers[question.id] === answer.value}
+                          onClick={() =>
+                            setAnswers((current) => ({ ...current, [question.id]: answer.value }))
+                          }
+                          className={`rounded-full border px-3 py-1 text-[11px] font-bold transition ${
+                            answers[question.id] === answer.value
+                              ? "border-transparent bg-primary text-primary-foreground"
+                              : "border-input bg-card hover:bg-accent"
+                          }`}
+                        >
+                          {answer.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <div
+                className={`rounded-3xl border p-5 ${
+                  band.tone === "success"
+                    ? "border-success/40 bg-success/10"
+                    : band.tone === "gold"
+                      ? "border-gold/40 bg-accent"
+                      : band.tone === "danger"
+                        ? "border-destructive/40 bg-destructive/8"
+                        : "border-border bg-secondary"
+                }`}
+              >
+                <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                  Self-check reading
+                </p>
+                <p className="mt-2 font-display text-2xl leading-tight">{band.label}</p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {answered}/5 answered · {score}/10 points
+                </p>
+                <Progress value={(score / 10) * 100} className="mt-3 h-2" />
+                <p className="mt-3 text-[11px] leading-relaxed">
+                  {answered < 5
+                    ? "The reading is deliberately conservative. A partial answer is still a useful brief for a consultant."
+                    : score >= 8
+                      ? "Bring your documents to a consultation and we can price the work, not the hope. Eligibility is still decided by the destination authority."
+                      : "Most applicants with gaps can still move — they just need sequencing. The consultation tells you what to fix first."}
+                </p>
+              </div>
+              <div className="rounded-3xl border border-border bg-card p-5">
+                <p className="font-bold">What this tool does not do</p>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  {COMPLIANCE_NOTES.visa} It does not predict an approval, quote a fee or replace
+                  legal advice. It helps you decide whether to book a readiness consultation.
+                </p>
+                <a
+                  href="#consult"
+                  className="mt-3 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-xs font-bold text-primary-foreground"
+                >
+                  Book a consultation <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="checklist" className="mt-4">
+          <div className="grid gap-4 lg:grid-cols-[1.45fr_1fr]">
+            <div className="rounded-3xl border border-border bg-card p-5 sm:p-6">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <p className="font-display text-xl">Your relocation file</p>
+                  <p className="text-xs text-muted-foreground">
+                    {checked.length} of {CHECKLIST_ITEMS.length} items gathered
+                  </p>
+                </div>
+                <span className="font-display text-2xl text-primary">{percent}%</span>
+              </div>
+              <Progress value={percent} className="mt-3 h-2" />
+              <ul className="mt-4 grid gap-1.5 sm:grid-cols-2">
+                {CHECKLIST_ITEMS.map((item) => {
+                  const isChecked = checked.includes(item);
+                  return (
+                    <li key={item}>
+                      <button
+                        type="button"
+                        aria-pressed={isChecked}
+                        onClick={() => toggle(item)}
+                        className={`flex w-full items-start gap-2 rounded-xl border p-2.5 text-left text-xs leading-snug transition ${
+                          isChecked
+                            ? "border-success/40 bg-success/8 text-foreground"
+                            : "border-border bg-secondary/30 hover:border-gold/50"
+                        }`}
+                      >
+                        {isChecked ? (
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-success" />
+                        ) : (
+                          <Circle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
+                        )}
+                        <span className={isChecked ? "line-through opacity-70" : ""}>{item}</span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <div className="rounded-3xl border border-border bg-secondary p-5">
+                <p className="font-bold">How to use this</p>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Tick what you already hold. Anything unticked is either a document you need, or a
+                  service we can price. The checklist stays in this browser — nothing is uploaded.
+                </p>
+                <ul className="mt-3 space-y-1.5 text-xs">
+                  {checked.length ? (
+                    checked.slice(-3).map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-success" />
+                        {item}
+                      </li>
+                    ))
+                  ) : (
+                    <li className="text-muted-foreground">Nothing ticked yet.</li>
+                  )}
+                </ul>
+              </div>
+              <div className="rounded-3xl border border-gold/40 bg-accent p-5">
+                <p className="font-display text-lg">Send this brief to the desk</p>
+                <p className="mt-1 text-xs leading-relaxed text-accent-foreground">
+                  We reply with the missing items, a realistic sequence and a written fee for the
+                  work — before you pay anything.
+                </p>
+                <a
+                  href={waLink(
+                    `Hello Hague Travel, my relocation checklist: ${checked.length}/${CHECKLIST_ITEMS.length} items gathered.${checked.length ? ` I still need help with: ${CHECKLIST_ITEMS.filter((item) => !checked.includes(item)).join(", ")}.` : ""}`,
+                  )}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-xs font-bold text-primary-foreground"
+                >
+                  Send on WhatsApp <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </TabsContent>
+      </Tabs>
+      <ComplianceNote className="mt-4" text={COMPLIANCE_NOTES.partners} />
+    </Section>
+  );
+}
+
 function Relocation() {
   return (
     <>
@@ -144,6 +417,8 @@ function Relocation() {
           ))}
         </div>
       </Section>
+
+      <RelocationPlanner />
 
       {/* Services + fees */}
       <Section

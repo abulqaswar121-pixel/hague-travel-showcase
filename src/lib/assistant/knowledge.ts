@@ -62,7 +62,8 @@ const jobs = getJobs()
   );
 
 const insurance = INSURANCE_PRODUCTS.map(
-  (i) => `- ${i.name} (${i.type}) — from ${naira(i.from)} with ${i.insurer}. Covers ${i.cover.slice(0, 4).join(", ")}.`,
+  (i) =>
+    `- ${i.name} (${i.type}) — from ${naira(i.from)} with ${i.insurer}. Covers ${i.cover.slice(0, 4).join(", ")}.`,
 );
 
 const faqs = FAQS.map((f) => `- Q: ${f.q}\n  A: ${f.a}`);

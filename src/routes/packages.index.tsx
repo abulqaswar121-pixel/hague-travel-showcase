@@ -18,6 +18,25 @@ export const Route = createFileRoute("/packages/")({
   component: PackagesIndex,
 });
 
+type Audience = "All" | "Solo" | "Family" | "Group";
+
+/** Demo grouping for the brief's All / Solo / Family / Group chips. */
+function audienceOf(p: {
+  category: string;
+  title: string;
+  maxGroup: number;
+}): Exclude<Audience, "All"> {
+  if (
+    p.category === "Group" ||
+    p.category === "Pilgrimage" ||
+    p.category === "Corporate Retreat" ||
+    p.maxGroup >= 14
+  )
+    return "Group";
+  if (p.category === "Family" || /family|kids|child/i.test(p.title)) return "Family";
+  return "Solo";
+}
+
 const BUDGETS = [
   { label: "Any budget", min: 0, max: Number.POSITIVE_INFINITY },
   { label: "Under ₦1.5m", min: 0, max: 1_500_000 },
@@ -31,6 +50,7 @@ function PackagesIndex() {
   const navigate = useNavigate();
   const { money } = useCurrency();
   const [category, setCategory] = useState<Category | "All">("All");
+  const [audience, setAudience] = useState<Audience>("All");
   const [budget, setBudget] = useState<number>(0);
   const [flights, setFlights] = useState<"any" | "included" | "excluded">("any");
   const [earlyOnly, setEarlyOnly] = useState(false);
@@ -40,6 +60,7 @@ function PackagesIndex() {
     const b = BUDGETS[budget] as (typeof BUDGETS)[number];
     return all
       .filter((p) => (category === "All" ? true : p.category === category))
+      .filter((p) => (audience === "All" ? true : audienceOf(p) === audience))
       .filter((p) => (p.pricePerPerson >= b.min && p.pricePerPerson < b.max ? true : false))
       .filter((p) =>
         flights === "any" ? true : flights === "included" ? p.flightsIncluded : !p.flightsIncluded,
@@ -52,10 +73,11 @@ function PackagesIndex() {
               .toLowerCase()
               .includes(q.toLowerCase().trim()),
       );
-  }, [all, category, budget, flights, earlyOnly, q]);
+  }, [all, category, audience, budget, flights, earlyOnly, q]);
 
   const activeFilters =
     (category !== "All" ? 1 : 0) +
+    (audience !== "All" ? 1 : 0) +
     (budget !== 0 ? 1 : 0) +
     (flights !== "any" ? 1 : 0) +
     (earlyOnly ? 1 : 0) +
@@ -90,6 +112,7 @@ function PackagesIndex() {
             type="button"
             onClick={() => {
               setCategory("All");
+              setAudience("All");
               setBudget(0);
               setFlights("any");
               setEarlyOnly(false);
@@ -101,6 +124,33 @@ function PackagesIndex() {
           </button>
         }
       >
+        {/* Audience chips — the brief's All / Solo / Family / Group controls */}
+        <div className="mb-3 flex flex-wrap items-center gap-2">
+          <span className="mr-1 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+            Who&rsquo;s travelling
+          </span>
+          {(["All", "Solo", "Family", "Group"] as const).map((a) => {
+            const count = a === "All" ? all.length : all.filter((p) => audienceOf(p) === a).length;
+            return (
+              <button
+                key={a}
+                type="button"
+                onClick={() => setAudience(a)}
+                aria-pressed={audience === a}
+                className={cn(
+                  "shrink-0 rounded-full border px-3.5 py-2 text-[12px] font-bold transition",
+                  audience === a
+                    ? "border-transparent bg-gold-gradient text-gold-foreground shadow-gold"
+                    : "border-input bg-card hover:border-gold/60",
+                )}
+              >
+                {a}
+                <span className="ml-1.5 text-[10px] font-semibold opacity-70">{count}</span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* Category chips */}
         <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
           {(["All", ...PACKAGE_CATEGORIES] as const).map((c) => (

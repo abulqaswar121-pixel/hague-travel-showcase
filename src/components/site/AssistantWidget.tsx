@@ -1,10 +1,6 @@
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport, type UIMessage } from "ai";
-import {
-  MessageCircle,
-  RotateCcwIcon,
-  XIcon,
-} from "lucide-react";
+import { MessageCircle, RotateCcwIcon, XIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import conciergeAvatar from "@/assets/concierge-avatar.jpg";
@@ -80,21 +76,17 @@ export function AssistantWidget() {
 function Concierge() {
   const [open, setOpen] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-  const transport = useMemo(
-    () => new DefaultChatTransport({ api: "/api/chat" }),
-    [],
-  );
+  const transport = useMemo(() => new DefaultChatTransport({ api: "/api/chat" }), []);
 
   // Read once, on the client only, so hydration never sees a different list.
   const [initialMessages] = useState<UIMessage[]>(() => readStored());
 
-  const { messages, sendMessage, status, stop, error, setMessages, clearError } =
-    useChat({
-      id: "hague-concierge",
-      messages: initialMessages,
-      transport,
-      onError: (err) => toast.error(humanError(err)),
-    });
+  const { messages, sendMessage, status, stop, error, setMessages, clearError } = useChat({
+    id: "hague-concierge",
+    messages: initialMessages,
+    transport,
+    onError: (err) => toast.error(humanError(err)),
+  });
 
   const busy = status === "submitted" || status === "streaming";
 
@@ -149,8 +141,12 @@ function Concierge() {
           onClick={() => setOpen(true)}
           className="rounded-2xl border border-border bg-card px-3 py-1.5 text-left shadow-soft"
         >
-          <span className="block text-xs font-bold leading-tight text-card-foreground">Chat with Nia</span>
-          <span className="block text-[10px] leading-tight text-muted-foreground">AI travel assistant · 24/7</span>
+          <span className="block text-xs font-bold leading-tight text-card-foreground">
+            Chat with Nia
+          </span>
+          <span className="block text-[10px] leading-tight text-muted-foreground">
+            AI travel assistant · 24/7
+          </span>
         </button>
         <button
           type="button"
@@ -158,7 +154,14 @@ function Concierge() {
           aria-label="Chat with Nia, the Hague Travel AI assistant"
           className="relative size-14 rounded-full border-2 border-logo-gold bg-ink shadow-soft transition-transform hover:scale-105 lg:size-16"
         >
-          <img src={conciergeAvatar} alt="" width={816} height={816} loading="lazy" className="size-full rounded-full object-cover" />
+          <img
+            src={conciergeAvatar}
+            alt=""
+            width={816}
+            height={816}
+            loading="lazy"
+            className="size-full rounded-full object-cover"
+          />
           <span className="absolute right-0.5 bottom-0.5 size-3 rounded-full border-2 border-card bg-whatsapp" />
         </button>
       </div>
@@ -174,13 +177,17 @@ function Concierge() {
         >
           <header className="flex items-center gap-3 border-b border-ink-foreground/10 bg-ink px-4 py-3 text-ink-foreground">
             <span className="relative shrink-0">
-              <img src={conciergeAvatar} alt="" width={816} height={816} className="size-10 rounded-full border-2 border-logo-gold object-cover" />
+              <img
+                src={conciergeAvatar}
+                alt=""
+                width={816}
+                height={816}
+                className="size-10 rounded-full border-2 border-logo-gold object-cover"
+              />
               <span className="absolute right-0 bottom-0 size-2.5 rounded-full border-2 border-ink bg-whatsapp" />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="truncate font-display text-base leading-tight font-semibold">
-                Nia
-              </p>
+              <p className="truncate font-display text-base leading-tight font-semibold">Nia</p>
               <p className="truncate text-[11px] text-ink-foreground/65">
                 Hague Travel AI assistant · Online
               </p>
@@ -218,13 +225,18 @@ function Concierge() {
               {messages.length === 0 ? (
                 <ConversationEmptyState className="px-2 py-6">
                   <div className="flex w-full flex-col items-center gap-4">
-                    <img src={conciergeAvatar} alt="" width={816} height={816} className="size-20 rounded-full border-2 border-logo-gold object-cover" />
+                    <img
+                      src={conciergeAvatar}
+                      alt=""
+                      width={816}
+                      height={816}
+                      className="size-20 rounded-full border-2 border-logo-gold object-cover"
+                    />
                     <div className="space-y-1.5">
-                      <h3 className="font-display text-lg font-semibold">
-                        Hi, I'm Nia 👋
-                      </h3>
+                      <h3 className="font-display text-lg font-semibold">Hi, I'm Nia 👋</h3>
                       <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-                        Your Hague Travel assistant. Ask me about trips, visas, study abroad, passports or fees — or tap WhatsApp above to reach a consultant.
+                        Your Hague Travel assistant. Ask me about trips, visas, study abroad,
+                        passports or fees — or tap WhatsApp above to reach a consultant.
                       </p>
                     </div>
                     <div className="flex w-full flex-col gap-2">
@@ -246,7 +258,13 @@ function Concierge() {
               {messages.map((message) => (
                 <Message key={message.id} from={message.role}>
                   {message.role === "assistant" ? (
-                    <img src={conciergeAvatar} alt="" width={816} height={816} className="size-7 shrink-0 self-start rounded-full object-cover" />
+                    <img
+                      src={conciergeAvatar}
+                      alt=""
+                      width={816}
+                      height={816}
+                      className="size-7 shrink-0 self-start rounded-full object-cover"
+                    />
                   ) : null}
                   <MessageContent
                     className={
@@ -282,9 +300,7 @@ function Concierge() {
               {status === "submitted" ? (
                 <Message from="assistant">
                   <MessageContent className="bg-transparent px-0 py-0">
-                    <Shimmer className="text-sm">
-                      Checking the desk and the catalogue…
-                    </Shimmer>
+                    <Shimmer className="text-sm">Checking the desk and the catalogue…</Shimmer>
                   </MessageContent>
                 </Message>
               ) : null}
@@ -303,8 +319,8 @@ function Concierge() {
             />
             <PromptInputFooter className="gap-2">
               <p className="min-w-0 flex-1 text-[11px] leading-tight text-muted-foreground">
-                AI concierge — every price stays indicative until a consultant
-                confirms it. {BRAND.hours}.
+                AI concierge — every price stays indicative until a consultant confirms it.{" "}
+                {BRAND.hours}.
               </p>
               <PromptInputSubmit status={status} onStop={stop} />
             </PromptInputFooter>

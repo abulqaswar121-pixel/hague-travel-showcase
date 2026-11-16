@@ -1,0 +1,35 @@
+HAGUE TRAVEL ACADEMY
+GDS Ticketing & Reservation — Practice Outline
+==============================================
+
+A hands-on add-on for consultants who need to build, price and service a PNR correctly.
+
+LAB 1 — GDS orientation
+- Sign-in, work areas and queues
+- Encode/ decode airports, airlines, aircraft and cities
+- Display schedules and availability
+
+LAB 2 — Build and price a PNR
+- Name, itinerary, contact and ticketing fields
+- Fare quote, taxes, baggage and fare rules
+- Ticketing time limits and queue placement
+
+LAB 3 — Fare rules, taxes and voids
+- Fare basis decode, conditions and penalties
+- Tax breakdown and the difference between quoted and payable
+- Void windows and the cost of missing one
+
+LAB 4 — Changes, reissues and refunds
+- Voluntary vs involuntary changes
+- Reissue calculations and residual values
+- Refund processing and debit-memo risk
+
+PRACTICE CASE
+Build a four-segment Lagos–Manchester family PNR. Two adults, one child. Check baggage,
+seat requests, meal codes, fare conditions and the ticketing time limit. Document every
+assumption in the client file.
+
+Tools: training GDS environment or demo account supplied during the cohort.
+Assessment: practical lab submission plus a short fare-rule quiz.
+
+Demo document — Hague Travel Academy preview, 2026.

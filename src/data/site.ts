@@ -222,7 +222,7 @@ export const FOOTER_COLUMNS: { title: string; links: NavChild[] }[] = [
   {
     title: "Your account",
     links: [
-      { label: "Customer dashboard", to: "/dashboard" },
+      { label: "Customer portal", to: "/portal" },
       { label: "Admin dashboard (demo)", to: "/admin" },
       { label: "FAQs", to: "/faqs" },
     ],
@@ -237,6 +237,59 @@ export const FOOTER_COLUMNS: { title: string; links: NavChild[] }[] = [
     ],
   },
 ];
+
+/**
+ * Illustrative partner coverage for the homepage trust strip. These wordmarks
+ * show the airlines, hotel groups and universities the desk regularly works
+ * with; they are not a claim of an exclusive or current commercial partnership.
+ */
+export const PARTNER_GROUPS = [
+  {
+    label: "Airline partners",
+    icon: "plane",
+    items: [
+      "Emirates",
+      "Qatar Airways",
+      "British Airways",
+      "Air Peace",
+      "Turkish Airlines",
+      "Ethiopian Airlines",
+      "Virgin Atlantic",
+      "KLM",
+    ],
+  },
+  {
+    label: "Hotel & stay partners",
+    icon: "bed",
+    items: [
+      "Radisson Blu",
+      "Marriott Bonvoy",
+      "Serena Hotels",
+      "Mövenpick",
+      "Ibis",
+      "Mantis Collection",
+      "Hyatt Place",
+      "Protea Hotels",
+    ],
+  },
+  {
+    label: "University coverage",
+    icon: "cap",
+    items: [
+      "University of Manchester",
+      "Teesside University",
+      "University of Toronto",
+      "Deakin University",
+      "TU Dublin",
+      "Technical University of Munich",
+      "Coventry University",
+      "University of Cape Town",
+    ],
+  },
+] as const;
+
+export const PARTNER_COVERAGE_NOTE =
+  "Illustrative partner coverage. Airline, hotel and university names show the suppliers and institutions our desk works with; live availability and partnership terms are confirmed per booking.";
 
 export const CURRENCIES = [
   { code: "NGN", label: "NGN", symbol: "₦", rate: 1, locale: "en-NG" },

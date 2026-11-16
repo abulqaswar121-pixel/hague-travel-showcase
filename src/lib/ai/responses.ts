@@ -32,18 +32,13 @@ export function createResponsesCall(config: ResponsesCallConfig) {
       ? provider.chat(config.model)
       : provider.responses(config.model);
   const messages = config.system
-    ? [
-        { role: "system" as const, content: config.system },
-        ...config.messages,
-      ]
+    ? [{ role: "system" as const, content: config.system }, ...config.messages]
     : config.messages;
   const useReasoning = !config.chatModel;
   const result = streamText({
     model,
     messages,
-    ...(config.maxOutputTokens === undefined
-      ? {}
-      : { maxOutputTokens: config.maxOutputTokens }),
+    ...(config.maxOutputTokens === undefined ? {} : { maxOutputTokens: config.maxOutputTokens }),
     providerOptions: {
       openai: {
         // The gateway is stateless; always resend complete inline history.
@@ -67,9 +62,7 @@ export function createResponsesCall(config: ResponsesCallConfig) {
     response: () =>
       result.toUIMessageStreamResponse({
         sendReasoning: true,
-        ...(config.originalMessages
-          ? { originalMessages: config.originalMessages }
-          : {}),
+        ...(config.originalMessages ? { originalMessages: config.originalMessages } : {}),
         ...(runId ? { headers: { "X-Lovable-AIG-Run-ID": runId } } : {}),
       }),
   };

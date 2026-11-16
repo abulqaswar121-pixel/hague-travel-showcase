@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { toast } from "sonner";
 import { MapPin, Search, Star } from "lucide-react";
 import { ComplianceNote, Notice, PageHero, Pill, Reveal, Section } from "@/components/site/Blocks";
 import { HotelCard, HousingCard } from "@/components/site/Cards";
@@ -123,6 +124,10 @@ function Hotels() {
   const [amenities, setAmenities] = useState<string[]>([]);
   const [max, setMax] = useState<number>(700000);
   const [enquiring, setEnquiring] = useState<string | null>(null);
+  const [checkIn, setCheckIn] = useState("");
+  const [checkOut, setCheckOut] = useState("");
+  const [guests, setGuests] = useState("2 adults · 1 room");
+  const [dateError, setDateError] = useState("");
 
   const filtered = useMemo(
     () =>
@@ -155,7 +160,26 @@ function Hotels() {
 
       <Section eyebrow="Search" title="Find the stay, then let us hold it" size="sm">
         <div className="grid gap-3 lg:grid-cols-[1.6fr_1fr]">
-          <div className="rounded-3xl border border-border bg-card p-4 sm:p-5">
+          <form
+            className="rounded-3xl border border-border bg-card p-4 sm:p-5"
+            noValidate
+            onSubmit={(event) => {
+              event.preventDefault();
+              if (checkIn && checkOut && checkOut <= checkIn) {
+                setDateError("Check-out must be after check-in.");
+                return;
+              }
+              if (!checkIn || !checkOut) {
+                setDateError("Choose both check-in and check-out dates.");
+                return;
+              }
+              setDateError("");
+              toast.success("Searching indicative availability", {
+                description: `${guests} · ${checkIn} to ${checkOut}. We confirm live rates with the property.`,
+              });
+              document.getElementById("availability")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             <label
               className="block text-[10px] font-black uppercase tracking-widest text-muted-foreground"
               htmlFor="hq"
@@ -174,7 +198,7 @@ function Hotels() {
                 />
               </div>
               <button
-                type="button"
+                type="submit"
                 className="inline-flex items-center gap-2 rounded-xl bg-gold-gradient px-4 text-sm font-bold text-gold-foreground shadow-gold"
               >
                 <Search className="h-4 w-4" /> Search
@@ -188,7 +212,17 @@ function Hotels() {
                 >
                   Check-in
                 </label>
-                <input id="hcheckin" type="date" className="field-base mt-1.5" />
+                <input
+                  id="hcheckin"
+                  type="date"
+                  className="field-base mt-1.5"
+                  value={checkIn}
+                  onChange={(e) => {
+                    setCheckIn(e.target.value);
+                    setDateError("");
+                  }}
+                  aria-invalid={Boolean(dateError)}
+                />
               </div>
               <div>
                 <label
@@ -197,7 +231,17 @@ function Hotels() {
                 >
                   Check-out
                 </label>
-                <input id="hout" type="date" className="field-base mt-1.5" />
+                <input
+                  id="hout"
+                  type="date"
+                  className="field-base mt-1.5"
+                  value={checkOut}
+                  onChange={(e) => {
+                    setCheckOut(e.target.value);
+                    setDateError("");
+                  }}
+                  aria-invalid={Boolean(dateError)}
+                />
               </div>
               <div>
                 <label
@@ -206,7 +250,12 @@ function Hotels() {
                 >
                   Guests & rooms
                 </label>
-                <select id="hguests" className="field-base mt-1.5">
+                <select
+                  id="hguests"
+                  className="field-base mt-1.5"
+                  value={guests}
+                  onChange={(e) => setGuests(e.target.value)}
+                >
                   <option>2 adults · 1 room</option>
                   <option>1 adult · 1 room</option>
                   <option>Family 2 + 2</option>
@@ -214,7 +263,15 @@ function Hotels() {
                 </select>
               </div>
             </div>
-          </div>
+            {dateError ? (
+              <p className="mt-2 text-xs font-medium text-destructive">{dateError}</p>
+            ) : (
+              <p className="mt-2 text-[11px] text-muted-foreground">
+                Dates and guest counts are used to request live availability; nothing is booked by
+                this search.
+              </p>
+            )}
+          </form>
 
           <div className="rounded-3xl border border-border bg-secondary p-4 sm:p-5">
             <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
@@ -278,6 +335,7 @@ function Hotels() {
       </Section>
 
       <Section
+        id="availability"
         eyebrow="Availability"
         title={`${filtered.length} stay${filtered.length === 1 ? "" : "s"} matching your filters`}
         sub="Prices are per room, per night, as a guide. We check the cancel rules with the property before you pay."

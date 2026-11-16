@@ -255,15 +255,81 @@ function Contact() {
               </ol>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card p-6">
-              <p className="flex items-center gap-2 font-bold">
-                <MapPin className="h-4 w-4 text-gold" /> Where we are
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{BRAND.address}</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {BRAND.company} · {BRAND.rc}. Most of our work is remote and document-first; you
-                rarely need to visit anyone to book a trip properly.
-              </p>
+            <div className="overflow-hidden rounded-3xl border border-border bg-card">
+              <div className="relative h-44 overflow-hidden bg-secondary">
+                <svg
+                  viewBox="0 0 600 220"
+                  role="img"
+                  aria-label="Illustrative map of the Hague Travel office in Victoria Island, Lagos"
+                  className="h-full w-full"
+                >
+                  <rect width="600" height="220" fill="var(--color-secondary)" />
+                  <path
+                    d="M0 168 C90 150 160 186 250 166 C340 146 430 182 600 154 L600 220 L0 220 Z"
+                    fill="var(--color-sea)"
+                    opacity="0.18"
+                  />
+                  <path d="M-20 72 L620 42" stroke="var(--color-border)" strokeWidth="18" />
+                  <path d="M-20 112 L620 100" stroke="var(--color-border)" strokeWidth="12" />
+                  <path d="M120 -20 L165 240" stroke="var(--color-border)" strokeWidth="14" />
+                  <path d="M355 -20 L390 240" stroke="var(--color-border)" strokeWidth="10" />
+                  <path
+                    d="M-20 72 L620 42"
+                    stroke="var(--color-card)"
+                    strokeWidth="9"
+                    opacity="0.9"
+                  />
+                  <path
+                    d="M-20 112 L620 100"
+                    stroke="var(--color-card)"
+                    strokeWidth="5"
+                    opacity="0.9"
+                  />
+                  <path
+                    d="M120 -20 L165 240"
+                    stroke="var(--color-card)"
+                    strokeWidth="6"
+                    opacity="0.9"
+                  />
+                  <path
+                    d="M355 -20 L390 240"
+                    stroke="var(--color-card)"
+                    strokeWidth="4"
+                    opacity="0.9"
+                  />
+                  <circle cx="286" cy="103" r="28" fill="var(--color-gold)" opacity="0.18" />
+                  <circle cx="286" cy="103" r="15" fill="var(--color-primary)" opacity="0.25" />
+                </svg>
+                <span className="absolute left-[47.6%] top-[46.8%] grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink text-gold shadow-elegant ring-4 ring-card">
+                  <MapPin className="h-4 w-4" />
+                </span>
+                <span className="absolute bottom-2 left-3 rounded-full bg-card/95 px-2.5 py-1 text-[10px] font-bold text-foreground shadow-soft">
+                  Victoria Island · Lagos
+                </span>
+              </div>
+              <div className="p-5">
+                <p className="flex items-center gap-2 font-bold">
+                  <MapPin className="h-4 w-4 text-gold" /> Where we are
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {BRAND.address}
+                </p>
+                <p className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
+                  <Clock className="h-3.5 w-3.5 text-primary" /> {BRAND.hours}
+                </p>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(BRAND.address)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
+                >
+                  Open the office in Google Maps →
+                </a>
+                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                  {BRAND.company} · {BRAND.rc}. Most of our work is remote and document-first; you
+                  rarely need to visit anyone to book a trip properly.
+                </p>
+              </div>
             </div>
 
             <Notice tone="sea" title="Never pay into a personal account">

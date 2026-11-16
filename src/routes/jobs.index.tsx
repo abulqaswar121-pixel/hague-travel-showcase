@@ -1,7 +1,18 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { AlertTriangle, Search, UserCheck } from "lucide-react";
+import type { JobListing } from "@/data/types";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { EnquiryForm, contactFields, type FieldDef } from "@/components/site/Form";
+import { CvUploadForm } from "@/components/site/CvUploadForm";
 import {
   ComplianceNote,
   Notice,
@@ -69,6 +80,7 @@ function JobsIndex() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState("All");
   const [mode, setMode] = useState<(typeof MODES)[number]>("All");
+  const [selected, setSelected] = useState<JobListing | null>(null);
 
   const filtered = useMemo(() => {
     const term = q.trim().toLowerCase();
@@ -183,7 +195,7 @@ function JobsIndex() {
           <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {filtered.map((j, i) => (
               <Reveal key={j.id} delay={i * 40}>
-                <JobCard job={j} />
+                <JobCard job={j} onQuickView={setSelected} />
               </Reveal>
             ))}
           </div>
@@ -327,6 +339,7 @@ function JobsIndex() {
             ]}
           />
           <div className="space-y-3">
+            <CvUploadForm />
             <div className="rounded-3xl border border-border bg-card p-6">
               <p className="font-display text-2xl leading-snug">
                 The five things our reviewers look for
@@ -371,6 +384,102 @@ function JobsIndex() {
         </div>
         <ComplianceNote className="mt-6" text={COMPLIANCE_NOTES.jobs} />
       </Section>
+
+      <Dialog
+        open={Boolean(selected)}
+        onOpenChange={(open) => (!open ? setSelected(null) : undefined)}
+      >
+        <DialogContent className="max-h-[92vh] max-w-2xl overflow-y-auto">
+          {selected ? (
+            <>
+              <DialogHeader>
+                <DialogTitle>{selected.title}</DialogTitle>
+                <DialogDescription>
+                  {selected.employer} · {selected.country} · {selected.workMode}
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className="flex flex-wrap gap-1.5">
+                <Pill tone="gold">{selected.employmentType}</Pill>
+                <Pill>{selected.experience} level</Pill>
+                <Pill>{selected.category}</Pill>
+                <Pill tone="muted">Example role — not a live vacancy</Pill>
+              </div>
+
+              <p className="text-sm leading-relaxed text-muted-foreground">{selected.summary}</p>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                    What the role involves
+                  </p>
+                  <ul className="mt-2 space-y-1.5 text-xs">
+                    {selected.responsibilities.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                    What the employer wants
+                  </p>
+                  <ul className="mt-2 space-y-1.5 text-xs">
+                    {selected.qualifications.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <dl className="grid gap-2 rounded-2xl border border-border bg-secondary/40 p-4 text-xs sm:grid-cols-2">
+                <div>
+                  <dt className="text-muted-foreground">Pay / range</dt>
+                  <dd className="mt-0.5 font-bold">{selected.salary}</dd>
+                </div>
+                <div>
+                  <dt className="text-muted-foreground">Application deadline</dt>
+                  <dd className="mt-0.5 font-bold">{selected.deadline}</dd>
+                </div>
+                <div>
+                  <dt className="text-muted-foreground">Academy module that prepares you</dt>
+                  <dd className="mt-0.5 font-bold">{selected.academyModule}</dd>
+                </div>
+                <div>
+                  <dt className="text-muted-foreground">Listing source</dt>
+                  <dd className="mt-0.5 font-bold">{selected.source}</dd>
+                </div>
+              </dl>
+
+              <p className="rounded-xl border border-gold/35 bg-accent/70 p-3 text-[11px] leading-relaxed text-accent-foreground">
+                {COMPLIANCE_NOTES.jobs} You never pay to apply through Hague Travel.
+              </p>
+
+              <DialogFooter>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setSelected(null);
+                    document.getElementById("profile")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  Register my profile
+                </Button>
+                <Button asChild>
+                  <Link to="/jobs/$id" params={{ id: selected.id }}>
+                    Open full role
+                  </Link>
+                </Button>
+              </DialogFooter>
+            </>
+          ) : null}
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

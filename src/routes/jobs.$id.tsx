@@ -9,6 +9,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { MultiStepForm, type FieldDef } from "@/components/site/Form";
+import { CvUploadForm } from "@/components/site/CvUploadForm";
 import { ComplianceNote, Notice, PageHero, Pill, Reveal, Section } from "@/components/site/Blocks";
 import { getJobById } from "@/data/jobs";
 import { images, COMPLIANCE_NOTES } from "@/data/site";
@@ -295,6 +296,9 @@ function JobDetail() {
               "If the category has no approved opening right now, your profile stays on file for 90 days.",
             ]}
           />
+          <div className="mt-4">
+            <CvUploadForm role={job.title} />
+          </div>
           <ComplianceNote className="mt-4 text-center" text={COMPLIANCE_NOTES.fees} />
         </div>
       </section>

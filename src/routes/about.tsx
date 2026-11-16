@@ -1,5 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Building2, Compass, Handshake, Target, TrendingUp, Users } from "lucide-react";
+import {
+  BadgeCheck,
+  Building2,
+  Compass,
+  Handshake,
+  Mail,
+  ShieldCheck,
+  Target,
+  TrendingUp,
+  Users,
+} from "lucide-react";
 import {
   ComplianceNote,
   FeatureGrid,
@@ -296,6 +306,130 @@ function About() {
           </div>
         </div>
       </section>
+
+      <Section
+        eyebrow="The desk"
+        title="Named roles, not a call-centre queue"
+        sub="Preview profiles for the desks this platform is built around. In the live business, every client file has a named owner and a backup."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            {
+              initials: "SB",
+              name: "Seyi Bamidele",
+              role: "Operations & administration",
+              own: "Files, invoices, escalations and the final check before anything is issued.",
+              channel: "Operations desk",
+            },
+            {
+              initials: "AO",
+              name: "Amaka Obi",
+              role: "Flights desk lead",
+              own: "Fares, routing, group blocks, re-issues and airline escalations.",
+              channel: "Flights desk",
+            },
+            {
+              initials: "TA",
+              name: "Tunde Alabi",
+              role: "Study abroad advisor",
+              own: "Shortlists, applications, offer conditions and pre-departure planning.",
+              channel: "Study desk",
+            },
+            {
+              initials: "ZY",
+              name: "Zainab Yusuf",
+              role: "Academy & careers lead",
+              own: "Cohorts, assessments, CV reviews and verified employer introductions.",
+              channel: "Academy desk",
+            },
+          ].map((person, index) => (
+            <Reveal key={person.name} delay={index * 45}>
+              <div className="flex h-full flex-col rounded-3xl border border-border bg-card p-5">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-ink font-display text-sm text-gold">
+                  {person.initials}
+                </span>
+                <p className="mt-3 font-display text-lg leading-snug">{person.name}</p>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-primary">
+                  {person.role}
+                </p>
+                <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground">
+                  {person.own}
+                </p>
+                <p className="mt-3 flex items-center gap-1.5 border-t border-border pt-2.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                  <Mail className="h-3 w-3" /> {person.channel}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <p className="mt-4 text-[11px] text-muted-foreground">
+          These are illustrative role profiles for the preview — not claims about current staff,
+          licences or credentials.
+        </p>
+      </Section>
+
+      <Section
+        tone="muted"
+        eyebrow="Licences & transparency"
+        title="What we hold, and what we refuse to claim"
+        size="sm"
+      >
+        <div className="grid gap-4 lg:grid-cols-[1.25fr_1fr]">
+          <div className="rounded-3xl border border-border bg-card p-6">
+            <p className="flex items-center gap-2 font-bold">
+              <ShieldCheck className="h-5 w-5 text-primary" /> The paperwork, on request
+            </p>
+            <ul className="mt-4 space-y-3 text-sm leading-relaxed">
+              {[
+                {
+                  t: "Registered Nigerian company",
+                  d: `${BRAND.company} · ${BRAND.rc}. The registration number appears on every invoice.`,
+                },
+                {
+                  t: "Supplier accreditation, not a badge wall",
+                  d: "Tickets and rooms are issued through accredited consolidators and direct supplier accounts. Ask for the current accreditation letter before a large payment.",
+                },
+                {
+                  t: "Insurance through licensed underwriters",
+                  d: "We advise and submit. The underwriter's policy wording and claims process govern the cover.",
+                },
+                {
+                  t: "Data handled on a need-to-know basis",
+                  d: "Passport and financial documents are stored against your file, shared only with the consultant and the authority or supplier that needs them.",
+                },
+              ].map((item) => (
+                <li key={item.t} className="flex gap-2.5">
+                  <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-success" />
+                  <span>
+                    <span className="block font-semibold">{item.t}</span>
+                    <span className="block text-xs text-muted-foreground">{item.d}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-3xl bg-ink-gradient p-6 text-ink-foreground">
+            <p className="eyebrow">What we do not claim</p>
+            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink-foreground/85">
+              <li>· We are not IATA-accredited unless we show you the number.</li>
+              <li>· We are not a government office, embassy or visa authority.</li>
+              <li>· We are not a lender, insurer or recruiter that charges candidates.</li>
+              <li>· We do not sell guarantees, fast-track visas or "connections".</li>
+            </ul>
+            <p className="mt-4 text-xs leading-relaxed text-ink-foreground/70">
+              If a claim is not written down and backed by a document, treat it as marketing — from
+              us or from anyone else.
+            </p>
+            <Link
+              to="/contact"
+              className="mt-5 inline-flex rounded-full bg-gold-gradient px-5 py-2.5 text-xs font-bold text-gold-foreground"
+            >
+              Request the paperwork
+            </Link>
+          </div>
+        </div>
+        <ComplianceNote className="mt-4" text={COMPLIANCE_NOTES.partners} />
+      </Section>
 
       <Section
         eyebrow="Where we work"

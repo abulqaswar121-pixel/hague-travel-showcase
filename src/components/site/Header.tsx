@@ -91,7 +91,9 @@ export function Header() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500",
           scrolled ? "-translate-y-9" : "translate-y-0",
-          scrolled || open ? "bg-ink/95 shadow-elegant backdrop-blur-xl" : "bg-ink/70 backdrop-blur-md",
+          scrolled || open
+            ? "bg-ink/95 shadow-elegant backdrop-blur-xl"
+            : "bg-ink/70 backdrop-blur-md",
         )}
       >
         {/* Utility bar — slides away on scroll */}
@@ -134,7 +136,9 @@ export function Header() {
                         code === c.code ? "text-gold" : "text-ink-foreground/80",
                       )}
                     >
-                      <span>{c.symbol} {c.code}</span>
+                      <span>
+                        {c.symbol} {c.code}
+                      </span>
                       <span className="text-[10px] text-ink-foreground/45">{c.label}</span>
                     </button>
                   ))}
@@ -194,7 +198,12 @@ export function Header() {
                 )}
               >
                 More
-                <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", open === "__more" && "rotate-180")} />
+                <ChevronDown
+                  className={cn(
+                    "h-3.5 w-3.5 transition-transform",
+                    open === "__more" && "rotate-180",
+                  )}
+                />
               </button>
               {open === "__more" ? (
                 <div className="absolute right-0 top-full z-50 mt-2 w-48 rounded-xl border border-ink-foreground/10 bg-ink p-1.5 shadow-elegant">
@@ -217,10 +226,10 @@ export function Header() {
 
           <div className="ml-auto flex items-center gap-2 xl:ml-3">
             <Link
-              to="/dashboard"
+              to="/portal"
               className="hidden h-9 w-9 place-items-center rounded-full border border-ink-foreground/20 text-ink-foreground/80 transition hover:border-gold hover:text-gold xl:grid"
-              aria-label="Customer dashboard"
-              title="Customer dashboard (demo)"
+              aria-label="Customer portal"
+              title="Customer portal"
             >
               <LayoutDashboard className="h-4 w-4" />
             </Link>
@@ -462,7 +471,7 @@ export function Header() {
               ))}
               <li>
                 <Link
-                  to="/dashboard"
+                  to="/portal"
                   onClick={() => setDrawer(false)}
                   className="block border-b border-ink-foreground/10 py-3.5 font-display text-lg"
                 >
@@ -498,7 +507,6 @@ export function Header() {
           </div>
         </div>
       </div>
-
     </>
   );
 }
