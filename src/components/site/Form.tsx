@@ -1,3 +1,4 @@
+import { saveEnquiry } from "@/lib/enquiries";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -337,11 +338,13 @@ export function EnquiryForm({
       onSubmit={handleSubmit(async (data) => {
         const reference = makeReference(refPrefix, JSON.stringify(data));
         try {
+          await saveEnquiry(reference, title ?? refPrefix, data);
           await onSubmit?.(data);
         } catch {
-          toast.error("We could not save this right now", {
-            description: "The demo has no backend — your input stayed valid and complete.",
+          toast.error("We could not send this right now", {
+            description: "Please try again, or message us on WhatsApp.",
           });
+          return;
         }
         setDone(reference);
         toast.success("Request received — a consultant will reply within 2 hours on desk hours.");
@@ -514,8 +517,16 @@ export function MultiStepForm({
       <form
         className="mt-5"
         noValidate
-        onSubmit={handleSubmit((data) => {
+        onSubmit={handleSubmit(async (data) => {
           const reference = makeReference(refPrefix, JSON.stringify(data));
+          try {
+            await saveEnquiry(reference, title, data);
+          } catch {
+            toast.error("We could not send this right now", {
+              description: "Please try again, or message us on WhatsApp.",
+            });
+            return;
+          }
           onSubmit?.(data);
           setDone(reference);
           toast.success("Assessment submitted — a consultant will review and call you.");

@@ -1,3 +1,4 @@
+import { supabase } from "@/integrations/supabase/client";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -152,8 +153,30 @@ export function ReserveForm({ p }: { p: TourPackage }) {
     <form
       noValidate
       className="overflow-hidden rounded-3xl border border-border bg-card shadow-soft"
-      onSubmit={form.handleSubmit((values) => {
+      onSubmit={form.handleSubmit(async (values) => {
         const reference = makeReference("HTP", `${p.slug}-${values.email}-${values.travellers}`);
+        const { data: auth } = await supabase.auth.getSession();
+        const { error } = await supabase.from("bookings").insert({
+          reference,
+          package_slug: p.slug,
+          package_title: p.title,
+          full_name: values.fullName,
+          email: values.email,
+          phone: values.phone,
+          travellers: values.travellers,
+          room: values.room,
+          payment_method: values.payment,
+          notes: values.notes ?? null,
+          total_ngn: total,
+          deposit_ngn: deposit,
+          user_id: auth.session?.user.id ?? null,
+        });
+        if (error) {
+          toast.error("We could not save your reservation", {
+            description: "Please try again, or message us on WhatsApp.",
+          });
+          return;
+        }
         setDone({ reference, values });
         toast.success("Reservation request prepared", {
           description: `${reference} · deposit ${money(deposit)} is due after supplier confirmation.`,
