@@ -6,7 +6,11 @@ import {
   CalendarClock,
   CheckCircle2,
   CreditCard,
+  Download,
+  FileCheck2,
+  GraduationCap,
   ShieldAlert,
+  Ticket,
   Users,
   Video,
 } from "lucide-react";
@@ -206,6 +210,106 @@ function Academy() {
         </div>
       </Section>
 
+      {/* Course catalogue */}
+      <Section
+        eyebrow="Course catalogue"
+        title="Three courses, one career path"
+        sub="Start with the Masterclass for the full trade, add GDS ticketing for airline and agency roles, or specialise in visa processing. Every course is taught live and assessed."
+      >
+        <div className="grid gap-4 lg:grid-cols-3">
+          {[
+            {
+              title: "Travel Consultant Masterclass",
+              level: "Foundation · 8 modules · 45 taught hours",
+              fee: 285_000,
+              icon: GraduationCap,
+              blurb:
+                "The full consultant skill set: fares, hotels, itineraries, customer care, visa ethics, suppliers and the business of travel.",
+              includes: [
+                "All 8 modules",
+                "Live classes + recordings",
+                "Final case study",
+                "Career preparation",
+              ],
+              featured: true,
+            },
+            {
+              title: "GDS Ticketing & Reservation",
+              level: "Specialist · 4 modules · 24 hours",
+              fee: 185_000,
+              icon: Ticket,
+              blurb:
+                "Hands-on PNR building, fare rules, taxes, reissues, refunds and the discipline that keeps an agency out of debit memos.",
+              includes: [
+                "Training GDS access",
+                "Practical labs",
+                "Fare-rule drills",
+                "Ticketing assessment",
+              ],
+            },
+            {
+              title: "Visa Processing",
+              level: "Specialist · 3 modules · 18 hours",
+              fee: 145_000,
+              icon: FileCheck2,
+              blurb:
+                "Document checklists, financial evidence, credibility interviews and the ethical line between advising and promising an approval.",
+              includes: [
+                "Country checklists",
+                "File audits",
+                "Mock interviews",
+                "Ethics assessment",
+              ],
+            },
+          ].map((course) => (
+            <Reveal key={course.title}>
+              <div
+                className={cn(
+                  "flex h-full flex-col rounded-3xl border bg-card p-5",
+                  course.featured ? "border-gold/60 shadow-soft" : "border-border",
+                )}
+              >
+                {course.featured ? <Pill tone="gold">Flagship course</Pill> : null}
+                <span className="mt-2 grid h-11 w-11 place-items-center rounded-2xl bg-ink text-ink-foreground">
+                  <course.icon className="h-5 w-5" />
+                </span>
+                <h3 className="mt-3 font-display text-xl leading-tight">{course.title}</h3>
+                <p className="mt-1 text-[10px] font-black uppercase tracking-widest text-primary">
+                  {course.level}
+                </p>
+                <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground">
+                  {course.blurb}
+                </p>
+                <ul className="mt-3 grid gap-1.5 text-[11px]">
+                  {course.includes.map((item) => (
+                    <li key={item} className="flex items-center gap-1.5">
+                      <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success" /> {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-4 flex items-center justify-between gap-2 border-t border-border pt-3">
+                  <p className="font-display text-xl">{money(course.fee)}</p>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      document.getElementById("enrol")?.scrollIntoView({ behavior: "smooth" })
+                    }
+                    className="rounded-full bg-gold-gradient px-4 py-2 text-xs font-bold text-gold-foreground shadow-gold"
+                  >
+                    Enrol
+                  </button>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <p className="mt-4 text-[11px] leading-relaxed text-muted-foreground">
+          The Masterclass fee is the cohort fee. Specialist courses can be taken alongside it or
+          separately. Instalment plans are available; all fees are confirmed in writing before a
+          seat is held.
+        </p>
+      </Section>
+
       {/* Cohorts */}
       <section
         id="cohorts"
@@ -249,6 +353,15 @@ function Academy() {
         title="Eight modules, in the order the job is actually done"
         size="sm"
         tone="muted"
+        action={
+          <a
+            href="/downloads/hague-travel-academy-syllabus.txt"
+            download
+            className="inline-flex items-center gap-2 rounded-full border border-input bg-card px-4 py-2.5 text-xs font-bold transition hover:bg-accent"
+          >
+            <Download className="h-3.5 w-3.5" /> Download syllabus
+          </a>
+        }
       >
         <div className="grid gap-3 lg:grid-cols-2">
           {CURRICULUM.map((m, i) => (

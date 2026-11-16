@@ -40,11 +40,7 @@ export function getLovableAiGatewayRunId(
   headers: Headers,
   forwardedRunId?: string,
 ): string | undefined {
-  return (
-    headers.get(LOVABLE_AIG_RUN_ID_HEADER)?.trim() ||
-    forwardedRunId?.trim() ||
-    undefined
-  );
+  return headers.get(LOVABLE_AIG_RUN_ID_HEADER)?.trim() || forwardedRunId?.trim() || undefined;
 }
 
 /** Returns only the gateway run headers that are safe to expose to the browser. */

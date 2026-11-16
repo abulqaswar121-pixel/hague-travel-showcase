@@ -302,6 +302,74 @@ function Corporate() {
         </div>
       </section>
 
+      <Section
+        id="credit"
+        tone="muted"
+        eyebrow="Credit facility & payment terms"
+        title="Terms that fit your finance team"
+        sub="Choose how you want to pay. Every option is agreed in writing before the first ticket is issued; nothing is extended on a handshake."
+      >
+        <div className="grid gap-4 lg:grid-cols-3">
+          {[
+            {
+              name: "Prepaid per trip",
+              term: "No credit check",
+              detail:
+                "You fund each trip before ticketing. Best for ad-hoc travel or a first engagement while the account is being set up.",
+              points: [
+                "Written quote per trip",
+                "Card, transfer or Paystack",
+                "Receipts attached to every booking",
+              ],
+            },
+            {
+              name: "Monthly consolidated invoice",
+              term: "7-day terms after onboarding",
+              detail:
+                "One invoice at month end with cost-centre codes, receipts and a spend summary your finance team can close quickly.",
+              points: ["Signed service agreement", "Cost-centre coding", "Monthly spend report"],
+              featured: true,
+            },
+            {
+              name: "Credit facility",
+              term: "14–30 day terms, subject to approval",
+              detail:
+                "For established accounts with predictable volume. A limit is set after a credit review, with a guarantee and monthly reconciliation.",
+              points: ["Credit limit review", "Named guarantor", "Automatic balance alerts"],
+            },
+          ].map((option) => (
+            <div
+              key={option.name}
+              className={
+                option.featured
+                  ? "rounded-3xl border border-gold/50 bg-card p-5 shadow-soft"
+                  : "rounded-3xl border border-border bg-card p-5"
+              }
+            >
+              {option.featured ? <Pill tone="gold">Most requested</Pill> : null}
+              <h3 className="mt-2 font-display text-xl">{option.name}</h3>
+              <p className="mt-1 text-[10px] font-black uppercase tracking-widest text-primary">
+                {option.term}
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{option.detail}</p>
+              <ul className="mt-3 space-y-1.5 text-[11px]">
+                {option.points.map((point) => (
+                  <li key={point} className="flex items-center gap-1.5">
+                    <Check className="h-3.5 w-3.5 text-success" /> {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4">
+          <Notice tone="gold" title="We are not a lender">
+            {COMPLIANCE_NOTES.financing} Credit terms are offered only under a signed service
+            agreement and may require a guarantee or security. A limit can be reviewed or withdrawn.
+          </Notice>
+        </div>
+      </Section>
+
       <Section eyebrow="Also for businesses" title="Beyond the ticket" size="sm">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {[
@@ -348,13 +416,13 @@ function Corporate() {
       <section id="enquiry" className="scroll-mt-24 bg-secondary py-12 lg:py-16">
         <div className="mx-auto grid max-w-6xl gap-5 px-4 sm:px-5 lg:grid-cols-[1.1fr_1fr]">
           <EnquiryForm
-            title="Request a corporate travel review"
-            description="Send us your volume and profile. We come back with a written review of where your travel money leaks and a proposed structure."
-            cta="Request the review"
+            title="Send us your B2B travel RFP"
+            description="Send us your volume, routes and current pain points. We come back with a written proposal: policy, rates, fees, invoicing, reporting and an optional credit facility."
+            cta="Submit the RFP"
             refPrefix="HTC"
             fields={fields}
             note="No fares are quoted here. Any figure we send later is a written, dated quote with an expiry."
-            successTitle="Corporate review requested"
+            successTitle="Corporate RFP received"
             successLines={[
               "The account desk reviews your volume profile and prepares an audit scope.",
               "We propose a call with two travellers' timelines and twelve months of invoices.",

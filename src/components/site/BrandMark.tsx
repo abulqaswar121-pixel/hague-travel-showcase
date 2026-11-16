@@ -5,7 +5,14 @@ import { cn } from "@/lib/utils";
 /** Ribbon-and-airplane emblem only (no lettering). */
 export function TravelEmblem({ className }: { className?: string }) {
   return (
-    <img src={officialEmblem} alt="" aria-hidden="true" width={899} height={387} className={cn("object-contain", className)} />
+    <img
+      src={officialEmblem}
+      alt=""
+      aria-hidden="true"
+      width={899}
+      height={387}
+      className={cn("object-contain", className)}
+    />
   );
 }
 

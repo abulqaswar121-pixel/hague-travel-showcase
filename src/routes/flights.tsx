@@ -1,6 +1,14 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Luggage, Plane, RefreshCw, Search, SlidersHorizontal, Users } from "lucide-react";
+import {
+  Luggage,
+  MessageCircle,
+  Plane,
+  RefreshCw,
+  Search,
+  SlidersHorizontal,
+  Users,
+} from "lucide-react";
 import {
   ComplianceNote,
   IndicativeTag,
@@ -15,7 +23,7 @@ import { BookingPanel } from "@/components/site/BookingPanel";
 import { CABINS, TRIP_TYPES } from "@/components/site/search";
 import { searchDemoFlights } from "@/data/flights";
 import { AIRPORTS } from "@/data/flights";
-import { images, COMPLIANCE_NOTES } from "@/data/site";
+import { images, COMPLIANCE_NOTES, waLink, waMessages } from "@/data/site";
 import { useCurrency } from "@/lib/currency";
 import { cn } from "@/lib/utils";
 import { pageMeta } from "@/lib/meta";
@@ -148,6 +156,18 @@ function Flights() {
     [searched, from, to, trip, cabin, pax, flexible, sort],
   );
 
+  const priceRange = results.length
+    ? results.reduce(
+        (range, result) => ({
+          min: Math.min(range.min, result.price),
+          max: Math.max(range.max, result.price),
+        }),
+        { min: results[0]!.price, max: results[0]!.price },
+      )
+    : null;
+
+  const dispatchText = `Hello Hague Travel, I'd like a flight quote: ${from} → ${to || "destination to confirm"}, ${trip}, ${search.depart || "dates to confirm"}${search.ret ? ` to ${search.ret}` : ""}, ${pax} passenger${pax === 1 ? "" : "s"}, ${cabin}${selected ? `. I am looking at ${selected.airline} ${selected.flightNo} at indicative ${money(selected.price)}` : ""}.`;
+
   return (
     <>
       <PageHero
@@ -184,6 +204,12 @@ function Flights() {
                 <Pill>{cabin}</Pill>
                 {flexible ? <Pill tone="gold">Flexible dates</Pill> : null}
                 {search.depart ? <Pill tone="muted">Departs {search.depart}</Pill> : null}
+                {priceRange ? (
+                  <Pill tone="gold">
+                    Indicative range {money(priceRange.min, { compact: true })} –{" "}
+                    {money(priceRange.max, { compact: true })} pp
+                  </Pill>
+                ) : null}
               </div>
               <div className="flex items-center gap-2">
                 <button
@@ -409,6 +435,23 @@ function Flights() {
             }
             fields={quoteFields}
           />
+          <div className="mt-4 flex flex-col items-center justify-between gap-3 rounded-2xl border border-border bg-card p-4 sm:flex-row">
+            <div>
+              <p className="text-sm font-bold">Need it faster?</p>
+              <p className="mt-0.5 text-[11px] leading-relaxed text-muted-foreground">
+                Send the same brief straight to the flight desk on WhatsApp. A consultant replies
+                within desk hours.
+              </p>
+            </div>
+            <a
+              href={waLink(dispatchText)}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-whatsapp px-4 py-2.5 text-xs font-bold text-whatsapp-foreground"
+            >
+              <MessageCircle className="h-4 w-4" /> Dispatch on WhatsApp
+            </a>
+          </div>
           <p className="mt-4 text-center text-xs text-muted-foreground">
             Group, student and corporate enquiries are welcome — mention the size in special
             requests so we route you to the right desk. {COMPLIANCE_NOTES.fees}

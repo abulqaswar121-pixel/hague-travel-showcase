@@ -81,6 +81,59 @@ function StudyAbroadIndex() {
         </div>
       </PageHero>
 
+      {/* Four-step admission journey */}
+      <Section
+        eyebrow="Admission journey"
+        title="Four steps from first call to a visa decision"
+        sub="A short version of the process. Every step below is expanded in the full timeline further down — nothing is skipped, and nothing is promised early."
+      >
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          {[
+            {
+              step: "01",
+              title: "Assess",
+              detail:
+                "Results, budget, English test and the plan after school. We tell you where you are competitive — and where you are not.",
+              outcome: "Honest course & country shortlist",
+            },
+            {
+              step: "02",
+              title: "Apply",
+              detail:
+                "Applications, personal statements, references and document formats checked before anything reaches a university.",
+              outcome: "Complete applications submitted",
+            },
+            {
+              step: "03",
+              title: "Offer & CAS",
+              detail:
+                "Compare offers, accept the right one, pay the tuition deposit and secure the CAS or I-20 for the visa.",
+              outcome: "Conditional or unconditional offer",
+            },
+            {
+              step: "04",
+              title: "Visa & departure",
+              detail:
+                "Financial evidence, visa lodgement, biometrics, housing, flights and the pre-departure brief.",
+              outcome: "Ready to travel, decision pending",
+            },
+          ].map((item) => (
+            <div
+              key={item.step}
+              className="relative overflow-hidden rounded-3xl border border-border bg-card p-5"
+            >
+              <span className="font-display text-4xl text-gold/60">{item.step}</span>
+              <h3 className="mt-2 font-display text-xl">{item.title}</h3>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{item.detail}</p>
+              <p className="mt-3 flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-primary">
+                <ArrowRight className="h-3 w-3" /> {item.outcome}
+              </p>
+            </div>
+          ))}
+        </div>
+        <ComplianceNote className="mt-4" text={COMPLIANCE_NOTES.visa} />
+      </Section>
+
       {/* Journey stepper */}
       <Section
         eyebrow="The journey"

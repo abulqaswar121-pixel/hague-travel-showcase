@@ -6,6 +6,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 import {
   BedDouble,
+  Briefcase,
   CalendarRange,
   GraduationCap,
   Palmtree,
@@ -22,7 +23,8 @@ const TABS = [
   { id: "flights", label: "Flights", icon: Plane },
   { id: "hotels", label: "Hotels", icon: BedDouble },
   { id: "packages", label: "Holiday Packages", icon: Palmtree },
-  { id: "consult", label: "Study & Relocation Consultation", icon: GraduationCap },
+  { id: "study", label: "Study Abroad", icon: GraduationCap },
+  { id: "relocation", label: "Relocation", icon: Briefcase },
 ] as const;
 
 type TabId = (typeof TABS)[number]["id"];
@@ -129,7 +131,11 @@ export function BookingPanel() {
       navigate({ to: "/packages" });
       return;
     }
-    navigate({ to: "/study-abroad" });
+    if (tab === "study") {
+      navigate({ to: "/study-abroad", hash: "assessment" });
+      return;
+    }
+    navigate({ to: "/relocation", hash: "consult" });
   };
 
   return (
@@ -356,24 +362,59 @@ export function BookingPanel() {
           </div>
         ) : null}
 
-        {tab === "consult" ? (
+        {tab === "study" ? (
           <div className="grid gap-3 md:grid-cols-3">
             <div>
               <label className={labelCls}>I want to</label>
               <select className={cn(control, "mt-1.5")}>
                 <option>Study abroad</option>
-                <option>Relocate for work</option>
-                <option>Relocate with family</option>
+                <option>Compare courses & universities</option>
+                <option>Get a visa document review</option>
                 <option>Finance my tuition (referral)</option>
               </select>
             </div>
             <div>
-              <label className={labelCls}>Destination</label>
+              <label className={labelCls}>Country</label>
               <select className={cn(control, "mt-1.5")}>
                 {destinations.map((d) => (
                   <option key={d.slug}>{d.name}</option>
                 ))}
                 <option>Not sure yet — advise me</option>
+              </select>
+            </div>
+            <div>
+              <label className={labelCls}>Intake</label>
+              <select className={cn(control, "mt-1.5")}>
+                <option>January 2027</option>
+                <option>May 2027</option>
+                <option>September 2027</option>
+                <option>Still exploring</option>
+              </select>
+            </div>
+          </div>
+        ) : null}
+
+        {tab === "relocation" ? (
+          <div className="grid gap-3 md:grid-cols-3">
+            <div>
+              <label className={labelCls}>Pathway</label>
+              <select className={cn(control, "mt-1.5")}>
+                <option>Work permit</option>
+                <option>Express Entry</option>
+                <option>Talent / skilled visa</option>
+                <option>Family relocation</option>
+                <option>Not sure — assess me</option>
+              </select>
+            </div>
+            <div>
+              <label className={labelCls}>Destination</label>
+              <select className={cn(control, "mt-1.5")}>
+                <option>Canada</option>
+                <option>United Kingdom</option>
+                <option>Ireland</option>
+                <option>Germany</option>
+                <option>United Arab Emirates</option>
+                <option>Not sure yet</option>
               </select>
             </div>
             <div>
@@ -399,7 +440,7 @@ export function BookingPanel() {
               onClick={() =>
                 navigate({
                   to: "/contact",
-                  search: { topic: tab === "consult" ? "relocation" : tab },
+                  search: { topic: tab },
                 })
               }
               className="rounded-full border border-input px-5 py-3 text-sm font-bold transition hover:bg-accent"

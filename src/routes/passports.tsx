@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Download } from "lucide-react";
 import { Check, Fingerprint, Lock, ShieldAlert } from "lucide-react";
 import { EnquiryForm, contactFields, type FieldDef } from "@/components/site/Form";
+import { DocumentUploadForm } from "@/components/site/DocumentUploadForm";
 import {
   ComplianceNote,
   FeeSplit,
@@ -320,6 +322,92 @@ function Passports() {
           </Link>
         </div>
       </Section>
+
+      <Section
+        id="review"
+        eyebrow="Visa document review"
+        title="Three checks before anything is submitted"
+        sub="A refusal is expensive and slow. We audit the pack first — against the published country checklist, not a generic form."
+      >
+        <div className="grid gap-4 lg:grid-cols-3">
+          {[
+            {
+              step: "01",
+              title: "Completeness",
+              detail:
+                "Every page, signature, photo and supporting letter. We compare the pack against the embassy's current checklist and flag what is missing.",
+            },
+            {
+              step: "02",
+              title: "Consistency",
+              detail:
+                "Names, dates, amounts and employment history must match across forms. Unexplained gaps and sudden deposits are the usual killers.",
+            },
+            {
+              step: "03",
+              title: "Credibility",
+              detail:
+                "We test the story in a mock interview: why this course, why this country, who is paying and what brings you back. You get written feedback.",
+            },
+          ].map((item) => (
+            <div key={item.step} className="rounded-3xl border border-border bg-card p-5">
+              <span className="font-display text-4xl text-gold/60">{item.step}</span>
+              <h3 className="mt-2 font-display text-xl">{item.title}</h3>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{item.detail}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-5 grid gap-4 lg:grid-cols-[1.1fr_1fr]">
+          <Notice tone="destructive" title="Common refusal triggers we check for">
+            <ul className="mt-2 space-y-1.5 text-xs">
+              {[
+                "Passport expiry shorter than the destination requires",
+                "Financial evidence outside the 28-day window",
+                "Sponsor income that cannot explain the funds",
+                "Name mismatch between passport, form and admission letter",
+                "A refusal history that was not disclosed",
+              ].map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-destructive" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Notice>
+          <div className="rounded-3xl border border-border bg-secondary p-5">
+            <p className="font-bold">Download the working checklist</p>
+            <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+              The same checklist our consultants use. It is a guide, not an approval.
+            </p>
+            <a
+              href="/downloads/visa-document-checklist.txt"
+              download
+              className="mt-3 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-xs font-bold text-primary-foreground"
+            >
+              <Download className="h-3.5 w-3.5" /> Download checklist
+            </a>
+            <p className="mt-3 text-[10px] leading-relaxed text-muted-foreground">
+              {COMPLIANCE_NOTES.visa}
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <section id="upload" className="scroll-mt-24 bg-secondary py-12 lg:py-16">
+        <div className="mx-auto max-w-3xl px-4 sm:px-5">
+          <p className="eyebrow">Secure upload</p>
+          <h2 className="mt-2 font-display text-3xl leading-tight sm:text-4xl">
+            Send the document, not a screenshot in a chat
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            Upload a passport page, visa pack or financial evidence. The file is validated, then
+            queued for encrypted review — only your consultant can open it.
+          </p>
+          <div className="mt-5">
+            <DocumentUploadForm />
+          </div>
+        </div>
+      </section>
 
       <section id="assist" className="scroll-mt-24 py-12 lg:py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-5">

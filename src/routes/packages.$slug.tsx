@@ -23,6 +23,7 @@ import {
   Section,
 } from "@/components/site/Blocks";
 import { EnquiryForm, contactFields, type FieldDef } from "@/components/site/Form";
+import { ReserveForm } from "@/components/site/ReserveForm";
 import type { ItineraryDay } from "@/data/types";
 import { formatPrice } from "@/lib/format";
 import { useCurrency } from "@/lib/currency";
@@ -625,32 +626,23 @@ function PackageDetail() {
               </button>
             ))}
           </div>
-          <EnquiryForm
-            title={mode === "reserve" ? `Reserve a space — ${p.title}` : `Ask about ${p.title}`}
-            description={
-              mode === "reserve"
-                ? "This starts a reservation request. We confirm live spaces and flight inventory with the supplier, send you the written quotation and deposit instructions, and only then is space held."
-                : "Questions on itinerary, rooming, visas, fitness level or what is genuinely included — a consultant who has run this departure answers."
-            }
-            cta={mode === "reserve" ? "Start my reservation" : "Send enquiry"}
-            refPrefix={mode === "reserve" ? "HTP" : "HTE"}
-            fields={enquiryFields}
-            note={COMPLIANCE_NOTES.indicative}
-            successTitle={mode === "reserve" ? "Reservation request received" : "Enquiry received"}
-            successLines={
-              mode === "reserve"
-                ? [
-                    "Supplier confirms spaces, flight inventory and hotel availability.",
-                    "You receive a written quotation with deposit amount and payment deadline.",
-                    `Deposit (${p.depositPct}%) is paid against that quotation, then your space is held.`,
-                    "Visa documentation pack and pre-departure brief follow.",
-                  ]
-                : [
-                    "A consultant replies with answers, current pricing and what is genuinely included.",
-                    "If you like it, you can move straight to a reservation from the same thread.",
-                  ]
-            }
-          />
+          {mode === "reserve" ? (
+            <ReserveForm p={p} />
+          ) : (
+            <EnquiryForm
+              title={`Ask about ${p.title}`}
+              description="Questions on itinerary, rooming, visas, fitness level or what is genuinely included — a consultant who has run this departure answers."
+              cta="Send enquiry"
+              refPrefix="HTE"
+              fields={enquiryFields}
+              note={COMPLIANCE_NOTES.indicative}
+              successTitle="Enquiry received"
+              successLines={[
+                "A consultant replies with answers, current pricing and what is genuinely included.",
+                "If you like it, you can move straight to a reservation from the same thread.",
+              ]}
+            />
+          )}
           <ComplianceNote className="mt-4 text-center" text={COMPLIANCE_NOTES.fees} />
         </div>
       </section>

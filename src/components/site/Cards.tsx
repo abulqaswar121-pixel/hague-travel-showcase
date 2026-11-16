@@ -31,7 +31,15 @@ function Stars({ value, className }: { value: number; className?: string | undef
 
 /* ---------------------------------------------------------------- packages */
 
-export function PackageCard({ p, compact }: { p: TourPackage; compact?: boolean }) {
+export function PackageCard({
+  p,
+  compact,
+  reserveLabel,
+}: {
+  p: TourPackage;
+  compact?: boolean;
+  reserveLabel?: string;
+}) {
   const { money } = useCurrency();
   const urgency = urgencyLabel(p.bookingDeadline);
   return (
@@ -89,6 +97,11 @@ export function PackageCard({ p, compact }: { p: TourPackage; compact?: boolean 
         </div>
         {urgency ? (
           <p className="mt-2 text-[11px] font-bold text-sunset-foreground">{urgency}</p>
+        ) : null}
+        {reserveLabel ? (
+          <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-gold-gradient px-3 py-1.5 text-[11px] font-bold text-gold-foreground shadow-gold transition group-hover:brightness-105">
+            {reserveLabel} <ArrowUpRight className="h-3 w-3" />
+          </span>
         ) : null}
       </div>
       <ArrowUpRight className="absolute right-4 top-16 h-8 w-8 rounded-full bg-card p-2 text-foreground opacity-0 transition duration-300 group-hover:opacity-100" />
@@ -367,13 +380,15 @@ export function CohortMiniCard({
 
 /* ------------------------------------------------------------------- jobs */
 
-export function JobCard({ job }: { job: JobListing }) {
+export function JobCard({
+  job,
+  onQuickView,
+}: {
+  job: JobListing;
+  onQuickView?: (job: JobListing) => void;
+}) {
   return (
-    <Link
-      to="/jobs/$id"
-      params={{ id: job.id }}
-      className="lift group flex h-full flex-col rounded-3xl border border-border bg-card p-5 sm:p-6"
-    >
+    <article className="lift group flex h-full flex-col rounded-3xl border border-border bg-card p-5 sm:p-6">
       <div className="flex flex-wrap items-center gap-1.5">
         <span className="rounded-full bg-secondary px-2.5 py-1 text-[11px] font-bold text-secondary-foreground">
           {job.workMode}
@@ -382,17 +397,36 @@ export function JobCard({ job }: { job: JobListing }) {
           {job.employmentType}
         </span>
       </div>
-      <h3 className="mt-3 text-lg leading-snug group-hover:text-primary">{job.title}</h3>
-      <p className="mt-1 text-xs text-muted-foreground">
-        {job.employer} · {job.country} · {job.experience}
-      </p>
-      <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-        {job.summary}
-      </p>
-      <p className="mt-4 flex items-center justify-between text-sm font-semibold text-primary">
-        View role <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-      </p>
-    </Link>
+      <Link to="/jobs/$id" params={{ id: job.id }} className="mt-3 flex flex-1 flex-col">
+        <h3 className="text-lg leading-snug transition group-hover:text-primary">{job.title}</h3>
+        <p className="mt-1 text-xs text-muted-foreground">
+          {job.employer} · {job.country} · {job.experience}
+        </p>
+        <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+          {job.summary}
+        </p>
+      </Link>
+      <div className="mt-4 flex items-center justify-between gap-2 border-t border-border pt-3">
+        {onQuickView ? (
+          <button
+            type="button"
+            onClick={() => onQuickView(job)}
+            className="text-xs font-bold text-muted-foreground transition hover:text-primary"
+          >
+            Quick view
+          </button>
+        ) : (
+          <span />
+        )}
+        <Link
+          to="/jobs/$id"
+          params={{ id: job.id }}
+          className="inline-flex items-center gap-1 text-sm font-semibold text-primary"
+        >
+          View role <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+        </Link>
+      </div>
+    </article>
   );
 }
 
